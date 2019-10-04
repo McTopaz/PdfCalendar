@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="GenerateCalendar.Views.SelectableRiddles"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenerateCalendar.Views"
+             xmlns:Misc="clr-namespace:GenerateCalendar.Misc"
+             xmlns:viewModels="clr-namespace:GenerateCalendar.ViewModels"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModels:vmSelectableRiddles />
+    </UserControl.DataContext>
+
+    <Expander Margin="0,0,0,12">
+        <Expander.Header>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Selectable riddle" />
+            </StackPanel>
+        </Expander.Header>
+
+        <DataGrid ItemsSource="{Binding Riddles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250">
+
+            <DataGrid.Resources>
+                <ObjectDataProvider x:Key="MonthValues" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                    <ObjectDataProvider.MethodParameters>
+                        <x:Type TypeName="Misc:Months"/>
+                    </ObjectDataProvider.MethodParameters>
+                </ObjectDataProvider>
+                <Misc:MonthConverter x:Key="MonthToIntConverter" />
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+
+                <!-- Question -->
+                <DataGridTextColumn Binding="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="250">
+                    <DataGridTextColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Question.png" Height="16" />
+                            <Label Content="Question" />
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <!-- Choices -->
+                <DataGridTemplateColumn Width="250">
+                    <DataGridTemplateColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Choices.png" Height="16" />
+                            <Label Content="Choices" />
+                        </StackPanel>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Grid Margin="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <!-- Choice A -->
+                                <Label Content="1" FontWeight="Bold" Grid.Row="0" Grid.Column="0"/>
+                                <TextBox Text="{Binding ChoiceA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1" />
+
+                                <!-- Choice B -->
+                                <Label Content="X" FontWeight="Bold" Grid.Row="1" Grid.Column="0"/>
+                                <TextBox Text="{Binding ChoiceB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" />
+
+                                <!-- Choice C -->
+                                <Label Content="2" FontWeight="Bold" Grid.Row="2" Grid.Column="0"/>
+                                <TextBox Text="{Binding ChoiceC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" />
+                            </Grid>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- Month -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Month.png" Height="16" />
+                            <Label Content="Month" />
+                        </StackPanel>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Source={StaticResource MonthValues}}" SelectedItem="{Binding Month, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MonthToIntConverter}}" IsReadOnly="True" Height="24" Width="90" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Expander>
+</UserControl>

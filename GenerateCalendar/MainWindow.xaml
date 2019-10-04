@@ -1,0 +1,23 @@
+﻿<Window x:Class="GenerateCalendar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenerateCalendar"
+        xmlns:views="clr-namespace:GenerateCalendar.Views"
+        mc:Ignorable="d"
+        Title="Generate calendar" Height="850" Width="800">
+    
+    <DockPanel LastChildFill="True">
+        
+        <!-- Header -->
+        <views:Header x:Name="viewHeader" DockPanel.Dock="Top" Margin="6,0,6,0" />
+
+        <!-- Footer -->
+        <views:Footer x:Name="viewFooter" DockPanel.Dock="Bottom" Margin="6,0,6,0" />
+        
+        <!-- Body -->
+        <views:Body x:Name="viewBody" Margin="6,0,6,0" />
+    </DockPanel>
+    
+</Window>

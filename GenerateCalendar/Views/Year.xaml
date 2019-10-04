@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="GenerateCalendar.Views.Year"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenerateCalendar.Views"
+             xmlns:viewModels="clr-namespace:GenerateCalendar.ViewModels"
+             xmlns:Misc="clr-namespace:GenerateCalendar.Misc"
+             xmlns:interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="200">
+
+    <UserControl.DataContext>
+        <viewModels:vmYear />
+    </UserControl.DataContext>
+    
+    <GroupBox Height="72" BorderThickness="0">
+        <GroupBox.Resources>
+            <Misc:YearConverter x:Key="YearToDateConverter" />
+        </GroupBox.Resources>
+        <GroupBox.Header>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Year" />
+            </StackPanel>
+        </GroupBox.Header>
+        <ComboBox SelectedItem="{Binding SelectedYear, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource YearToDateConverter}}" ItemsSource="{Binding Years}" Margin="6" DockPanel.Dock="Left" ToolTip="Select calendar year" VerticalContentAlignment="Center">
+            <interactivity:Interaction.Triggers>
+                <interactivity:EventTrigger EventName="SelectionChanged">
+                    <interactivity:InvokeCommandAction Command="{Binding Changed}" />
+                </interactivity:EventTrigger>
+            </interactivity:Interaction.Triggers>
+        </ComboBox>
+    </GroupBox>
+</UserControl>

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="GenerateCalendar.Views.Body"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenerateCalendar.Views"
+             xmlns:viewModels="clr-namespace:GenerateCalendar.ViewModels"
+             xmlns:views="clr-namespace:GenerateCalendar.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700">
+
+    <UserControl.DataContext>
+        <viewModels:vmBody />
+    </UserControl.DataContext>
+
+    <GroupBox BorderThickness="2" BorderBrush="Black">
+        <GroupBox.Header>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/GenerateCalendar;component/Images/Properties.png" Height="16" />
+                <Label Content="Properties" />
+            </StackPanel>
+        </GroupBox.Header>
+
+        <StackPanel Orientation="Vertical">
+
+            <views:Year x:Name="viewYear" />
+            <views:DateEvents x:Name="viewDateEvents" />
+            <views:Riddles x:Name="viewRiddles" />
+            <views:SelectableRiddles x:Name="viewSelectableRiddles" />
+            <views:Citations x:Name="viewCitations" />
+            <views:PdfFile x:Name="viewPdfFile" />
+
+        </StackPanel>
+        
+    </GroupBox>
+</UserControl>
