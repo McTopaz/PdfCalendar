@@ -41,6 +41,9 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="NumericUpDown, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NumericUpDown.3.0.2\lib\NumericUpDown.dll</HintPath>
+    </Reference>
     <Reference Include="PdfCalendar">
       <HintPath>..\PdfCalendar\bin\Debug\PdfCalendar.dll</HintPath>
     </Reference>
@@ -78,6 +81,7 @@
     <Compile Include="Controls\Header.cs" />
     <Compile Include="Controls\PdfFile.cs" />
     <Compile Include="Data\Container.cs" />
+    <Compile Include="Data\DateImage.cs" />
     <Compile Include="Data\MonthText.cs" />
     <Compile Include="Data\MonthTextChoices.cs" />
     <Compile Include="Misc\CalendarHandlar.cs" />
@@ -215,6 +219,7 @@
     <Resource Include="Images\Calendar64.png" />
     <Resource Include="Images\Citation.png" />
     <Resource Include="Images\Event.png" />
+    <Resource Include="Images\Image.png" />
     <Resource Include="Images\Month.png" />
     <Resource Include="Images\Open.png" />
     <Resource Include="Images\PdfFile.png" />
@@ -265,6 +270,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Height.png" />
+    <Resource Include="Images\Width.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />

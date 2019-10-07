@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/folder.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/height.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/width.png")]
 
 
