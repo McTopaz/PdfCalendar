@@ -10,15 +10,15 @@ using iTextSharp.text.pdf;
 
 namespace PdfCalendar.Week
 {
-    class ImageInCell : IPdfPCellEvent
+    class ImageInCellEvent : IPdfPCellEvent
     {
         public Image Image { get; private set; }
 
-        public ImageInCell(FileInfo file) : this (file, 15, 10)
+        public ImageInCellEvent(FileInfo file) : this (file, 15, 10)
         {
         }
 
-        public ImageInCell(FileInfo file, float width, float height)
+        public ImageInCellEvent(FileInfo file, float width, float height)
         {
             Image = Image.GetInstance(file.FullName);
             Image.ScaleAbsolute(width, height);
@@ -33,6 +33,13 @@ namespace PdfCalendar.Week
                 position.Bottom + cell.PaddingBottom
             );
             canvas.AddImage(Image);
+        }
+    }
+
+    class NoCellEvent : IPdfPCellEvent
+    {
+        public void CellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases)
+        {
         }
     }
 }

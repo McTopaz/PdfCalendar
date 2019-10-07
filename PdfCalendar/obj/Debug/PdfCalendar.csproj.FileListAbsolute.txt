@@ -8,3 +8,4 @@ C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\obj\Debug\PdfCalenda
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.csproj.CopyComplete
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.dll
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.pdb
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.csprojAssemblyReference.cache
