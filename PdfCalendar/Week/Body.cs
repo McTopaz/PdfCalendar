@@ -51,16 +51,19 @@ namespace PdfCalendar.Week
             var isHoliday = isSunday || isPublicHoliday;
             var color = isHoliday ? BaseColor.RED : BaseColor.BLACK;
             var rowSpan = 1;
-            var cellEvent = CustomCellEvent(date);
+            var cellEvent = CellImage(date);
             AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
         }
 
-        private IPdfPCellEvent CustomCellEvent(DateTime date)
+        private IPdfPCellEvent CellImage(DateTime date)
         {
-            var filePath = @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\Images\SwedishFlag.png";
-            var file = new FileInfo(filePath);
+            if (!Data.DateImages.Any(d => d.Date == date)) return null;
 
-            var cellEvent = new ImageInCell(file);
+            var tmp = Data.DateImages.Where(d => d.Date == date).First();
+            var file = new FileInfo(tmp.FilePath);
+            var width = tmp.Width;
+            var height = tmp.Height;
+            var cellEvent = new ImageInCell(file, width, height);
             return cellEvent;
         }
 

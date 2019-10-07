@@ -19,6 +19,7 @@ namespace ConsoleApplication
 
             var calendar = new Calendar(file, year);
             calendar.Data.DateEvents = DateAndEvents();
+            calendar.Data.DateImages = DateImages();
             calendar.Data.Riddles = Riddles();
             calendar.Data.Citations = Citations();
             calendar.Create();
@@ -60,6 +61,16 @@ namespace ConsoleApplication
             };
 
             return dateEvents;
+        }
+
+        static IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> DateImages()
+        {
+            var list = new List<(DateTime Date, string FilePath, float Width, float Height)>
+            {
+                (new DateTime(2019, 1, 1), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\Images\SwedishFlag.png", 15f, 10f),
+                (new DateTime(2019, 1, 3), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\Images\SwedishFlag.png", 15f, 10f)
+            };
+            return list;
         }
 
         static IEnumerable<(DateTime Date, Riddle Riddle)> Riddles()
