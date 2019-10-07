@@ -89,6 +89,7 @@
     <Compile Include="ViewModels\vmBody.cs" />
     <Compile Include="ViewModels\vmCitations.cs" />
     <Compile Include="ViewModels\vmDateEvents.cs" />
+    <Compile Include="ViewModels\vmDateImages.cs" />
     <Compile Include="ViewModels\vmFooter.cs" />
     <Compile Include="ViewModels\vmHeader.cs" />
     <Compile Include="ViewModels\vmPdfFile.cs" />
@@ -103,6 +104,9 @@
     </Compile>
     <Compile Include="Views\DateEvents.xaml.cs">
       <DependentUpon>DateEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DateImages.xaml.cs">
+      <DependentUpon>DateImages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
@@ -144,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DateEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DateImages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

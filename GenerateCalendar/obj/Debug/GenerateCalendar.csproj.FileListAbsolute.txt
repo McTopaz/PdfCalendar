@@ -44,3 +44,5 @@ C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\Gener
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.csproj.CopyComplete
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.exe
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.pdb
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\Views\DateImages.g.cs
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\Views\DateImages.baml

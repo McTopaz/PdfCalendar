@@ -69,8 +69,8 @@ namespace ConsoleApplication
         {
             var list = new List<(DateTime Date, string FilePath, float Width, float Height)>
             {
-                (new DateTime(2019, 1, 1), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\Images\SwedishFlag.png", 15f, 10f),
-                (new DateTime(2019, 1, 3), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\Images\SwedishFlag.png", 15f, 10f)
+                (new DateTime(2019, 1, 1), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\Images\SwedishFlag.png", 15f, 10f),
+                (new DateTime(2019, 1, 3), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\Images\SwedishFlag.png", 15f, 10f)
             };
             return list;
         }
