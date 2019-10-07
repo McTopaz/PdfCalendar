@@ -28,6 +28,7 @@ namespace ConsoleApplication
 
         static IEnumerable<(DateTime Date, String Event)> DateAndEvents()
         {
+            var jan1 = new DateTime(2019, 1, 1);
             var jan4 = new DateTime(2019, 1, 4);
             var jan6 = new DateTime(2019, 1, 6);
             var jan8 = new DateTime(2019, 1, 8);
@@ -35,6 +36,7 @@ namespace ConsoleApplication
 
             var dateEvents = new List<(DateTime, string)>
             {
+                (jan1, "Test override"),
                 (jan4, "Punktskriftens dag"),
                 (jan4, "Världshypnosdagen"),
                 (jan4, "abcdefghijklmn"),

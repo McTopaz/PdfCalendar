@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using iTextSharp.text;
+using Nager.Date;
 
 namespace PdfCalendar.Week
 {
@@ -24,18 +25,29 @@ namespace PdfCalendar.Week
 
         private void ControlAndInsertFooter(IEnumerable<DateTime> events, DayOfWeek expectedDay)
         {
+            // The expected day contains in the week for that month.
             if (events.Any(d => d.DayOfWeek == expectedDay))
             {
                 var date = events.First(d => d.DayOfWeek == expectedDay);
-                FooterForDay(date);
+                DayWithEvent(date);
+                return;
             }
+
+            // Insert any holiday or nothing in the day's footer.
+            if (Dates.Any(d => d.DayOfWeek == expectedDay))
+            {
+                var date = Dates.First(d => d.DayOfWeek == expectedDay);
+                DayWithHoliday(date);
+            }
+            // The expected day don't exist in the week for that month.
+            // Insert an "empty" day in the week.
             else
             {
-                EmptyFooterForDay();
+                EmptyDay();
             }
         }
 
-        private void FooterForDay(DateTime date)
+        private void DayWithEvent(DateTime date)
         {
             // This will select the first date event for a particular date and put the event in the date's cell.
             // The rest events for the date are ignored.
@@ -68,7 +80,22 @@ namespace PdfCalendar.Week
             return CellFooterSize;
         }
 
-        private void EmptyFooterForDay()
+        private void DayWithHoliday(DateTime date)
+        {
+            var holiday = CountryHoliday(date);
+            var size = AdjustFontSize(holiday);
+            AddCellToTable(holiday, BaseColor.BLACK, size, CellFooterHeight);
+        }
+
+        private string CountryHoliday(DateTime date)
+        {
+            if (!DateSystem.IsPublicHoliday(date, CountryCode.SE)) return "";
+            var holidays = DateSystem.GetPublicHoliday(date.Year, CountryCode.SE);
+            var holiday = holidays.First(d => d.Date == date);
+            return holiday.LocalName;
+        }
+
+        private void EmptyDay()
         {
             AddCellToTable("", BaseColor.BLACK, CellFooterSize, CellFooterHeight);
         }
