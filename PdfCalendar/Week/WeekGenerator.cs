@@ -55,11 +55,10 @@ namespace PdfCalendar.Week
             AddCellToTable(Number.ToString(), BaseColor.BLACK, WeekNumberSize, WeekNumberHeight, rowSpan);
         }
 
-        private void AddCellToTable(string text, BaseColor color, float size, float height, int rowSpan = 1)
+        private void AddCellToTable(string text, BaseColor color, float size, float height, int rowSpan = 1, IPdfPCellEvent cellEvent = null)
         {
             var font = new Font
             (
-                //BaseFont.CreateFont(BaseFont.COURIER_BOLD, BaseFont.CP1250, false),
                 BaseFont.CreateFont(BaseFont.COURIER_BOLD, BaseFont.CP1252, false),
                 size,
                 Font.NORMAL,
@@ -73,7 +72,8 @@ namespace PdfCalendar.Week
                 HorizontalAlignment = PdfPCell.ALIGN_CENTER,
                 VerticalAlignment = PdfPCell.ALIGN_MIDDLE,
                 Rowspan = rowSpan,
-                BackgroundColor = BaseColor.WHITE
+                BackgroundColor = BaseColor.WHITE,
+                CellEvent = cellEvent
             };
             Table.AddCell(cell);
         }

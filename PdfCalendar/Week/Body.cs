@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using iTextSharp.text;
+using iTextSharp.text.pdf;
 using Nager.Date;
 
 namespace PdfCalendar.Week
@@ -48,7 +50,18 @@ namespace PdfCalendar.Week
             var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.SE);
             var isHoliday = isSunday || isPublicHoliday;
             var color = isHoliday ? BaseColor.RED : BaseColor.BLACK;
-            AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight);
+            var rowSpan = 1;
+            var cellEvent = CustomCellEvent(date);
+            AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
+        }
+
+        private IPdfPCellEvent CustomCellEvent(DateTime date)
+        {
+            var filePath = @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\PdfCalendar\Images\SwedishFlag.png";
+            var file = new FileInfo(filePath);
+
+            var cellEvent = new ImageInCell(file);
+            return cellEvent;
         }
 
         private void NoneDateInMonth()

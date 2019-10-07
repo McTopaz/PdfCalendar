@@ -52,12 +52,14 @@ namespace PdfCalendar.Week
         }
 
         /// <summary>
-        /// Decrease the font size for events that have many characters.
+        /// Decrease the font size depending on the content's size.
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
         private float AdjustFontSize(string content)
         {
+            // Adjust the font size depending on the number of characters of the conent.
+
             var length = content.Length;
             if (length > 34) return CellFooterSize - 4;
             if (length > 28) return CellFooterSize - 3;

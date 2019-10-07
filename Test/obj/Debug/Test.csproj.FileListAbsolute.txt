@@ -1,6 +1,7 @@
-C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\Test\bin\Debug\Test.exe.config
-C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\Test\bin\Debug\Test.exe
-C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\Test\bin\Debug\Test.pdb
-C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
-C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\Test\obj\Debug\Test.exe
-C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\Test\obj\Debug\Test.pdb
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\bin\Debug\Test.exe.config
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\bin\Debug\Test.exe
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\bin\Debug\Test.pdb
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\obj\Debug\Test.exe
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\obj\Debug\Test.pdb
+C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\Test\obj\Debug\Test.csprojAssemblyReference.cache

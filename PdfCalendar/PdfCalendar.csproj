@@ -60,6 +60,7 @@
     <Compile Include="SelectableRiddle.cs" />
     <Compile Include="Week\Body.cs" />
     <Compile Include="Week\Footer.cs" />
+    <Compile Include="Week\ImageInCell.cs" />
     <Compile Include="Week\WeekGenerator.cs" />
     <Compile Include="Week\Header.cs" />
   </ItemGroup>
