@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/height.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/width.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/calendardecember.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/title.png")]
 
 

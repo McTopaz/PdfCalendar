@@ -30,6 +30,7 @@ namespace GenerateCalendar.Views
         private void SetupViewModels()
         {
             vms.vmYear = viewYear.DataContext as ViewModels.vmYear;
+            vms.vmOptions = viewOptions.DataContext as ViewModels.vmOptions;
             vms.vmDateEvents = viewDateEvents.DataContext as ViewModels.vmDateEvents;
             vms.vmDateImages = viewDateImages.DataContext as ViewModels.vmDateImages;
             vms.vmRiddles = viewRiddles.DataContext as ViewModels.vmRiddles;

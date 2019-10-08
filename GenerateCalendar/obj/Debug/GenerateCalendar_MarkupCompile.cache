@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\obj\Debug\
+C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\GenerateCalendar\obj\Debug\
 GenerateCalendar
 none
 false
 DEBUG;TRACE
-C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\App.xaml
-11-1228954779
+C:\Users\IKGHP2001\Programmering\C#\PDFCalendar\GenerateCalendar\App.xaml
+121241471398
 
-41-415577330
-201986862335
-MainWindow.xaml;Views\Body.xaml;Views\Citations.xaml;Views\DateEvents.xaml;Views\DateImages.xaml;Views\Footer.xaml;Views\Header.xaml;Views\PdfFile.xaml;Views\Riddles.xaml;Views\SelectableRiddles.xaml;Views\Year.xaml;
+43-544134050
+20-1587017789
+MainWindow.xaml;Views\Body.xaml;Views\Citations.xaml;Views\DateEvents.xaml;Views\DateImages.xaml;Views\Footer.xaml;Views\Header.xaml;Views\Options.xaml;Views\PdfFile.xaml;Views\Riddles.xaml;Views\SelectableRiddles.xaml;Views\Year.xaml;
 
 False
 

@@ -96,6 +96,7 @@
     <Compile Include="ViewModels\vmDateImages.cs" />
     <Compile Include="ViewModels\vmFooter.cs" />
     <Compile Include="ViewModels\vmHeader.cs" />
+    <Compile Include="ViewModels\vmOptions.cs" />
     <Compile Include="ViewModels\vmPdfFile.cs" />
     <Compile Include="ViewModels\vmRiddles.cs" />
     <Compile Include="ViewModels\vmSelectableRiddles.cs" />
@@ -117,6 +118,9 @@
     </Compile>
     <Compile Include="Views\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PdfFile.xaml.cs">
       <DependentUpon>PdfFile.xaml</DependentUpon>
@@ -164,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Options.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,6 +282,10 @@
   <ItemGroup>
     <Resource Include="Images\Height.png" />
     <Resource Include="Images\Width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CalendarDecember.png" />
+    <Resource Include="Images\Title.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />

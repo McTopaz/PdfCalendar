@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="GenerateCalendar.Views.Options"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenerateCalendar.Views"
+             xmlns:viewModels="clr-namespace:GenerateCalendar.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModels:vmOptions />
+    </UserControl.DataContext>
+    
+    <Expander Margin="0,0,0,12">
+        <Expander.Header>
+            <Label Content="Options" />
+        </Expander.Header>
+
+        <!-- Horizontal container -->
+        <StackPanel Orientation="Horizontal" Margin="12">
+            
+            <!-- Left vertical container -->
+            <StackPanel Orientation="Vertical" Margin="0,0,6,0">
+
+                <CheckBox IsChecked="{Binding TitlePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Title.png" Height="16" />
+                            <Label Content="Title page" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+
+                <CheckBox IsChecked="{Binding PreviousDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/CalendarDecember.png" Height="16" />
+                            <Label Content="Include previous december" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+            </StackPanel>
+            
+            <!-- Right vertical container -->
+            <StackPanel Orientation="Vertical" Margin="6,0,0,0">
+                
+            </StackPanel>
+            
+        </StackPanel>
+
+    </Expander>
+    
+</UserControl>
