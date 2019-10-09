@@ -18,12 +18,14 @@ namespace PdfCalendar
         public FileInfo PdfFile { get; private set; }
         public DateTime ForYear { get; private set; }
         public Data Data { get; private set; }
+        public Options Options { get; private set; }
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
         {
             PdfFile = pdfFile;
             ForYear = new DateTime(forYear.Year, 1, 1);
             Data = new Data();
+            Options = new Options();
         }
 
         public void Create()
@@ -52,6 +54,33 @@ namespace PdfCalendar
         }
 
         private void Generate()
+        {
+            // Create a title page.
+            if (Options.TitlePage)
+            {
+                TitlePage();
+            }
+
+            // Create a summary.
+            if (Options.PreviousDecember)
+            {
+                PreviousDecember();
+            }
+
+
+            Months();
+        }
+
+        private void TitlePage()
+        {
+
+        }
+
+        private void PreviousDecember()
+        {
+        }
+
+        private void Months()
         {
             // List of all month names.
             var months = Enumerable.Range(1, 12).Select(i => new { Number = i, Name = DateTimeFormatInfo.CurrentInfo.GetMonthName(i) });
