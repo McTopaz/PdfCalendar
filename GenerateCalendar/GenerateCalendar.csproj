@@ -84,9 +84,11 @@
     <Compile Include="Data\DateImage.cs" />
     <Compile Include="Data\MonthText.cs" />
     <Compile Include="Data\MonthTextChoices.cs" />
+    <Compile Include="Data\Options.cs" />
     <Compile Include="Misc\CalendarHandlar.cs" />
     <Compile Include="Misc\Converters.cs" />
     <Compile Include="Data\DateEvent.cs" />
+    <Compile Include="Misc\DebugDataBindingConverter.cs" />
     <Compile Include="Misc\DiskHandler.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Misc\RelayCommand.cs" />

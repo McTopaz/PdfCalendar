@@ -13,6 +13,7 @@ namespace GenerateCalendar.Data
     class Container
     {
         public DateTime Year { get; set; }
+        public Options Options { get; set; }
         public ObservableCollection<DateEvent> DateEvents { get; set; }
         public ObservableCollection<MonthText> Riddles { get; set; }
         public ObservableCollection<MonthTextChoices> SelectableRiddles { get; set; }

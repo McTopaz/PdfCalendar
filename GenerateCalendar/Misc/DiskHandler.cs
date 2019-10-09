@@ -44,6 +44,7 @@ namespace GenerateCalendar.Misc
 
             var container = new Container();
             container.Year = vms.vmYear.SelectedYear;
+            container.Options = new Options(vms.vmOptions);
             container.DateEvents = vms.vmDateEvents.DateEvents;
             container.Riddles = vms.vmRiddles.Riddles;
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles;
@@ -144,15 +145,14 @@ namespace GenerateCalendar.Misc
                 return;
             }
 
-            // When serializing, any DateTime object is serialized to UTF.
-            // Convert the DateTime objects to local time.
+            // When serializing, any DateTime object is serialized to UTF. Convert the DateTime objects to local time.
             container.ToLocalTimeZone();
 
-            // Make sure the file path of the calendar exist.
-            // Else, create a valid file path.
+            // Make sure the file path of the calendar exist. Else, create a valid file path.
             var file = ExistingFile(container.FilePath);
 
             vms.vmYear.SelectedYear = container.Year;
+            SetupOptions(container.Options);
             vms.vmDateEvents.DateEvents = container.DateEvents;
             vms.vmRiddles.Riddles = container.Riddles;
             vms.vmSelectableRiddles.Riddles = container.SelectableRiddles;
@@ -168,6 +168,15 @@ namespace GenerateCalendar.Misc
             var path = Path.GetTempPath();
             var tmp = Path.Combine(path, name);
             return new FileInfo(tmp);
+        }
+
+        private void SetupOptions(Options options)
+        {
+            vms.vmOptions.TitlePage = options.TitlePage;
+            vms.vmOptions.PreviousDecember = options.PreviousDecember;
+
+            var o = vms.vmOptions;
+            Console.WriteLine(o.TitlePage);
         }
     }
 }
