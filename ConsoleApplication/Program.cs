@@ -13,7 +13,9 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            var filePath = @"C:\Users\IKGHP2001\Desktop\test.pdf";
+            var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            var fileName = "test.pdf";
+            var filePath = Path.Combine(desktopPath, fileName);
             var file = new FileInfo(filePath);
             var year = new DateTime(2019, 1, 1);
 
