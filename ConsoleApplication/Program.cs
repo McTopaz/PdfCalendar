@@ -69,10 +69,14 @@ namespace ConsoleApplication
 
         static IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> DateImages()
         {
+            var directory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            var flagPath = @"\Images\SwedishFlag.png";
+            var path = $"{directory}{flagPath}";
+
             var list = new List<(DateTime Date, string FilePath, float Width, float Height)>
             {
-                (new DateTime(2019, 1, 1), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\Images\SwedishFlag.png", 15f, 10f),
-                (new DateTime(2019, 1, 3), @"C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\Images\SwedishFlag.png", 15f, 10f)
+                (new DateTime(2019, 1, 1), path, 15f, 10f),
+                (new DateTime(2019, 1, 3), path, 15f, 10f)
             };
             return list;
         }
