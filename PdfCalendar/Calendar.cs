@@ -67,20 +67,22 @@ namespace PdfCalendar
                 PreviousDecember();
             }
 
-
-            Months();
+            // Create the calendar's main content.
+            Content();
         }
 
         private void TitlePage()
         {
-
+            Document.NewPage();
+            var title = new TitlePage(ForYear.Year);
+            Document.Add(title);
         }
 
         private void PreviousDecember()
         {
         }
 
-        private void Months()
+        private void Content()
         {
             // List of all month names.
             var months = Enumerable.Range(1, 12).Select(i => new { Number = i, Name = DateTimeFormatInfo.CurrentInfo.GetMonthName(i) });
