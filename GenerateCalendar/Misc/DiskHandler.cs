@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Web.Script.Serialization;
 
 using GenerateCalendar.Data;
+using PdfCalendar;
 
 namespace GenerateCalendar.Misc
 {
@@ -44,7 +45,7 @@ namespace GenerateCalendar.Misc
 
             var container = new Container();
             container.Year = vms.vmYear.SelectedYear;
-            container.Options = new Options(vms.vmOptions);
+            container.Options = vms.vmOptions.Options;
             container.DateEvents = vms.vmDateEvents.DateEvents;
             container.Riddles = vms.vmRiddles.Riddles;
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles;
@@ -152,7 +153,7 @@ namespace GenerateCalendar.Misc
             var file = ExistingFile(container.FilePath);
 
             vms.vmYear.SelectedYear = container.Year;
-            SetupOptions(container.Options);
+            vms.vmOptions.Options = container.Options;
             vms.vmDateEvents.DateEvents = container.DateEvents;
             vms.vmRiddles.Riddles = container.Riddles;
             vms.vmSelectableRiddles.Riddles = container.SelectableRiddles;
@@ -168,15 +169,6 @@ namespace GenerateCalendar.Misc
             var path = Path.GetTempPath();
             var tmp = Path.Combine(path, name);
             return new FileInfo(tmp);
-        }
-
-        private void SetupOptions(Options options)
-        {
-            vms.vmOptions.TitlePage = options.TitlePage;
-            vms.vmOptions.PreviousDecember = options.PreviousDecember;
-
-            var o = vms.vmOptions;
-            Console.WriteLine(o.TitlePage);
         }
     }
 }

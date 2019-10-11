@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PdfCalendar;
+
 namespace GenerateCalendar.ViewModels
 {
     class vmOptions
     {
-        public bool TitlePage { get; set; }
-        public bool PreviousDecember { get; set; }
+        public Options Options { get; set; }
 
         public vmOptions()
         {
+            Options = new Options();
         }
     }
 }
