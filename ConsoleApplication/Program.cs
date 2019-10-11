@@ -17,9 +17,10 @@ namespace ConsoleApplication
             var fileName = "test.pdf";
             var filePath = Path.Combine(desktopPath, fileName);
             var file = new FileInfo(filePath);
-            var year = new DateTime(2019, 1, 1);
+            var year = new DateTime(DateTime.Now.Year, 1, 1);
 
             var calendar = new Calendar(file, year);
+            calendar.Options.TitlePage = true;
             calendar.Options.PreviousDecember = true;
             calendar.Data.DateEvents = DateAndEvents();
             calendar.Data.DateImages = DateImages();
