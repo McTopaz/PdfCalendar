@@ -68,7 +68,7 @@ namespace PdfCalendar
             }
 
             // Create the calendar's main content.
-            //Content();
+            Content();
         }
 
         private void TitlePage()
