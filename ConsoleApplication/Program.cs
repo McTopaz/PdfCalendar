@@ -20,6 +20,7 @@ namespace ConsoleApplication
             var year = new DateTime(2019, 1, 1);
 
             var calendar = new Calendar(file, year);
+            calendar.Options.PreviousDecember = true;
             calendar.Data.DateEvents = DateAndEvents();
             calendar.Data.DateImages = DateImages();
             calendar.Data.Riddles = Riddles();
@@ -30,11 +31,12 @@ namespace ConsoleApplication
 
         static IEnumerable<(DateTime Date, String Event)> DateAndEvents()
         {
-            var jan1 = new DateTime(2019, 1, 1);
-            var jan4 = new DateTime(2019, 1, 4);
-            var jan6 = new DateTime(2019, 1, 6);
-            var jan8 = new DateTime(2019, 1, 8);
-            var may30 = new DateTime(2019, 5, 30);
+            var year = DateTime.Now.Year;
+            var jan1 = new DateTime(year, 1, 1);
+            var jan4 = new DateTime(year, 1, 4);
+            var jan6 = new DateTime(year, 1, 6);
+            var jan8 = new DateTime(year, 1, 8);
+            var may30 = new DateTime(year, 5, 30);
 
             var dateEvents = new List<(DateTime, string)>
             {
@@ -72,19 +74,21 @@ namespace ConsoleApplication
             var directory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             var flagPath = @"\Images\SwedishFlag.png";
             var path = $"{directory}{flagPath}";
+            var year = DateTime.Now.Year;
 
             var list = new List<(DateTime Date, string FilePath, float Width, float Height)>
             {
-                (new DateTime(2019, 1, 1), path, 15f, 10f),
-                (new DateTime(2019, 1, 3), path, 15f, 10f)
+                (new DateTime(year, 1, 1), path, 15f, 10f),
+                (new DateTime(year, 1, 3), path, 15f, 10f)
             };
             return list;
         }
 
         static IEnumerable<(DateTime Date, Riddle Riddle)> Riddles()
         {
-            var jan = new DateTime(2019, 1, 1);
-            var feb = new DateTime(2019, 2, 1);
+            var year = DateTime.Now.Year;
+            var jan = new DateTime(year, 1, 1);
+            var feb = new DateTime(year, 2, 1);
             var riddles = new List<(DateTime Date, Riddle Riddle)>
             {
                 (jan, new Riddle("På vilken väg går man tillbaka, men kommer ändå närmare målet?")),
@@ -96,8 +100,9 @@ namespace ConsoleApplication
 
         static IEnumerable<(DateTime, string)> Citations()
         {
-            var jan = new DateTime(2019, 1, 1);
-            var feb = new DateTime(2019, 2, 1);
+            var year = DateTime.Now.Year;
+            var jan = new DateTime(year, 1, 1);
+            var feb = new DateTime(year, 2, 1);
             var citations = new List<(DateTime Date, string Citation)>
             {
                 (jan, "Lorem ipsum dolor sit amet"),
