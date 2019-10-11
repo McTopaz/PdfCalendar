@@ -68,7 +68,7 @@ namespace PdfCalendar
             }
 
             // Create the calendar's main content.
-            Content();
+            //Content();
         }
 
         private void TitlePage()
@@ -80,6 +80,9 @@ namespace PdfCalendar
 
         private void PreviousDecember()
         {
+            Document.NewPage();
+            var summary = new PreviousDecember(ForYear.Year - 1);
+            Document.Add(summary);
         }
 
         private void Content()
