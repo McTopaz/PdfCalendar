@@ -23,23 +23,30 @@
         <DataGrid ItemsSource="{Binding DateImages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250">
             <DataGrid.Columns>
 
-                <!-- Image -->
-                <DataGridTemplateColumn Width="500">
+                <!-- Browse -->
+                <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
-                            <Label Content="Image" />
+                            <Image Source="/GenerateCalendar;component/Images/Open.png" Height="16" />
+                            <Label Content="Browse" />
                         </StackPanel>
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <DockPanel LastChildFill="True">
-                                <Button Content="..." Command="{Binding BrowseImage}" DockPanel.Dock="Left" Width="40" Margin="6,0,6,0" />
-                                <TextBox Text="{Binding FilePath.FullName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" DockPanel.Dock="Right" />
-                            </DockPanel>
+                            <Button Content="..." Command="{Binding BrowseImage}" DockPanel.Dock="Left" Width="40" Margin="6,0,6,0" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                
+                <!-- Image -->
+                <DataGridTextColumn Width="500" Binding="{Binding FilePath.FullName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
+                            <Label Content="Image" />
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
 
                 <!-- Width -->
                 <DataGridTemplateColumn>
