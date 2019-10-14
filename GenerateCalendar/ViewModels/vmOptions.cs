@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 using PdfCalendar;
+using PropertyChanged;
 
 namespace GenerateCalendar.ViewModels
 {
+    [AddINotifyPropertyChangedInterface]
     class vmOptions
     {
         public Options Options { get; set; }
