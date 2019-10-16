@@ -14,13 +14,13 @@ namespace GenerateCalendar.Data
     [AddINotifyPropertyChangedInterface]
     class DateImage
     {
-        const string Filter = "Image-files (.pdf, .gif, .jpg, .bmp)|*.pdf;*.gif;*.jpg;*.bmp";
+        const string Filter = "Image-files (.png, .gif, .jpg, .bmp)|*.png;*.gif;*.jpg;*.bmp";
 
         public DateTime Date { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
         public RelayCommand BrowseImage { get; set; }
-        public FileInfo FilePath { get; set; }
+        public FileInfo FilePath { get; private set; }
 
         public DateImage()
         {
