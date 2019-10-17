@@ -16,6 +16,7 @@ namespace GenerateCalendar.Data
         public DateTime Year { get; set; }
         public Options Options { get; set; }
         public ObservableCollection<DateEvent> DateEvents { get; set; }
+        public ObservableCollection<DateImage> DateImages { get; set; }
         public ObservableCollection<MonthText> Riddles { get; set; }
         public ObservableCollection<MonthTextChoices> SelectableRiddles { get; set; }
         public ObservableCollection<MonthText> Citations { get; set; }
@@ -24,7 +25,7 @@ namespace GenerateCalendar.Data
         public void ToLocalTimeZone()
         {
             Year = Year.ToLocalTime();
-            FixDatEvents();
+            FixDates();
         }
 
         private void FixYear()
@@ -32,9 +33,14 @@ namespace GenerateCalendar.Data
             Year = Year.ToLocalTime();
         }
 
-        private void FixDatEvents()
+        private void FixDates()
         {
             foreach (var item in DateEvents)
+            {
+                item.Date = item.Date.ToLocalTime();
+            }
+
+            foreach (var item in DateImages)
             {
                 item.Date = item.Date.ToLocalTime();
             }
