@@ -18,6 +18,7 @@ namespace GenerateCalendar.Misc
             var year = vms.vmYear.SelectedYear;
             var pdfFile = vms.vmPdfFile.FilePath;
             var dateEvents = vms.vmDateEvents.DateEvents.Select(d => (d.Date, d.Event));
+            var dateImages = vms.vmDateImages.DateImages.Select(d => (Date: d.Date, FilePath: d.FilePath.FullName, Width: (float)d.Width, Height: (float)d.Height));
             var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text)));
             var selectable = vms.vmSelectableRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.ChoiceA, r.ChoiceB, r.ChoiceC)));
             var citations = vms.vmCitations.Citations.Select(c => (MakeDate(year.Year, c.Month), c.Text));
@@ -25,6 +26,7 @@ namespace GenerateCalendar.Misc
             // Create the calendar.
             calendar = new Calendar(pdfFile, vms.vmYear.SelectedYear);
             calendar.Data.DateEvents = dateEvents;
+            calendar.Data.DateImages = dateImages;
             calendar.Data.Riddles = riddles.Concat(selectable);
             calendar.Data.Citations = citations;
             calendar.Create();
