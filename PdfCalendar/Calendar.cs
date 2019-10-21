@@ -18,7 +18,7 @@ namespace PdfCalendar
         public FileInfo PdfFile { get; private set; }
         public DateTime ForYear { get; private set; }
         public Data Data { get; private set; }
-        public Options Options { get; private set; }
+        public Options Options { get; set; }
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
         {
