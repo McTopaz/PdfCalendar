@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,7 @@ namespace GenerateCalendar.Misc
             container.Year = vms.vmYear.SelectedYear;
             container.Options = vms.vmOptions.Options;
             container.DateEvents = vms.vmDateEvents.DateEvents;
+            container.DateImages = vms.vmDateImages.DateImages.Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
             container.Riddles = vms.vmRiddles.Riddles;
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles;
             container.Citations = vms.vmCitations.Citations;
@@ -146,19 +148,34 @@ namespace GenerateCalendar.Misc
                 return;
             }
 
-            // When serializing, any DateTime object is serialized to UTF. Convert the DateTime objects to local time.
-            container.ToLocalTimeZone();
-
-            // Make sure the file path of the calendar exist. Else, create a valid file path.
-            var file = ExistingFile(container.FilePath);
+            container.ToLocalTimeZone();                    // When serializing, any DateTime object is serialized to UTF. Convert the DateTime objects to local time.
+            var file = ExistingFile(container.FilePath);    // Make sure the file path of the calendar exist. Else, create a valid file path.
 
             vms.vmYear.SelectedYear = container.Year;
             vms.vmOptions.Options = container.Options;
             vms.vmDateEvents.DateEvents = container.DateEvents;
+            vms.vmDateImages.DateImages = DateImagesFromFile(container);
             vms.vmRiddles.Riddles = container.Riddles;
             vms.vmSelectableRiddles.Riddles = container.SelectableRiddles;
             vms.vmCitations.Citations = container.Citations;
             vms.vmPdfFile.FilePath = file;
+        }
+
+        private ObservableCollection<DateImage> DateImagesFromFile(Container container)
+        {
+            var list = new ObservableCollection<DateImage>();
+            foreach (var item in container.DateImages)
+            {
+                var di = new DateImage()
+                {
+                    Date = item.Date,
+                    FilePath = new FileInfo(item.FilePath),
+                    Width = item.Width,
+                    Height = item.Height
+                };
+                list.Add(di);
+            }
+            return list;
         }
 
         private FileInfo ExistingFile(string filePath)

@@ -16,7 +16,7 @@ namespace GenerateCalendar.Data
         public DateTime Year { get; set; }
         public Options Options { get; set; }
         public ObservableCollection<DateEvent> DateEvents { get; set; }
-        public ObservableCollection<DateImage> DateImages { get; set; }
+        public IEnumerable<DateImageLite> DateImages { get; set; }
         public ObservableCollection<MonthText> Riddles { get; set; }
         public ObservableCollection<MonthTextChoices> SelectableRiddles { get; set; }
         public ObservableCollection<MonthText> Citations { get; set; }

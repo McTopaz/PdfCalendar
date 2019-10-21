@@ -27,6 +27,7 @@ namespace GenerateCalendar.ViewModels
         private void InsertRow()
         {
             var item = new DateImage();
+            DateImages = DateImages == null ? new ObservableCollection<DateImage>() : DateImages;
             DateImages.Add(item);
         }
     }

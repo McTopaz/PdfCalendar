@@ -20,10 +20,11 @@ namespace GenerateCalendar.Data
         public double Width { get; set; }
         public double Height { get; set; }
         public RelayCommand BrowseImage { get; set; }
-        public FileInfo FilePath { get; private set; }
+        public FileInfo FilePath { get; set; }
 
         public DateImage()
         {
+            Date = vms.vmYear.SelectedYear;
             Width = 15;
             Height = 10;
             BrowseImage = new RelayCommand();
@@ -43,5 +44,17 @@ namespace GenerateCalendar.Data
             if (result != DialogResult.OK) return;
             FilePath = new FileInfo(dialog.FileName);
         }
+    }
+
+    class DateImageLite
+    {
+        // This class is only when serializing to JSON.
+        // The actual DateImage is too complex for serializing.
+        // The FileInfo and RelayCommand cause circle references.
+
+        public DateTime Date { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public string FilePath { get; set; }
     }
 }
