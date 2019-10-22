@@ -24,7 +24,7 @@ namespace GenerateCalendar.Views
         {
             InitializeComponent();
             SetupViewModels();
-            SetupControls();
+            SetupCallbacks();
         }
 
         private void SetupViewModels()
@@ -40,10 +40,11 @@ namespace GenerateCalendar.Views
             vms.vmPdfFile = viewPdfFile.DataContext as ViewModels.vmPdfFile;
         }
 
-        private void SetupControls()
+        private void SetupCallbacks()
         {
+            vms.vmDateEvents.Callbacks();
+            vms.vmDateImages.Callbacks();
             new Controls.PdfFile();
-            new Controls.DateEvents();
         }
     }
 }

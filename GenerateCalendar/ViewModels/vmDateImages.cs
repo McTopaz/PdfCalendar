@@ -21,7 +21,7 @@ namespace GenerateCalendar.ViewModels
         {
             DateImages = new ObservableCollection<DateImage>();
             AddRow = new RelayCommand();
-            AddRow.CallBack = InsertRow;
+            AddRow.Callback += InsertRow;
         }
 
         private void InsertRow()
@@ -29,6 +29,33 @@ namespace GenerateCalendar.ViewModels
             var item = new DateImage();
             DateImages = DateImages == null ? new ObservableCollection<DateImage>() : DateImages;
             DateImages.Add(item);
+        }
+
+        public void Callbacks()
+        {
+            vms.vmYear.Changed.Callback += Changed_cb;
+        }
+
+        private void Changed_cb()
+        {
+            var year = vms.vmYear.SelectedYear.Year;
+            foreach (var item in vms.vmDateImages.DateImages)
+            {
+                var month = item.Date.Month;
+                var day = item.Date.Day;
+                item.Date = new DateTime(year, month, day);
+            }
+        }
+
+        private void YearChanged()
+        {
+            var year = vms.vmYear.SelectedYear.Year;
+            foreach (var item in vms.vmDateImages.DateImages)
+            {
+                var month = item.Date.Month;
+                var day = item.Date.Day;
+                item.Date = new DateTime(year, month, day);
+            }
         }
     }
 }

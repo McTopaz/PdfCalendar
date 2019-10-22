@@ -22,7 +22,7 @@ namespace GenerateCalendar.ViewModels
         {
             Birthdays = new ObservableCollection<Birthday>();
             AddRow = new RelayCommand();
-            AddRow.CallBack = InsertRow;
+            AddRow.Callback += InsertRow;
         }
 
         private void InsertRow()

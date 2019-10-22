@@ -19,5 +19,21 @@ namespace GenerateCalendar.ViewModels
         {
             DateEvents = new ObservableCollection<DateEvent>();
         }
+
+        public void Callbacks()
+        {
+            vms.vmYear.Changed.Callback += YearChanged;
+        }
+
+        private void YearChanged()
+        {
+            var year = vms.vmYear.SelectedYear.Year;
+            foreach (var item in vms.vmDateEvents.DateEvents)
+            {
+                var month = item.Date.Month;
+                var day = item.Date.Day;
+                item.Date = new DateTime(year, month, day);
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace GenerateCalendar.Data
             Width = 15;
             Height = 10;
             BrowseImage = new RelayCommand();
-            BrowseImage.CallBack = SelectFileLocation;
+            BrowseImage.Callback += SelectFileLocation;
         }
 
         private void SelectFileLocation()

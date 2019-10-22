@@ -9,8 +9,18 @@ namespace GenerateCalendar.Misc
 {
     class RelayCommand : ICommand
     {
-        public Action CallBack { get; set; }
+        public delegate void CallbackHandler();
+        public event CallbackHandler Callback;
         public Predicate<object> Enable { get; set; }
+
+        public RelayCommand()
+        {
+            Callback += RelayCommand_Callback;
+        }
+
+        private void RelayCommand_Callback()
+        {
+        }
 
         public event EventHandler CanExecuteChanged
         {
@@ -25,7 +35,7 @@ namespace GenerateCalendar.Misc
 
         public void Execute(object parameter = null)
         {
-            CallBack();
+            Callback();
         }
     }
 }

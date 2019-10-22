@@ -19,7 +19,7 @@ namespace GenerateCalendar.Controls
         public PdfFile()
         {
             vm = vms.vmPdfFile;
-            vm.SelectFileLocation.CallBack = SelectFileLocation;
+            vm.SelectFileLocation.Callback += SelectFileLocation;
         }
 
         private void SelectFileLocation()

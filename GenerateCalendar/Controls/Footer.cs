@@ -21,14 +21,14 @@ namespace GenerateCalendar.Controls
             diskHandler = new DiskHandler();
 
             var vm = vms.vmFooter;
-            vm.GenerateCalendar.CallBack = GenerateCalendar;
+            vm.GenerateCalendar.Callback += GenerateCalendar;
             vm.GenerateCalendar.Enable = _ => vms.vmPdfFile.FilePath != null;
-            vm.ViewCalendar.CallBack = ViewCalendar;
+            vm.ViewCalendar.Callback += ViewCalendar;
             vm.ViewCalendar.Enable = _ => vms.vmPdfFile.FilePath != null && CalenderExist();
-            vm.OpenFolder.CallBack = OpenFolder;
+            vm.OpenFolder.Callback += OpenFolder;
             vm.OpenFolder.Enable = _ => vms.vmPdfFile.FilePath != null && CalenderExist();
-            vm.Save.CallBack = Save;
-            vm.Load.CallBack = Load;
+            vm.Save.Callback += Save;
+            vm.Load.Callback += Load;
         }
 
         private bool CalenderExist()
