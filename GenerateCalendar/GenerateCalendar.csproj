@@ -76,7 +76,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Footer.cs" />
-    <Compile Include="Controls\Header.cs" />
     <Compile Include="Controls\PdfFile.cs" />
     <Compile Include="Data\Birthday.cs" />
     <Compile Include="Data\Container.cs" />

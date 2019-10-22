@@ -37,7 +37,6 @@ namespace GenerateCalendar
 
         private void SetupControls()
         {
-            new Controls.Header();
             new Controls.Footer();
         }
     }
