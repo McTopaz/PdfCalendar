@@ -75,7 +75,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\Body.cs" />
     <Compile Include="Controls\Footer.cs" />
     <Compile Include="Controls\Header.cs" />
     <Compile Include="Controls\PdfFile.cs" />
