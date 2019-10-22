@@ -15,6 +15,7 @@ namespace GenerateCalendar.Data
     {
         public DateTime Year { get; set; }
         public Options Options { get; set; }
+        public ObservableCollection<Birthday> Birthdays { get; set; }
         public ObservableCollection<DateEvent> DateEvents { get; set; }
         public IEnumerable<DateImageLite> DateImages { get; set; }
         public ObservableCollection<MonthText> Riddles { get; set; }
@@ -35,6 +36,11 @@ namespace GenerateCalendar.Data
 
         private void FixDates()
         {
+            foreach (var item in Birthdays)
+            {
+                item.BirthDay = item.BirthDay.ToLocalTime();
+            }
+
             foreach (var item in DateEvents)
             {
                 item.Date = item.Date.ToLocalTime();

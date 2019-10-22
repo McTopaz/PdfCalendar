@@ -25,6 +25,7 @@
 
             <views:Year x:Name="viewYear" />
             <views:Options x:Name="viewOptions" />
+            <views:Birthdays x:Name="viewBirthDays" />
             <views:DateEvents x:Name="viewDateEvents" />
             <views:DateImages x:Name="viewDateImages" />
             <views:Riddles x:Name="viewRiddles" />
