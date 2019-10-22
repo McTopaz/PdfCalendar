@@ -11,9 +11,21 @@ namespace PdfCalendar.Week
 {
     partial class WeekGenerator : Generator
     {
+        /// <summary>
+        /// All data for the calendar.
+        /// </summary>
         internal Data Data { get; set; }
+        /// <summary>
+        /// The table containging the week.
+        /// </summary>
         internal PdfPTable Table { get; set; }
+        /// <summary>
+        /// Week number.
+        /// </summary>
         internal int Number { get; set; }
+        /// <summary>
+        /// Dates in week.
+        /// </summary>
         internal IEnumerable<DateTime> Dates;
 
         const float WeekNumberSize = 20;
