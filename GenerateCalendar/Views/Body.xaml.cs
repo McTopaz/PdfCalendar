@@ -44,7 +44,7 @@ namespace GenerateCalendar.Views
         {
             vms.vmDateEvents.Callbacks();
             vms.vmDateImages.Callbacks();
-            new Controls.PdfFile();
+            vms.vmPdfFile.Callbacks();
         }
     }
 }
