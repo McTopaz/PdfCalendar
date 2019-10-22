@@ -25,7 +25,7 @@ namespace GenerateCalendar
             InitializeComponent();
 
             SetupViewModels();
-            SetupControls();
+            SetupCallbacks();
         }
 
         private void SetupViewModels()
@@ -35,9 +35,9 @@ namespace GenerateCalendar
             vms.vmFooter = viewFooter.DataContext as ViewModels.vmFooter;
         }
 
-        private void SetupControls()
+        private void SetupCallbacks()
         {
-            new Controls.Footer();
+            vms.vmFooter.Callbacks();
         }
     }
 }
