@@ -20,17 +20,30 @@ namespace ConsoleApplication
             var year = new DateTime(DateTime.Now.Year, 1, 1);
 
             var calendar = new Calendar(file, year);
-            calendar.Options.TitlePage = true;
-            calendar.Options.PreviousDecember = true;
-            calendar.Data.DateEvents = DateAndEvents();
-            calendar.Data.DateImages = DateImages();
+            calendar.Options.TitlePage = false;
+            calendar.Options.PreviousDecember = false;
+            calendar.Data.Birthdays = Birthdays();
+            calendar.Data.Events = Events();
+            calendar.Data.Images = Images();
             calendar.Data.Riddles = Riddles();
             calendar.Data.Citations = Citations();
             calendar.Create();
             calendar.Show();
         }
 
-        static IEnumerable<(DateTime Date, String Event)> DateAndEvents()
+        static IEnumerable<(DateTime Birthday, string Name)> Birthdays()
+        {
+            var list = new List<(DateTime, string)>
+            {
+                (new DateTime(1987, 1, 4), "Uffe"),
+                (new DateTime(1957, 1, 24), "Nisse"),
+                (new DateTime(1957, 1, 24), "Nasse"),
+                (new DateTime(2019, 1, 1), "Foo")
+            };
+            return list;
+        }
+
+        static IEnumerable<(DateTime Date, String Event)> Events()
         {
             var year = DateTime.Now.Year;
             var jan1 = new DateTime(year, 1, 1);
@@ -70,7 +83,7 @@ namespace ConsoleApplication
             return dateEvents;
         }
 
-        static IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> DateImages()
+        static IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> Images()
         {
             var directory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             var flagPath = @"\Images\SwedishFlag.png";

@@ -13,51 +13,106 @@ namespace PdfCalendar.Week
     {
         protected override void Footer()
         {
-            var events = Data.DateEvents.Select(d => d.Date).Intersect(Dates);
-            ControlAndInsertFooter(events, DayOfWeek.Monday);
-            ControlAndInsertFooter(events, DayOfWeek.Tuesday);
-            ControlAndInsertFooter(events, DayOfWeek.Wednesday);
-            ControlAndInsertFooter(events, DayOfWeek.Thursday);
-            ControlAndInsertFooter(events, DayOfWeek.Friday);
-            ControlAndInsertFooter(events, DayOfWeek.Saturday);
-            ControlAndInsertFooter(events, DayOfWeek.Sunday);
+            InsertFooter(DayOfWeek.Monday);
+            InsertFooter(DayOfWeek.Tuesday);
+            InsertFooter(DayOfWeek.Wednesday);
+            InsertFooter(DayOfWeek.Thursday);
+            InsertFooter(DayOfWeek.Friday);
+            InsertFooter(DayOfWeek.Saturday);
+            InsertFooter(DayOfWeek.Sunday);
         }
 
-        private void ControlAndInsertFooter(IEnumerable<DateTime> events, DayOfWeek expectedDay)
+        private void InsertFooter(DayOfWeek expectedDay)
         {
-            // The expected day contains in the week for that month.
-            if (events.Any(d => d.DayOfWeek == expectedDay))
+            // The day of the week don't exist in the month. Insert an empty day in the caledar.
+            // For instance: If the first day of February is on a tuesday. The monday belongs to January. 
+            if (!Dates.Any(d => d.DayOfWeek == expectedDay))
             {
-                var date = events.First(d => d.DayOfWeek == expectedDay);
-                DayWithEvent(date);
+                EmptyDay();
                 return;
             }
 
-            // Insert any holiday or nothing in the day's footer.
-            if (Dates.Any(d => d.DayOfWeek == expectedDay))
+            var dateOfWeek = Dates.First(d => d.DayOfWeek == expectedDay);  // The date of the week for this day of the week.
+
+            /* Notice the priority order of information for a date:
+                1) Holidays.
+                2) Birthday celebrators.
+                3) Events.
+                4) Empty day.
+             
+             Please change the order if necessary.
+             Keep the empty day at the lowest when there are no information for a date.
+            */
+
+            // Check if the date is a holiday.
+            if (DateSystem.IsPublicHoliday(dateOfWeek, CountryCode.SE))
             {
-                var date = Dates.First(d => d.DayOfWeek == expectedDay);
-                DayWithHoliday(date);
+                DayWithHoliday(dateOfWeek);
             }
-            // The expected day don't exist in the week for that month.
-            // Insert an "empty" day in the week.
+            // Check if the date has a birthday.
+            else if (Data.Birthdays.Any(d => BirthDayOnThisDay(dateOfWeek, d.Birthday)))
+            {
+                DayWithBirthDay(dateOfWeek);
+            }
+            // Check if the date has events.
+            else if (Data.Events.Any(d => d.Date == dateOfWeek))
+            {
+                DayWithEvent(dateOfWeek);
+            }
+            // Nothing special for the date.
             else
             {
                 EmptyDay();
             }
         }
 
+        private bool BirthDayOnThisDay(DateTime today, DateTime birthday)
+        {
+            return today.Month == birthday.Month && today.Day == birthday.Day;
+        }
+
+        private void DayWithBirthDay(DateTime dateOfWeek)
+        {
+            // This will select the first celebrator of a particular date and put the celebrator in the cell odf the date.
+            // The rest celebrator (of any) are ignored.
+            // The selelced celebrator will have its new age calculated.
+            // The selected celebrator will be dsplayed with name and age.
+            // It's possible to add more celebrators in a cell:
+            //  * Calculate the cell's height by number of celebrators times the cell's footer height.
+            //  * Use the string.Join() method to join all events, use Environment.NewLine as separator.
+            //  * Assign the new string, from the string.Join() method, as the text to the cell.
+            //  * Please mind the width of the celebrator with most characters. Use the AdjustFontSize() method.
+
+            var celebrators = Data.Birthdays.Where(i => BirthDayOnThisDay(dateOfWeek, i.Birthday));
+            var names = ReadableBirthdays(celebrators);
+            var content = names.First();
+            var size = AdjustFontSize(content);
+            AddCellToTable(content, BaseColor.BLACK, size, CellFooterHeight);
+        }
+
+        private IEnumerable<string> ReadableBirthdays(IEnumerable<(DateTime Birthday, string Name)> celebrators)
+        {
+            var list = new List<string>();
+            foreach (var item in celebrators)
+            {
+                var age = Year - item.Birthday.Year;
+                var line = $"{item.Name} {age}år";
+                list.Add(line);
+            }
+            return list;
+        }
+
         private void DayWithEvent(DateTime date)
         {
-            // This will select the first date event for a particular date and put the event in the date's cell.
-            // The rest events for the date are ignored.
+            // This will select the first event for a particular date and put the event in the cell of the date.
+            // The rest events (if any) date are ignored.
             // It's possible to add more events in a cell:
-            //  * Calculate the cell's height by number of events to display x the cell's footer height.
+            //  * Calculate the cell's height by number of events times the cell's footer height.
             //  * Use the string.Join() method to join all events, use Environment.NewLine as separator.
-            //  * Assign the new string, from the string.Join() method, as the text for the cell.
-            //  * Please mind the width of the event with most characters.
+            //  * Assign the new string, from the string.Join() method, as the text to the cell.
+            //  * Please mind the width of the event with most characters. Use the AdjustFontSize() method.
 
-            var events = Data.DateEvents.Where(d => d.Date == date).Select(e => e.Event);
+            var events = Data.Events.Where(d => d.Date == date).Select(e => e.Event);
             var content = events.First();
             var size = AdjustFontSize(content);
             AddCellToTable(content, BaseColor.BLACK, size, CellFooterHeight);

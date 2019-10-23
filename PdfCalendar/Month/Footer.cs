@@ -38,7 +38,7 @@ namespace PdfCalendar.Month
             // Get which events has not been placed in the calendar wtih their respective dates.
             // If a date contains two or more events, the first event is already displayed in the calendar.
             // Exclude the first event for each date.
-            var remaining = Data.DateEvents
+            var remaining = Data.Events
                 .Where(i => i.Date.Month == Month)                                  // Select only dates and evcents for this month.
                 .GroupBy(g => g.Date).Select(g => g.Skip(1)).SelectMany(i => i);    // Group all dates and events in date groups. Skip the first entry of each month.
             return remaining;

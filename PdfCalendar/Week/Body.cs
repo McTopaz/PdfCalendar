@@ -57,9 +57,9 @@ namespace PdfCalendar.Week
 
         private IPdfPCellEvent CellImage(DateTime date)
         {
-            if (!Data.DateImages.Any(d => d.Date == date)) return new NoCellEvent();
+            if (!Data.Images.Any(d => d.Date == date)) return new NoCellEvent();
 
-            var tmp = Data.DateImages.Where(d => d.Date == date).First();
+            var tmp = Data.Images.Where(d => d.Date == date).First();
             var file = new FileInfo(tmp.FilePath);
             var width = tmp.Width;
             var height = tmp.Height;

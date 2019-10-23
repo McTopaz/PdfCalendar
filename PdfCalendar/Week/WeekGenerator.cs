@@ -20,11 +20,15 @@ namespace PdfCalendar.Week
         /// </summary>
         internal PdfPTable Table { get; set; }
         /// <summary>
-        /// Week number.
+        /// The week number.
         /// </summary>
         internal int Number { get; set; }
         /// <summary>
-        /// Dates in week.
+        /// The calendar's year.
+        /// </summary>
+        internal int Year { get; set; }
+        /// <summary>
+        /// Dates in the week.
         /// </summary>
         internal IEnumerable<DateTime> Dates;
 

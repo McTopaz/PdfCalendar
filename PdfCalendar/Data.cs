@@ -8,15 +8,16 @@ namespace PdfCalendar
 {
     public class Data
     {
-        public IEnumerable<(DateTime Date, string Event)> DateEvents { get; set; }
-        public IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> DateImages { get; set; }
+        public IEnumerable<(DateTime Birthday, string Name)> Birthdays { get; set; }
+        public IEnumerable<(DateTime Date, string Event)> Events { get; set; }
+        public IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> Images { get; set; }
         public IEnumerable<(DateTime Date, Riddle Riddle)> Riddles { get; set; }
         public IEnumerable<(DateTime Date, string Citation)> Citations { get; set; }
 
         public Data()
         {
-            DateEvents = new List<(DateTime Date, string Event)>();
-            DateImages = new List<(DateTime Date, string FilePath, float Width, float Height)>();
+            Events = new List<(DateTime Date, string Event)>();
+            Images = new List<(DateTime Date, string FilePath, float Width, float Height)>();
             Riddles = new List<(DateTime Date, Riddle Riddle)>();
             Citations = new List<(DateTime Date, string Citation)>();
         }
