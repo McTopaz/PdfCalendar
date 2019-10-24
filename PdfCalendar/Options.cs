@@ -10,6 +10,8 @@ namespace PdfCalendar
     {
         public bool TitlePage { get; set; }
         public bool PreviousDecember { get; set; }
+        public bool HolidayImages { get; set; }
+        public bool TeamDayImages { get; set; }
 
         public Options()
         {

@@ -23,9 +23,10 @@
         <!-- Horizontal container -->
         <StackPanel Orientation="Horizontal" Margin="12">
             
-            <!-- Left vertical container -->
+            <!-- First vertical container -->
             <StackPanel Orientation="Vertical" Margin="0,0,6,0">
 
+                <!-- Title page -->
                 <CheckBox IsChecked="{Binding Options.TitlePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <CheckBox.Content>
                         <StackPanel Orientation="Horizontal">
@@ -35,6 +36,7 @@
                     </CheckBox.Content>
                 </CheckBox>
 
+                <!-- Previous december -->
                 <CheckBox IsChecked="{Binding Options.PreviousDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <CheckBox.Content>
                         <StackPanel Orientation="Horizontal">
@@ -45,8 +47,33 @@
                 </CheckBox>
             </StackPanel>
             
-            <!-- Right vertical container -->
-            <StackPanel Orientation="Vertical" Margin="6,0,0,0">
+            <!-- Second vertical container -->
+            <StackPanel Orientation="Vertical" Margin="6,0,6,0">
+
+                <!-- Holiday images -->
+                <CheckBox IsChecked="{Binding Options.HolidayImages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
+                            <Label Content="Include holiday images" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+
+                <!-- Team day images -->
+                <CheckBox IsChecked="{Binding Options.TeamDayImages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
+                            <Label Content="Include team day images" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+
+            </StackPanel>
+            
+            <!-- Third vertical container -->
+            <StackPanel Orientation="Vertical" Margin="6,0,6,0">
                 
             </StackPanel>
             
