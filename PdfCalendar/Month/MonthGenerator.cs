@@ -11,12 +11,30 @@ namespace PdfCalendar.Month
 {
     partial class MonthGenerator : Generator
     {
+        /// <summary>
+        /// All data for the calendar.
+        /// </summary>
         internal Data Data { get; set; }
+        /// <summary>
+        /// The PDF-container of the month.
+        /// </summary>
         internal PdfPTable Container { get; set; }
+        /// <summary>
+        /// The name of the month.
+        /// </summary>
         internal string Name { get; set; }
+        /// <summary>
+        /// The calendar's year.
+        /// </summary>
         internal int Year { get; set; }
+        /// <summary>
+        /// The month's number.
+        /// </summary>
         internal int Month { get; set; }
 
+        /// <summary>
+        /// Width of the table representing the month in the PDF.
+        /// </summary>
         const float Width = 800;
 
         public MonthGenerator()
