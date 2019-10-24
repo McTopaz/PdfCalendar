@@ -17,7 +17,7 @@
         <Expander.Header>
             <StackPanel Orientation="Horizontal">
                 <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
-                <Label Content="Date and images" />
+                <Label Content="Images" />
             </StackPanel>
         </Expander.Header>
 
