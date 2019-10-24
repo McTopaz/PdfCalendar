@@ -67,7 +67,9 @@
     <Compile Include="Week\WeekGenerator.cs" />
     <Compile Include="Week\Header.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
