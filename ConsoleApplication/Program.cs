@@ -38,6 +38,7 @@ namespace ConsoleApplication
                 (new DateTime(1987, 1, 4), "Uffe"),
                 (new DateTime(1957, 1, 24), "Nisse"),
                 (new DateTime(1957, 1, 24), "Nasse"),
+                (new DateTime(1958, 1, 24), "Bosse"),
                 (new DateTime(2019, 1, 1), "Foo")
             };
             return list;
