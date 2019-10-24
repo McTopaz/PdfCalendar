@@ -17,6 +17,7 @@
     <Expander Margin="0,0,0,12">
         <Expander.Header>
             <StackPanel Orientation="Horizontal">
+                <Image Source="/GenerateCalendar;component/Images/Text.png" Height="16" />
                 <Label Content="Citations" />
             </StackPanel>
         </Expander.Header>

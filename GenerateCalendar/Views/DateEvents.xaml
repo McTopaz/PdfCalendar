@@ -15,6 +15,7 @@
     <Expander Margin="0,0,0,12">
         <Expander.Header>
             <StackPanel Orientation="Horizontal">
+                <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
                 <Label Content="Date and events" />
             </StackPanel>
         </Expander.Header>
@@ -37,7 +38,7 @@
                     <DataGridTextColumn Binding="{Binding Event, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
                         <DataGridTextColumn.Header>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/Event.png" Height="16" />
+                                <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
                                 <Label Content="Event" />
                             </StackPanel>
                         </DataGridTextColumn.Header>

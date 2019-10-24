@@ -14,7 +14,10 @@
     
     <Expander Margin="0,0,0,12">
         <Expander.Header>
-            <Label Content="Options" />
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/GenerateCalendar;component/Images/Wrench.png" Height="16" />
+                <Label Content="Options" />
+            </StackPanel>
         </Expander.Header>
 
         <!-- Horizontal container -->
