@@ -21,45 +21,57 @@
             </StackPanel>
         </Expander.Header>
 
-        <DataGrid ItemsSource="{Binding Riddles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250">
+        <DockPanel LastChildFill="True">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
-            <DataGrid.Resources>
-                <ObjectDataProvider x:Key="MonthValues" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
-                    <ObjectDataProvider.MethodParameters>
-                        <x:Type TypeName="Misc:Months"/>
-                    </ObjectDataProvider.MethodParameters>
-                </ObjectDataProvider>
-                <Misc:MonthConverter x:Key="MonthToIntConverter" />
-            </DataGrid.Resources>
+                <!-- Add new row -->
+                <Button Command="{Binding AddRow}" Width="40" Margin="6" ToolTip="Add row">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
 
-            <DataGrid.Columns>
+            <DataGrid ItemsSource="{Binding Riddles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250" DockPanel.Dock="Bottom">
 
-                <!-- Question -->
-                <DataGridTextColumn Binding="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
-                    <DataGridTextColumn.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/GenerateCalendar;component/Images/Question.png" Height="16" />
-                            <Label Content="Question" />
-                        </StackPanel>
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
+                <DataGrid.Resources>
+                    <ObjectDataProvider x:Key="MonthValues" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                        <ObjectDataProvider.MethodParameters>
+                            <x:Type TypeName="Misc:Months"/>
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
+                    <Misc:MonthConverter x:Key="MonthToIntConverter" />
+                </DataGrid.Resources>
 
-                <!-- Month -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/GenerateCalendar;component/Images/Month.png" Height="16" />
-                            <Label Content="Month" />
-                        </StackPanel>
-                    </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <ComboBox ItemsSource="{Binding Source={StaticResource MonthValues}}" SelectedItem="{Binding Month, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MonthToIntConverter}}" IsReadOnly="True" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGrid.Columns>
 
-            </DataGrid.Columns>
-        </DataGrid>
+                    <!-- Question -->
+                    <DataGridTextColumn Binding="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
+                        <DataGridTextColumn.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/GenerateCalendar;component/Images/Question.png" Height="16" />
+                                <Label Content="Question" />
+                            </StackPanel>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <!-- Month -->
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/GenerateCalendar;component/Images/Month.png" Height="16" />
+                                <Label Content="Month" />
+                            </StackPanel>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding Source={StaticResource MonthValues}}" SelectedItem="{Binding Month, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MonthToIntConverter}}" IsReadOnly="True" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
     </Expander>
 </UserControl>

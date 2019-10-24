@@ -19,37 +19,46 @@
             </StackPanel>
         </Expander.Header>
 
-        <DataGrid ItemsSource="{Binding DateEvents, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250">
-            <DataGrid.Columns>
+        <DockPanel LastChildFill="True">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
-                <!-- Event -->
-                <DataGridTextColumn Binding="{Binding Event, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
-                    <DataGridTextColumn.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/GenerateCalendar;component/Images/Event.png" Height="16" />
-                            <Label Content="Event" />
-                        </StackPanel>
-                    </DataGridTextColumn.Header>
-                </DataGridTextColumn>
+                <!-- Add new row -->
+                <Button Command="{Binding AddRow}" Width="40" Margin="6" ToolTip="Add row">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
 
-                <!-- Date -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
-                            <Label Content="Date" />
-                        </StackPanel>
-                    </DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+            <DataGrid ItemsSource="{Binding DateEvents, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250" DockPanel.Dock="Bottom">
+                <DataGrid.Columns>
 
-                
-            </DataGrid.Columns>
-        </DataGrid>
-        
+                    <!-- Event -->
+                    <DataGridTextColumn Binding="{Binding Event, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
+                        <DataGridTextColumn.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/GenerateCalendar;component/Images/Event.png" Height="16" />
+                                <Label Content="Event" />
+                            </StackPanel>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <!-- Date -->
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
+                                <Label Content="Date" />
+                            </StackPanel>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
     </Expander>
 </UserControl>
