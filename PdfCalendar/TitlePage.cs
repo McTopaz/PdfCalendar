@@ -26,7 +26,7 @@ namespace PdfCalendar
         {
             Year = year;
             Setup();
-            Foo();
+            Create();
         }
 
         private void Setup()
@@ -36,7 +36,7 @@ namespace PdfCalendar
             LockedWidth = true;
         }
 
-        private void Foo()
+        private void Create()
         {
             // White spaces before the title.
             for(int i = 0; i < 15; i++)
