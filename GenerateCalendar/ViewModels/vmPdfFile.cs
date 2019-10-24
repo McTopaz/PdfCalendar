@@ -22,10 +22,6 @@ namespace GenerateCalendar.ViewModels
         public vmPdfFile()
         {
             SelectFileLocation = new RelayCommand();
-        }
-
-        public void Callbacks()
-        {
             SelectFileLocation.Callback += SelectFileLocationCallback;
         }
 
