@@ -16,6 +16,7 @@ namespace PdfCalendar
 
         public Data()
         {
+            Birthdays = new List<(DateTime BirthDay, string Name)>();
             Events = new List<(DateTime Date, string Event)>();
             Images = new List<(DateTime Date, string FilePath, float Width, float Height)>();
             Riddles = new List<(DateTime Date, Riddle Riddle)>();
