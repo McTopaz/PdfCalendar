@@ -49,7 +49,7 @@
                         <DataGridTemplateColumn.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
-                                <Label Content="Date" />
+                                <Label Content="Birthday" />
                             </StackPanel>
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
