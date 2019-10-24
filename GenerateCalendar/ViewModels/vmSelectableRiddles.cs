@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using PropertyChanged;
 using GenerateCalendar.Data;
+using GenerateCalendar.Misc;
 
 namespace GenerateCalendar.ViewModels
 {
@@ -14,10 +15,20 @@ namespace GenerateCalendar.ViewModels
     class vmSelectableRiddles
     {
         public ObservableCollection<MonthTextChoices> Riddles { get; set; }
+        public RelayCommand AddRow { get; private set; }
 
         public vmSelectableRiddles()
         {
             Riddles = new ObservableCollection<MonthTextChoices>();
+            AddRow = new RelayCommand();
+            AddRow.Callback += InsertRow;
+        }
+
+        private void InsertRow()
+        {
+            var item = new MonthTextChoices();
+            Riddles = Riddles == null ? new ObservableCollection<MonthTextChoices>() : Riddles;
+            Riddles.Add(item);
         }
     }
 }

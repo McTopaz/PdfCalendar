@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using PropertyChanged;
 using GenerateCalendar.Data;
+using GenerateCalendar.Misc;
 
 namespace GenerateCalendar.ViewModels
 {
@@ -14,10 +15,20 @@ namespace GenerateCalendar.ViewModels
     class vmDateEvents
     {
         public ObservableCollection<DateEvent> DateEvents { get; set; }
+        public RelayCommand AddRow { get; private set; }
 
         public vmDateEvents()
         {
             DateEvents = new ObservableCollection<DateEvent>();
+            AddRow = new RelayCommand();
+            AddRow.Callback += InsertRow;
+        }
+
+        private void InsertRow()
+        {
+            var item = new DateEvent();
+            DateEvents = DateEvents == null ? new ObservableCollection<DateEvent>() : DateEvents;
+            DateEvents.Add(item);
         }
 
         public void Callbacks()
