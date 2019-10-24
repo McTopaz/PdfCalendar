@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Nager.Date;
 
 namespace PdfCalendar.Month
 {
@@ -27,21 +28,80 @@ namespace PdfCalendar.Month
 
         private PdfPTable TableSection()
         {
-            var list = RemainingList();
+            var list = RemainingInfo();
             var table = FooterTable();
             Populate(table, list);
             return table;
         }
 
-        private IEnumerable<(DateTime Date, string Event)> RemainingList()
+        private IEnumerable<(DateTime Date, string Info)> RemainingInfo()
         {
-            // Get which events has not been placed in the calendar wtih their respective dates.
-            // If a date contains two or more events, the first event is already displayed in the calendar.
-            // Exclude the first event for each date.
-            var remaining = Data.Events
-                .Where(i => i.Date.Month == Month)                                  // Select only dates and evcents for this month.
-                .GroupBy(g => g.Date).Select(g => g.Skip(1)).SelectMany(i => i);    // Group all dates and events in date groups. Skip the first entry of each month.
-            return remaining;
+            var infos = new List<(DateTime Date, string Info)>();
+            var bs = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
+            var es = Data.Events.Select(e => e.Date);
+            var dates = bs.Concat(es).Distinct().Where(d => d.Month == Month).OrderBy(d => d);
+
+            foreach (var date in dates)
+            {
+                if (DateSystem.IsPublicHoliday(date, CountryCode.SE))
+                {
+                    var list = RemainingOnHoliday(date);
+                    infos.AddRange(list);
+                }
+                else if (Data.Birthdays.Any(b => HasBirthday(b.Birthday, date)))
+                {
+                    var list = RemainingOnBirthday(date);
+                    infos.AddRange(list);
+                }
+                else if (Data.Events.Any(e => e.Date == date))
+                {
+                    var list = RemainingEvents(date);
+                    infos.AddRange(list);
+                }
+            }
+            return infos;
+        }
+
+        private DateTime BirthdayInThisYear(int year, DateTime birthday)
+        {
+            return new DateTime(year, birthday.Month, birthday.Day);
+        }
+
+        private bool HasBirthday(DateTime birthday, DateTime date)
+        {
+            return birthday.Month == date.Month && birthday.Day == date.Day;
+        }
+
+        private IEnumerable<(DateTime Date, string Info)> RemainingOnHoliday(DateTime date)
+        {
+            var bs = Data.Birthdays
+                .Where(b => HasBirthday(b.Birthday, date))
+                .Select(b => AsReadableBirthday(b));
+            var es = Data.Events.Where(e => e.Date == date);
+            return bs.Concat(es);
+        }
+
+        private IEnumerable<(DateTime Date, string Info)> RemainingOnBirthday(DateTime date)
+        {
+            var bs = Data.Birthdays
+                .Where(b => HasBirthday(b.Birthday, date))
+                .Select(b => AsReadableBirthday(b))
+                .Skip(1);
+            var es = Data.Events.Where(e => e.Date == date);
+            return bs.Concat(es);
+        }
+
+        private IEnumerable<(DateTime Date, string Info)> RemainingEvents(DateTime date)
+        {
+            var es = Data.Events.Where(e => e.Date == date).Skip(1);
+            return es;
+        }
+
+        private (DateTime Birthday, string Name) AsReadableBirthday((DateTime Birthday, string Name) celebrator)
+        {
+            var age = Year - celebrator.Birthday.Year;
+            var line = $"{celebrator.Name} {age}år";
+            return (celebrator.Birthday, line);
         }
 
         private PdfPTable FooterTable()
