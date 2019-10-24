@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GenerateCalendar"
         xmlns:views="clr-namespace:GenerateCalendar.Views"
         mc:Ignorable="d"
-        Title="Generate calendar" Height="850" Width="1000">
+        Title="Generate calendar" Height="850" Width="1000" Icon="Calendar.ico">
     
     <DockPanel LastChildFill="True">
         
