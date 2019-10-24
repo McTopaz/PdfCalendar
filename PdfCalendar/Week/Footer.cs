@@ -41,6 +41,7 @@ namespace PdfCalendar.Week
                 4) Empty day.
              
              Please change the order if necessary.
+             Make sure to have the same order as the Month.MonthGenerator.RemainingInfo() method.
              Keep the empty day at the lowest when there are no information for a date.
             */
 

@@ -36,6 +36,16 @@ namespace PdfCalendar.Month
 
         private IEnumerable<(DateTime Date, string Info)> RemainingInfo()
         {
+            /* 
+             Notice the priority order of information for a date:
+                1) Holidays.
+                2) Birthday celebrators.
+                3) Events.
+             
+             Please change the order if necessary.
+             Make sure to have the same order as the Week.WeekGenerator.InsertFooter() method.
+            */
+
             var infos = new List<(DateTime Date, string Info)>();
             var bs = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
             var es = Data.Events.Select(e => e.Date);
