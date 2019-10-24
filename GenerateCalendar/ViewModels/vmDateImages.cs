@@ -33,18 +33,7 @@ namespace GenerateCalendar.ViewModels
 
         public void Callbacks()
         {
-            vms.vmYear.Changed.Callback += Changed_cb;
-        }
-
-        private void Changed_cb()
-        {
-            var year = vms.vmYear.SelectedYear.Year;
-            foreach (var item in vms.vmDateImages.DateImages)
-            {
-                var month = item.Date.Month;
-                var day = item.Date.Day;
-                item.Date = new DateTime(year, month, day);
-            }
+            vms.vmYear.Changed.Callback += YearChanged;
         }
 
         private void YearChanged()
