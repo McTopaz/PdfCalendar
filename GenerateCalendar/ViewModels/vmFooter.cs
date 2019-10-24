@@ -57,6 +57,9 @@ namespace GenerateCalendar.ViewModels
             try
             {
                 calendarhandler.CreateCalendar();
+                var msg = $"Calendar created";
+                var title = $"Generating calendar.";
+                MessageBox.Show(msg, title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
