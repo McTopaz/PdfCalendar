@@ -18,18 +18,20 @@ namespace GenerateCalendar.Misc
 
             // Summarize all data for the calendar.
             var year = vms.vmYear.SelectedYear;
-            var pdfFile = vms.vmPdfFile.FilePath;
-            var dateEvents = vms.vmDateEvents.DateEvents.Select(d => (d.Date, d.Event));
-            var dateImages = vms.vmDateImages.DateImages.Select(d => (Date: d.Date, FilePath: d.FilePath.FullName, Width: (float)d.Width, Height: (float)d.Height));
+            var file = vms.vmPdfFile.FilePath;
+            var birthdays = vms.vmBirthdays.Birthdays.Select(d => (d.BirthDay, d.Name));
+            var events = vms.vmDateEvents.DateEvents.Select(d => (d.Date, d.Event));
+            var images = vms.vmDateImages.DateImages.Select(d => (Date: d.Date, FilePath: d.FilePath.FullName, Width: (float)d.Width, Height: (float)d.Height));
             var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text)));
             var selectable = vms.vmSelectableRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.ChoiceA, r.ChoiceB, r.ChoiceC)));
             var citations = vms.vmCitations.Citations.Select(c => (MakeDate(year.Year, c.Month), c.Text));
 
             // Create the calendar and specify options and data.
-            calendar = new Calendar(pdfFile, vms.vmYear.SelectedYear);
+            calendar = new Calendar(file, vms.vmYear.SelectedYear);
             calendar.Options = options;
-            calendar.Data.Events = dateEvents;
-            calendar.Data.Images = dateImages;
+            calendar.Data.Birthdays = birthdays;
+            calendar.Data.Events = events;
+            calendar.Data.Images = images;
             calendar.Data.Riddles = riddles.Concat(selectable);
             calendar.Data.Citations = citations;
             calendar.Create();
