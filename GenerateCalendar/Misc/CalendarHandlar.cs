@@ -28,8 +28,8 @@ namespace GenerateCalendar.Misc
             // Create the calendar and specify options and data.
             calendar = new Calendar(pdfFile, vms.vmYear.SelectedYear);
             calendar.Options = options;
-            calendar.Data.DateEvents = dateEvents;
-            calendar.Data.DateImages = dateImages;
+            calendar.Data.Events = dateEvents;
+            calendar.Data.Images = dateImages;
             calendar.Data.Riddles = riddles.Concat(selectable);
             calendar.Data.Citations = citations;
             calendar.Create();
