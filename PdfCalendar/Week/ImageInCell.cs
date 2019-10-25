@@ -18,6 +18,12 @@ namespace PdfCalendar.Week
         {
         }
 
+        public ImageInCellEvent(byte[] bytes, float width, float height)
+        {
+            Image = Image.GetInstance(bytes);
+            Image.ScaleAbsolute(width, height);
+        }
+
         public ImageInCellEvent(FileInfo file, float width, float height)
         {
             Image = Image.GetInstance(file.FullName);

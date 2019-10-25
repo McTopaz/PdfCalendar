@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,11 @@
     <Compile Include="Data.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="FontHandler.cs" />
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
     <Compile Include="Month\Body.cs" />
     <Compile Include="Month\Footer.cs" />
     <Compile Include="Month\Header.cs" />
@@ -60,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Riddle.cs" />
     <Compile Include="SelectableRiddle.cs" />
+    <Compile Include="SpecificImages.cs" />
     <Compile Include="TitlePage.cs" />
     <Compile Include="Week\Body.cs" />
     <Compile Include="Week\Footer.cs" />
@@ -67,11 +74,29 @@
     <Compile Include="Week\WeekGenerator.cs" />
     <Compile Include="Week\Header.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Chocolate.png" />
+    <Content Include="Images\ChristmasTree.png" />
+    <Content Include="Images\CinnamonBun.png" />
+    <Content Include="Images\EasterEgg.png" />
+    <Content Include="Images\Heart.png" />
+    <None Include="Images\Woman.png" />
+    <None Include="Images\Man.png" />
+    <None Include="Images\MidsommerPole.png" />
+    <None Include="Images\Kladdkaka.png" />
+    <Content Include="Images\NewYear.png" />
+    <None Include="Images\Nobel.png" />
+    <Content Include="Images\SwedishFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -57,8 +57,25 @@ namespace PdfCalendar.Week
 
         private IPdfPCellEvent CellImage(DateTime date)
         {
-            if (!Data.Images.Any(d => d.Date == date)) return new NoCellEvent();
+            IPdfPCellEvent image = new NoCellEvent();
 
+            // Insert user specific image for date.
+            if (Data.Images.Any(d => d.Date == date))
+            {
+                image = UserSpecificImage(date);
+            }
+
+            // Holiday specific image for date.
+
+            // Team day specific image for date.
+
+            // No image.
+
+            return image;
+        }
+
+        private ImageInCellEvent UserSpecificImage(DateTime date)
+        {
             var tmp = Data.Images.Where(d => d.Date == date).First();
             var file = new FileInfo(tmp.FilePath);
             var width = tmp.Width;
@@ -66,6 +83,8 @@ namespace PdfCalendar.Week
             var cellEvent = new ImageInCellEvent(file, width, height);
             return cellEvent;
         }
+
+        
 
         private void NoneDateInMonth()
         {
