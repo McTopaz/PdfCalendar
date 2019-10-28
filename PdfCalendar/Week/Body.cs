@@ -68,12 +68,14 @@ namespace PdfCalendar.Week
             // Insert holiday images for date.
             else if (Data.HolidayEvents.Any(d => d.Date == date))
             {
-                image = EventSpecificImage(Data.HolidayEvents.First(d => d.Date == date).Image);
+                var tmp = Data.HolidayEvents.First(d => d.Date == date);
+                image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
             }
             // Insert team day images for date.
             else if (Data.TeamDayEvents.Any(d => d.Date == date))
             {
-                image = EventSpecificImage(Data.TeamDayEvents.First(d => d.Date == date).Image);
+                var tmp = Data.TeamDayEvents.First(d => d.Date == date);
+                image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
             }
 
             return image;
@@ -87,11 +89,11 @@ namespace PdfCalendar.Week
             return cellEvent;
         }
 
-        private ImageInCellEvent EventSpecificImage(Bitmap image)
+        private ImageInCellEvent EventSpecificImage(Bitmap image, float width, float height)
         {
             var converter = new ImageConverter();
             var bytes = converter.ConvertTo(image, typeof(byte[])) as byte[];
-            var cellEvent = new ImageInCellEvent(bytes, image.Width, image.Height);
+            var cellEvent = new ImageInCellEvent(bytes, width, height);
             return cellEvent;
         }
 
