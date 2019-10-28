@@ -77,16 +77,27 @@ namespace PdfCalendar
             var chocolate = new DateTime(Year, 11, 11);
             var nobel = new DateTime(Year, 12, 10);
 
+            var mothersDay = CalculateMothersDay();
             var fathersDay = CalculateFathersDay();
 
             var list = new List<(DateTime, Bitmap, string)>();
             list.Add((heart, Images.Heart, "Alla hjärtans dag"));
+            list.Add(mothersDay);
             list.Add((cinnamonBun, Images.CinnamonBun, "Kanelbullens dag"));
             list.Add(fathersDay);
             list.Add((kladdkaka, Images.Kladdkaka, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, "Chokladens dag"));
             list.Add((nobel, Images.Nobel, "Nobeldagen"));
             TeamDayImages = list;
+        }
+
+        private (DateTime Date, Bitmap Image, string Text) CalculateMothersDay()
+        {
+            var may = 5;
+            var sunday = Enumerable.Range(1, DateTime.DaysInMonth(Year, may))
+                .Select(d => new DateTime(Year, may, d))
+                .Last(d => d.DayOfWeek == DayOfWeek.Sunday);
+            return (sunday, Images.Woman, "Mors dag");
         }
 
         private (DateTime Date, Bitmap Image, string Text) CalculateFathersDay()
