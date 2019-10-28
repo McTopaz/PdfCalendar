@@ -31,6 +31,7 @@ namespace PdfCalendar
         {
             var easter = Holidays.First(h => h.LocalName == "Påskdagen").Date.AddDays(-1);
             var national = new DateTime(Year, 6, 6);
+            var pentecostEve = Holidays.First(h => h.LocalName == "Pingstdagen").Date.AddDays(-1);
             var midsommer = Holidays.First(h => h.LocalName == "Midsommarafton").Date;
             var christmas = new DateTime(Year, 12, 24);
             var newYear = new DateTime(Year, 12, 31);
@@ -40,6 +41,7 @@ namespace PdfCalendar
             var list = new List<(DateTime, Bitmap, string)>();
             list.Add((easter, Images.EasterEgg, "Påskafton"));
             list.Add((national, Images.SwedishFlag, "Svenska nationaldagen"));
+            list.Add((pentecostEve, Images.NarcissusPoeticus, "Pingstafton"));
             list.Add((midsommer, Images.MidsommerPole, "Midsommarafton"));
             list.AddRange(advent);
             list.Add((christmas, Images.ChristmasTree, "Julafton"));
