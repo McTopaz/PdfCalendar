@@ -13,6 +13,7 @@ namespace GenerateCalendar.Data
     {
         public string Name { get; set; }
         public DateTime BirthDay { get; set; }
+        public bool Dead { get; set; }
 
         public Birthday()
         {

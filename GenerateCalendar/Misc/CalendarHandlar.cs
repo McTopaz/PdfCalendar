@@ -19,7 +19,7 @@ namespace GenerateCalendar.Misc
             // Summarize all data for the calendar.
             var year = vms.vmYear.SelectedYear;
             var file = vms.vmPdfFile.FilePath;
-            var birthdays = vms.vmBirthdays.Birthdays.Select(d => (d.BirthDay, d.Name));
+            var birthdays = vms.vmBirthdays.Birthdays.Select(d => (d.BirthDay, d.Name, d.Dead));
             var events = vms.vmDateEvents.DateEvents.Select(d => (d.Date, d.Event));
             var images = vms.vmDateImages.DateImages.Select(d => (Date: d.Date, FilePath: d.FilePath.FullName, Width: (float)d.Width, Height: (float)d.Height));
             var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text)));

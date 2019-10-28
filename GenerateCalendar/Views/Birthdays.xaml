@@ -59,6 +59,16 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    
+                    <!-- Dead -->
+                    <DataGridCheckBoxColumn Binding="{Binding Dead}">
+                        <DataGridCheckBoxColumn.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/GenerateCalendar;component/Images/GraveStone.png" Height="16" />
+                                <Label Content="Dead" />
+                            </StackPanel>
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
 
                 </DataGrid.Columns>
             </DataGrid>
