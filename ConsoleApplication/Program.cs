@@ -32,15 +32,17 @@ namespace ConsoleApplication
             calendar.Show();
         }
 
-        static IEnumerable<(DateTime Birthday, string Name)> Birthdays()
+        static IEnumerable<(DateTime Birthday, string Name, bool Dead)> Birthdays()
         {
-            var list = new List<(DateTime, string)>
+            var list = new List<(DateTime, string, bool)>
             {
-                (new DateTime(1987, 1, 4), "Uffe"),
-                (new DateTime(1957, 1, 24), "Nisse"),
-                (new DateTime(1957, 1, 24), "Nasse"),
-                (new DateTime(1958, 1, 24), "Bosse"),
-                (new DateTime(2019, 1, 1), "Foo")
+                (new DateTime(1987, 1, 4), "Uffe", false),
+                (new DateTime(1957, 1, 24), "Nisse", false),
+                (new DateTime(1957, 1, 24), "Nasse", false),
+                (new DateTime(1958, 1, 24), "Bosse", false),
+                (new DateTime(2019, 1, 1), "Foo", false),
+                (new DateTime(1929, 1, 5), "Ada", true),
+                (new DateTime(1939, 1, 5), "Beda", true)
             };
             return list;
         }

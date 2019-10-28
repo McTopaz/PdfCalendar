@@ -107,10 +107,10 @@ namespace PdfCalendar.Month
             return es;
         }
 
-        private (DateTime Birthday, string Name) AsReadableBirthday((DateTime Birthday, string Name) celebrator)
+        private (DateTime Birthday, string Name) AsReadableBirthday((DateTime Birthday, string Name, bool Dead) celebrator)
         {
             var age = Year - celebrator.Birthday.Year;
-            var line = $"{celebrator.Name} {age}år";
+            var line = celebrator.Dead ? $"({celebrator.Name} {age}år)" : $"{celebrator.Name} {age}år";
             return (celebrator.Birthday, line);
         }
 

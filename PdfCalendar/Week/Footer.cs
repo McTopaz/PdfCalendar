@@ -91,13 +91,13 @@ namespace PdfCalendar.Week
             AddCellToTable(content, BaseColor.BLACK, size, CellFooterHeight);
         }
 
-        private IEnumerable<string> ReadableBirthdays(IEnumerable<(DateTime Birthday, string Name)> celebrators)
+        private IEnumerable<string> ReadableBirthdays(IEnumerable<(DateTime Birthday, string Name, bool Dead)> celebrators)
         {
             var list = new List<string>();
-            foreach (var item in celebrators)
+            foreach (var celebrator in celebrators)
             {
-                var age = Year - item.Birthday.Year;
-                var line = $"{item.Name} {age}år";
+                var age = Year - celebrator.Birthday.Year;
+                var line = celebrator.Dead ? $"({celebrator.Name} {age}år)" : $"{celebrator.Name} {age}år";
                 list.Add(line);
             }
             return list;
