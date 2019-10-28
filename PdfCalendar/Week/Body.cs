@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -33,7 +34,7 @@ namespace PdfCalendar.Week
             if (Dates.Any(d => d.DayOfWeek == expectedDay))
             {
                 var date = Dates.First(d => d.DayOfWeek == expectedDay);
-                DateInMonth(date);
+                DateInWeek(date);
             }
             // The expected day don't exist in the week for that month.
             // Insert an "empty" day in the week.
@@ -43,7 +44,7 @@ namespace PdfCalendar.Week
             }
         }
 
-        private void DateInMonth(DateTime date)
+        private void DateInWeek(DateTime date)
         {
             var dayOfMonth = date.Day;
             var isSunday = date.DayOfWeek == DayOfWeek.Sunday;
@@ -57,34 +58,42 @@ namespace PdfCalendar.Week
 
         private IPdfPCellEvent CellImage(DateTime date)
         {
-            IPdfPCellEvent image = new NoCellEvent();
+            IPdfPCellEvent image = new NoCellEvent();   // No image as default.
 
             // Insert user specific image for date.
             if (Data.Images.Any(d => d.Date == date))
             {
                 image = UserSpecificImage(date);
             }
-
-            // Holiday specific image for date.
-
-            // Team day specific image for date.
-
-            // No image.
+            // Insert holiday images for date.
+            else if (Data.HolidayEvents.Any(d => d.Date == date))
+            {
+                image = EventSpecificImage(Data.HolidayEvents.First(d => d.Date == date).Image);
+            }
+            // Insert team day images for date.
+            else if (Data.TeamDayEvents.Any(d => d.Date == date))
+            {
+                image = EventSpecificImage(Data.TeamDayEvents.First(d => d.Date == date).Image);
+            }
 
             return image;
         }
 
         private ImageInCellEvent UserSpecificImage(DateTime date)
         {
-            var tmp = Data.Images.Where(d => d.Date == date).First();
+            var tmp = Data.Images.First(d => d.Date == date);
             var file = new FileInfo(tmp.FilePath);
-            var width = tmp.Width;
-            var height = tmp.Height;
-            var cellEvent = new ImageInCellEvent(file, width, height);
+            var cellEvent = new ImageInCellEvent(file, tmp.Width, tmp.Height);
             return cellEvent;
         }
 
-        
+        private ImageInCellEvent EventSpecificImage(Bitmap image)
+        {
+            var converter = new ImageConverter();
+            var bytes = converter.ConvertTo(image, typeof(byte[])) as byte[];
+            var cellEvent = new ImageInCellEvent(bytes, image.Width, image.Height);
+            return cellEvent;
+        }
 
         private void NoneDateInMonth()
         {

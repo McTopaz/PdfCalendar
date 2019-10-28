@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace PdfCalendar
 {
@@ -13,6 +14,8 @@ namespace PdfCalendar
         public IEnumerable<(DateTime Date, string FilePath, float Width, float Height)> Images { get; set; }
         public IEnumerable<(DateTime Date, Riddle Riddle)> Riddles { get; set; }
         public IEnumerable<(DateTime Date, string Citation)> Citations { get; set; }
+        internal IEnumerable<(DateTime Date, Bitmap Image, string Text)> HolidayEvents { get; set; }
+        internal IEnumerable<(DateTime Date, Bitmap Image, string Text)> TeamDayEvents { get; set; }
 
         public Data()
         {

@@ -19,15 +19,15 @@ namespace PdfCalendar
         public DateTime ForYear { get; private set; }
         public Data Data { get; private set; }
         public Options Options { get; set; }
-        internal SpecificEvents SpecificEvents { get; set; }
+        
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
         {
             PdfFile = pdfFile;
             ForYear = new DateTime(forYear.Year, 1, 1);
             Data = new Data();
+            new SpecificEvents(ForYear.Year, Data);
             Options = new Options();
-            SpecificEvents = new SpecificEvents(ForYear.Year);
         }
 
         public void Create()
