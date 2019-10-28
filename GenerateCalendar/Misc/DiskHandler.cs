@@ -48,8 +48,8 @@ namespace GenerateCalendar.Misc
             container.Year = vms.vmYear.SelectedYear;
             container.Options = vms.vmOptions.Options;
             container.Birthdays = vms.vmBirthdays.Birthdays;
-            container.DateEvents = vms.vmDateEvents.DateEvents;
-            container.DateImages = vms.vmDateImages.DateImages.Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
+            container.Events = vms.vmDateEvents.DateEvents;
+            container.Images = vms.vmDateImages.DateImages.Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
             container.Riddles = vms.vmRiddles.Riddles;
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles;
             container.Citations = vms.vmCitations.Citations;
@@ -155,7 +155,7 @@ namespace GenerateCalendar.Misc
             vms.vmYear.SelectedYear = container.Year;
             vms.vmOptions.Options = container.Options;
             vms.vmBirthdays.Birthdays = container.Birthdays;
-            vms.vmDateEvents.DateEvents = container.DateEvents;
+            vms.vmDateEvents.DateEvents = container.Events;
             vms.vmDateImages.DateImages = DateImagesFromFile(container);
             vms.vmRiddles.Riddles = container.Riddles;
             vms.vmSelectableRiddles.Riddles = container.SelectableRiddles;
@@ -166,7 +166,7 @@ namespace GenerateCalendar.Misc
         private ObservableCollection<DateImage> DateImagesFromFile(Container container)
         {
             var list = new ObservableCollection<DateImage>();
-            foreach (var item in container.DateImages)
+            foreach (var item in container.Images)
             {
                 var di = new DateImage()
                 {
