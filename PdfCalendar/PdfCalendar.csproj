@@ -79,6 +79,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\UNFlag.png" />
     <None Include="Images\Chocolate.png" />
     <None Include="Images\Advent1.png" />
     <None Include="Images\Advent2.png" />
