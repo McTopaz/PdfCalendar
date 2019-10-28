@@ -39,13 +39,13 @@ namespace PdfCalendar
             var advent = CalculateAdvent();
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
-            list.Add((easter, Images.EasterEgg, 10, 15, "Påskafton"));
-            list.Add((national, Images.SwedishFlag, 10, 15, "Svenska nationaldagen"));
-            list.Add((pentecostEve, Images.NarcissusPoeticus, 10, 15, "Pingstafton"));
+            list.Add((easter, Images.EasterEgg, 13, 13, "Påskafton"));
+            list.Add((national, Images.SwedishFlag, 15, 10, "Svenska nationaldagen"));
+            list.Add((pentecostEve, Images.NarcissusPoeticus, 10, 12, "Pingstafton"));
             list.Add((midsommer, Images.MidsommerPole, 10, 15, "Midsommarafton"));
             list.AddRange(advent);
             list.Add((christmas, Images.ChristmasTree, 10, 15, "Julafton"));
-            list.Add((newYear, Images.NewYear, 16, 16, "Nyår"));
+            list.Add((newYear, Images.NewYear, 12, 12, "Nyår"));
 
             Data.HolidayEvents = list;
         }
@@ -64,10 +64,10 @@ namespace PdfCalendar
             var advent3 = advent4.AddDays(-7);
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
-            list.Add((advent1, Images.Advent1, 32, 16, "Första advent"));
-            list.Add((advent2, Images.Advent2, 32, 16, "Andra advent"));
-            list.Add((advent3, Images.Advent3, 32, 16, "Tredje advent"));
-            list.Add((advent4, Images.Advent4, 32, 16, "Fjärde advent"));
+            list.Add((advent1, Images.Advent1, 30, 14, "Första advent"));
+            list.Add((advent2, Images.Advent2, 30, 14, "Andra advent"));
+            list.Add((advent3, Images.Advent3, 30, 14, "Tredje advent"));
+            list.Add((advent4, Images.Advent4, 30, 14, "Fjärde advent"));
             return list;
         }
 
@@ -84,7 +84,7 @@ namespace PdfCalendar
             var fathersDay = CalculateFathersDay();
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
-            list.Add((heart, Images.Heart, 16, 16, "Alla hjärtans dag"));
+            list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
             list.Add(mothersDay);
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
@@ -101,7 +101,7 @@ namespace PdfCalendar
             var sunday = Enumerable.Range(1, DateTime.DaysInMonth(Year, may))
                 .Select(d => new DateTime(Year, may, d))
                 .Last(d => d.DayOfWeek == DayOfWeek.Sunday);
-            return (sunday, Images.Woman, 16, 24, "Mors dag");
+            return (sunday, Images.Woman, 16, 16, "Mors dag");
         }
 
         private (DateTime Date, Bitmap Image, float, float, string Text) CalculateFathersDay()
@@ -111,7 +111,7 @@ namespace PdfCalendar
                 .Select(d => new DateTime(Year, november, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .ElementAt(1);
-            return (sunday, Images.Man, 16, 24, "Fars dag");
+            return (sunday, Images.Man, 16, 16, "Fars dag");
         }
     }
 }
