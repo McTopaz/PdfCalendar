@@ -13,11 +13,11 @@ namespace PdfCalendar
 {
     class SpecificEvents
     {
-        public int Year { get; private set; }
+        private int Year { get; set; }
         private IEnumerable<PublicHoliday> Holidays { get; set; } 
 
-        public IEnumerable<(DateTime Date, Bitmap Image, string Text)> HolidayImages { get; private set; }
-        public IEnumerable<(DateTime Date, Bitmap Image, string Text)> TeamDayImages { get; private set; }
+        public IEnumerable<(DateTime Date, Bitmap Image, string Text)> HolidayEvents { get; private set; }
+        public IEnumerable<(DateTime Date, Bitmap Image, string Text)> TeamDayEvents { get; private set; }
 
         public SpecificEvents(int year)
         {
@@ -47,7 +47,7 @@ namespace PdfCalendar
             list.Add((christmas, Images.ChristmasTree, "Julafton"));
             list.Add((newYear, Images.NewYear, "Nyår"));
 
-            HolidayImages = list;
+            HolidayEvents = list;
         }
 
         private IEnumerable<(DateTime, Bitmap, string)> CalculateAdvent()
@@ -92,7 +92,7 @@ namespace PdfCalendar
             list.Add((kladdkaka, Images.Kladdkaka, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, "Chokladens dag"));
             list.Add((nobel, Images.Nobel, "Nobeldagen"));
-            TeamDayImages = list;
+            TeamDayEvents = list;
         }
 
         private (DateTime Date, Bitmap Image, string Text) CalculateMothersDay()
