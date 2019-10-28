@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\GenerateCalendar\App.xaml
-121241471398
+13-1590411970
 
-45329397505
-19-50256309
-MainWindow.xaml;Views\Body.xaml;Views\Citations.xaml;Views\DateEvents.xaml;Views\DateImages.xaml;Views\Footer.xaml;Views\Header.xaml;Views\Options.xaml;Views\PdfFile.xaml;Views\Riddles.xaml;Views\SelectableRiddles.xaml;Views\Year.xaml;
+411903219387
+201986862335
+MainWindow.xaml;Views\Birthdays.xaml;Views\Body.xaml;Views\Citations.xaml;Views\DateEvents.xaml;Views\DateImages.xaml;Views\Footer.xaml;Views\Header.xaml;Views\Options.xaml;Views\PdfFile.xaml;Views\Riddles.xaml;Views\SelectableRiddles.xaml;Views\Year.xaml;
 
-True
+False
 

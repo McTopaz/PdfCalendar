@@ -103,11 +103,11 @@ namespace PdfCalendar
         private (DateTime Date, Bitmap Image, string Text) CalculateFathersDay()
         {
             var november = 11;
-            var sundays = Enumerable.Range(1, DateTime.DaysInMonth(Year, november))
+            var sunday = Enumerable.Range(1, DateTime.DaysInMonth(Year, november))
                 .Select(d => new DateTime(Year, november, d))
-                .Where(d => d.DayOfWeek == DayOfWeek.Sunday);
-            var date = sundays.ElementAt(1);
-            return (date, Images.Man, "Fars dag");
+                .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
+                .ElementAt(1);
+            return (sunday, Images.Man, "Fars dag");
         }
     }
 }
