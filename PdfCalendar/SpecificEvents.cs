@@ -79,39 +79,40 @@ namespace PdfCalendar
             var kladdkaka = new DateTime(Year, 11, 7);
             var chocolate = new DateTime(Year, 11, 11);
             var nobel = new DateTime(Year, 12, 10);
-
             var mothersDay = CalculateMothersDay();
             var fathersDay = CalculateFathersDay();
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
-            list.Add(mothersDay);
+            list.Add((mothersDay, Images.Woman, 16, 16,"Mors dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
-            list.Add(fathersDay);
+            list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
             Data.TeamDayEvents = list;
         }
 
-        private (DateTime Date, Bitmap Image, float, float, string Text) CalculateMothersDay()
+        private DateTime CalculateMothersDay()
         {
             var may = 5;
             var sunday = Enumerable.Range(1, DateTime.DaysInMonth(Year, may))
                 .Select(d => new DateTime(Year, may, d))
                 .Last(d => d.DayOfWeek == DayOfWeek.Sunday);
-            return (sunday, Images.Woman, 16, 16, "Mors dag");
+            return sunday;
+            //return (sunday, Images.Woman, 16, 16, "Mors dag");
         }
 
-        private (DateTime Date, Bitmap Image, float, float, string Text) CalculateFathersDay()
+        private DateTime CalculateFathersDay()
         {
             var november = 11;
             var sunday = Enumerable.Range(1, DateTime.DaysInMonth(Year, november))
                 .Select(d => new DateTime(Year, november, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .ElementAt(1);
-            return (sunday, Images.Man, 16, 16, "Fars dag");
+            return sunday;
+            //return (sunday, Images.Man, 16, 16, "Fars dag");
         }
     }
 }
