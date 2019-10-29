@@ -101,7 +101,6 @@ namespace PdfCalendar
                 .Select(d => new DateTime(Year, may, d))
                 .Last(d => d.DayOfWeek == DayOfWeek.Sunday);
             return sunday;
-            //return (sunday, Images.Woman, 16, 16, "Mors dag");
         }
 
         private DateTime CalculateFathersDay()
@@ -112,7 +111,6 @@ namespace PdfCalendar
                 .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .ElementAt(1);
             return sunday;
-            //return (sunday, Images.Man, 16, 16, "Fars dag");
         }
     }
 }
