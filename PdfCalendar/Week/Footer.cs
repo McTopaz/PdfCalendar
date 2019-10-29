@@ -60,6 +60,18 @@ namespace PdfCalendar.Week
             {
                 DayWithEvent(dateOfWeek);
             }
+            // Holiday specific text
+            else if (Data.HolidayEvents.Any(d => d.Date == dateOfWeek))
+            {
+                var tmp = Data.HolidayEvents.First(d => d.Date == dateOfWeek);
+                EventSpecificText(tmp.Text);
+            }
+            // Team day specific text.
+            else if (Data.TeamDayEvents.Any(d => d.Date == dateOfWeek))
+            {
+                var tmp = Data.TeamDayEvents.First(d => d.Date == dateOfWeek);
+                EventSpecificText(tmp.Text);
+            }
             // Nothing special for the date.
             else
             {
@@ -149,6 +161,12 @@ namespace PdfCalendar.Week
             var holidays = DateSystem.GetPublicHoliday(date.Year, CountryCode.SE);
             var holiday = holidays.First(d => d.Date == date);
             return holiday.LocalName;
+        }
+
+        private void EventSpecificText(string text)
+        {
+            var size = AdjustFontSize(text);
+            AddCellToTable(text, BaseColor.BLACK, size, CellFooterHeight);
         }
 
         private void EmptyDay()
