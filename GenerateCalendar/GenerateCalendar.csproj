@@ -237,6 +237,7 @@
     <Resource Include="Images\Image.png" />
     <Resource Include="Images\Month.png" />
     <Resource Include="Images\Open.png" />
+    <Resource Include="Images\Override.png" />
     <Resource Include="Images\PdfFile.png" />
     <Resource Include="Images\Question.png" />
     <Resource Include="Images\Text.png" />

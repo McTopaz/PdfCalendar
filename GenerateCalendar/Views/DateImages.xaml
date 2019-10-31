@@ -31,6 +31,12 @@
                         <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
                     </StackPanel>
                 </Button>
+
+                <!-- Override info -->
+                <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
+                    <Image Source="/GenerateCalendar;component/Images/Override.png" Height="18" />
+                    <Label Content="Any event specified here will override holiday or birthday for that particular date." FontSize="10" FontStyle="Italic" VerticalContentAlignment="Center" />
+                </StackPanel>
             </StackPanel>
                         
             <DataGrid ItemsSource="{Binding DateImages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250" DockPanel.Dock="Bottom">
