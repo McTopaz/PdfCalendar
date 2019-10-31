@@ -19,6 +19,7 @@ namespace PdfCalendar
         public DateTime ForYear { get; private set; }
         public Data Data { get; private set; }
         public Options Options { get; set; }
+        internal Dictionary<DateTime, DateInformation> DateInformation { get; set; }
         
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
@@ -32,6 +33,8 @@ namespace PdfCalendar
 
         public void Create()
         {
+            DateInformationHandler();
+
             using (var stream = File.Open(PdfFile.FullName, FileMode.Create))
             {
                 Document = new Document(PageSize.A4.Rotate(), 10, 10, 10, 10);
@@ -45,6 +48,12 @@ namespace PdfCalendar
             }
         }
 
+        private void DateInformationHandler()
+        {
+            var mdi = new ManageDateInformation(ForYear.Year, Data);
+            DateInformation = mdi.LookupDateTable;
+        }
+
         private void Fonts()
         {
             FontHandler.Register("Arial");
@@ -54,6 +63,8 @@ namespace PdfCalendar
         {
             Document.PageSize.BackgroundColor = BaseColor.BLACK;
         }
+
+        
 
         private void Generate()
         {

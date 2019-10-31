@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Calendar.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="DateInformation.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="FontHandler.cs" />
     <Compile Include="Images.Designer.cs">
@@ -57,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Images.resx</DependentUpon>
     </Compile>
+    <Compile Include="ManageDateInformation.cs" />
     <Compile Include="Month\Body.cs" />
     <Compile Include="Month\Footer.cs" />
     <Compile Include="Month\Header.cs" />
@@ -85,6 +87,7 @@
     <None Include="Images\Advent2.png" />
     <None Include="Images\Advent3.png" />
     <None Include="Images\Advent4.png" />
+    <None Include="Images\Ballons.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <Content Include="Images\EasterEgg.png" />
@@ -96,6 +99,7 @@
     <None Include="Images\NarcissusPoeticus.png" />
     <Content Include="Images\NewYear.png" />
     <None Include="Images\Nobel.png" />
+    <None Include="Images\NoImage.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>
