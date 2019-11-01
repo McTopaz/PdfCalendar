@@ -32,22 +32,27 @@ namespace ConsoleApplication
             calendar.Show();
         }
 
-        static IEnumerable<(DateTime Birthday, string Name, bool Dead)> Birthdays()
+        static IEnumerable<(DateTime Birthday, string Name, bool Dead, bool VIP)> Birthdays()
         {
-            var list = new List<(DateTime, string, bool)>
+            var list = new List<(DateTime Birthday, string Name, bool Dead, bool VIP)>
             {
-                (new DateTime(1987, 1, 4), "Uffe", false),
-                (new DateTime(1957, 1, 24), "Nisse", false),
-                (new DateTime(1957, 1, 24), "Nasse", false),
-                (new DateTime(1958, 1, 24), "Bosse", false),
-                (new DateTime(2019, 1, 1), "Foo", false),
-                (new DateTime(1929, 1, 5), "Ada", true),
-                (new DateTime(1939, 1, 5), "Beda", true)
+                (new DateTime(1989, 1, 1), "Lasse", false, true),   // Public holiday, override holiday, first in list: Display in month.
+                (new DateTime(2018, 1, 1), "Foo", false, true),     // Public holiday, overrode holiday, second in list: Display in footer.
+                (new DateTime(2018, 1, 1), "Bar", false, true),     // Public holiday, overrode holiday, second in list: Display in footer.
+                (new DateTime(1929, 1, 5), "Ada", true, false),     // Dead person, first in list: Display in month.
+                (new DateTime(1939, 1, 5), "Beda", true, false),    // Dead person, second in list: Display in footer.
+                (new DateTime(1987, 1, 4), "Uffe", false, false),   // Display in month.
+                (new DateTime(1957, 1, 24), "Nisse", false, false), // Sharing with other person, first in list: Display in month.
+                (new DateTime(1957, 1, 24), "Nasse", false, false), // Sharing with other person, second in list: Display in footer.
+                (new DateTime(1958, 1, 24), "Bosse", false, false), // Sharing with other person, third in list: Display in footer.
+                (new DateTime(1979, 4, 19), "Frasse", true, false), // Public holiday, don't override holiday.
+                (new DateTime(1969, 4, 22), "Morgan", true, true),  // Public holiday, dead person, override holiday, first in list: Display in month.
+                (new DateTime(1969, 4, 22), "Harry", true, true)    // Public holiday, dead person, override holiday, second in list: Display in fotter.
             };
             return list;
         }
 
-        static IEnumerable<(DateTime Date, String Event)> Events()
+        static IEnumerable<(DateTime Date, string Event)> Events()
         {
             var year = DateTime.Now.Year;
             var jan1 = new DateTime(year, 1, 1);
@@ -61,16 +66,12 @@ namespace ConsoleApplication
                 (jan1, "Test override"),
                 (jan4, "Punktskriftens dag"),
                 (jan4, "Världshypnosdagen"),
-                (jan4, "abcdefghijklmn"),
-                (jan4, "abcdefghijklmnopqrstuvwxyzåäö"),
                 (jan4, "asdf 0000"),
                 (jan4, "asdf 0001"),
-                (jan4, "asdf 0002"),
-                (jan6, "Trettondag jul"),
                 (jan8, "Hoppborgdagen0"),
                 (jan6, "Hoppborgdagen1"),
-                (jan6, "Hoppborgdagen2"),
                 (jan6, "Hoppborgdagen3"),
+                (jan6, "Hoppborgdagen4"),
                 (jan8, "Ha skoj dag"),
                 (jan8, "Ha kul"),
                 (may30, "Steffe.Age++")
