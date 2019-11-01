@@ -36,31 +36,39 @@ namespace PdfCalendar.Month
 
         private IEnumerable<(DateTime Date, string Info)> RemainingInfo()
         {
-            /* 
-             Notice the priority order of information for a date:
-                1) Holidays.
-                2) Birthday celebrators.
-                3) Events.
-             
-             Please change the order if necessary.
-             Make sure to have the same order as the Week.WeekGenerator.InsertFooter() method.
-            */
+            var bs = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday)).Where(d => d.Month == Month);
+            var ph = DateSystem.GetPublicHoliday(Year, CountryCode.SE).Select(h => h.Date).Where(d => d.Month == Month);
+            var sh = Data.HolidayEvents.Select(h => h.Date).Where(d => d.Month == Month);
+            var td = Data.TeamDayEvents.Select(t => t.Date).Where(d => d.Month == Month);
+            var es = Data.Events.Select(e => e.Date).Where(d => d.Month == Month);
+            var dates = bs.Concat(ph).Concat(sh).Concat(td).Concat(es).Distinct().OrderBy(d => d);
 
             var infos = new List<(DateTime Date, string Info)>();
-            var bs = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
-            var es = Data.Events.Select(e => e.Date);
-            var dates = bs.Concat(es).Distinct().Where(d => d.Month == Month).OrderBy(d => d);
-
             foreach (var date in dates)
             {
-                if (DateSystem.IsPublicHoliday(date, CountryCode.SE))
+                if (Data.Birthdays.Any(b => b.VIP && HasBirthday(b.Birthday, date)))
                 {
-                    var list = RemainingOnHoliday(date);
+                    var list = RemainingOnBirthdayVIP(date);
                     infos.AddRange(list);
                 }
-                else if (Data.Birthdays.Any(b => HasBirthday(b.Birthday, date)))
+                else if (DateSystem.IsPublicHoliday(date, CountryCode.SE))
+                {
+                    var list = RemainingOnPublicHoliday(date);
+                    infos.AddRange(list);
+                }
+                else if (Data.HolidayEvents.Any(h => h.Date == date))
+                {
+                    var list = RemainingOnSpecificHoliday(date);
+                    infos.AddRange(list);
+                }
+                else if (Data.Birthdays.Any(b => !b.VIP && HasBirthday(b.Birthday, date)))
                 {
                     var list = RemainingOnBirthday(date);
+                    infos.AddRange(list);
+                }
+                else if (Data.TeamDayEvents.Any(t => t.Date == date))
+                {
+                    var list = RemainingOnTeamDay(date);
                     infos.AddRange(list);
                 }
                 else if (Data.Events.Any(e => e.Date == date))
@@ -82,23 +90,47 @@ namespace PdfCalendar.Month
             return birthday.Month == date.Month && birthday.Day == date.Day;
         }
 
-        private IEnumerable<(DateTime Date, string Info)> RemainingOnHoliday(DateTime date)
+        private IEnumerable<(DateTime Date, string Info)> RemainingOnBirthdayVIP(DateTime date)
         {
-            var bs = Data.Birthdays
-                .Where(b => HasBirthday(b.Birthday, date))
-                .Select(b => AsReadableBirthday(b));
+            var vip = Data.Birthdays.Where(b => b.VIP && HasBirthday(b.Birthday, date)).Skip(1).Select(b => AsReadableBirthday(b));
+            var ph = DateSystem.GetPublicHoliday(Year, CountryCode.SE).Where(h => h.Date == date).Select(h => (h.Date, h.LocalName));
+            var sh = Data.HolidayEvents.Where(h => h.Date == date).Select(h => (h.Date, h.Text));
+            var noVip = Data.Birthdays.Where(b => !b.VIP && HasBirthday(b.Birthday, date)).Select(b => AsReadableBirthday(b));
+            var td = Data.TeamDayEvents.Where(t => t.Date == date).Select(t => (t.Date, t.Text));
             var es = Data.Events.Where(e => e.Date == date);
-            return bs.Concat(es);
+            return vip.Concat(ph).Concat(sh).Concat(noVip).Concat(td).Concat(es);
+        }
+
+        private IEnumerable<(DateTime Date, string Info)> RemainingOnPublicHoliday(DateTime date)
+        {
+            var sh = Data.HolidayEvents.Where(h => h.Date == date).Select(h => (h.Date, h.Text));
+            var noVip = Data.Birthdays.Where(b => !b.VIP && HasBirthday(b.Birthday, date)).Select(b => AsReadableBirthday(b));
+            var td = Data.TeamDayEvents.Where(t => t.Date == date).Select(t => (t.Date, t.Text));
+            var es = Data.Events.Where(e => e.Date == date);
+            return sh.Concat(sh).Concat(noVip).Concat(td).Concat(es);
+        }
+
+        private IEnumerable<(DateTime Date, string Info)> RemainingOnSpecificHoliday(DateTime date)
+        {
+            var noVip = Data.Birthdays.Where(b => !b.VIP && HasBirthday(b.Birthday, date)).Select(b => AsReadableBirthday(b));
+            var td = Data.TeamDayEvents.Where(t => t.Date == date).Select(t => (t.Date, t.Text));
+            var es = Data.Events.Where(e => e.Date == date);
+            return noVip.Concat(td).Concat(es);
         }
 
         private IEnumerable<(DateTime Date, string Info)> RemainingOnBirthday(DateTime date)
         {
-            var bs = Data.Birthdays
-                .Where(b => HasBirthday(b.Birthday, date))
-                .Select(b => AsReadableBirthday(b))
-                .Skip(1);
+            var noVip = Data.Birthdays.Where(b => !b.VIP && HasBirthday(b.Birthday, date)).Skip(1).Select(b => AsReadableBirthday(b));
+            var td = Data.TeamDayEvents.Where(t => t.Date == date).Select(t => (t.Date, t.Text));
             var es = Data.Events.Where(e => e.Date == date);
-            return bs.Concat(es);
+            return noVip.Concat(td).Concat(es);
+        }
+
+        private IEnumerable<(DateTime Date, string Info)> RemainingOnTeamDay(DateTime date)
+        {
+            var td = Data.TeamDayEvents.Where(t => t.Date == date).Skip(1).Select(t => (t.Date, t.Text));
+            var es = Data.Events.Where(e => e.Date == date);
+            return td.Concat(es);
         }
 
         private IEnumerable<(DateTime Date, string Info)> RemainingEvents(DateTime date)
@@ -107,7 +139,7 @@ namespace PdfCalendar.Month
             return es;
         }
 
-        private (DateTime Birthday, string Name) AsReadableBirthday((DateTime Birthday, string Name, bool Dead) celebrator)
+        private (DateTime Birthday, string Name) AsReadableBirthday((DateTime Birthday, string Name, bool Dead, bool VIP) celebrator)
         {
             var age = Year - celebrator.Birthday.Year;
             var line = celebrator.Dead ? $"({celebrator.Name} {age}år)" : $"{celebrator.Name} {age}år";
