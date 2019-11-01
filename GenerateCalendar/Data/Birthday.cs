@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using GenerateCalendar.Misc;
+
 using PropertyChanged;
 
 namespace GenerateCalendar.Data
@@ -14,6 +16,7 @@ namespace GenerateCalendar.Data
         public string Name { get; set; }
         public DateTime BirthDay { get; set; }
         public bool Dead { get; set; }
+        public bool VIP { get; set; }
 
         public Birthday()
         {

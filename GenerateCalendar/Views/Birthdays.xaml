@@ -69,6 +69,16 @@
                             </StackPanel>
                         </DataGridCheckBoxColumn.Header>
                     </DataGridCheckBoxColumn>
+                    
+                    <!-- VIP -->
+                    <DataGridCheckBoxColumn Binding="{Binding VIP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridCheckBoxColumn.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/GenerateCalendar;component/Images/Star.png" />
+                                <Label Content="VIP" />
+                            </StackPanel>
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
 
                 </DataGrid.Columns>
             </DataGrid>
