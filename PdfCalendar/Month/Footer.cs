@@ -107,7 +107,7 @@ namespace PdfCalendar.Month
             var noVip = Data.Birthdays.Where(b => !b.VIP && HasBirthday(b.Birthday, date)).Select(b => AsReadableBirthday(b));
             var td = Data.TeamDayEvents.Where(t => t.Date == date).Select(t => (t.Date, t.Text));
             var es = Data.Events.Where(e => e.Date == date);
-            return sh.Concat(sh).Concat(noVip).Concat(td).Concat(es);
+            return sh.Concat(noVip).Concat(td).Concat(es);
         }
 
         private IEnumerable<(DateTime Date, string Info)> RemainingOnSpecificHoliday(DateTime date)
