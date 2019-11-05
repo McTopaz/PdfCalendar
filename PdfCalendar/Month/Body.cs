@@ -76,7 +76,7 @@ namespace PdfCalendar.Month
 
         private void GenerateWeeks(PdfPTable table)
         {
-            var days = MonthInformation();                      // Get information about the month: dates and weeks.
+            var days = DatesAndWeeks();                         // Get information about the month: dates and weeks.
             var weeks = days.Select(w => w.Week).Distinct();    // Get all weeks in the month.
 
             // Iterate over all weeks in the month.
@@ -98,7 +98,7 @@ namespace PdfCalendar.Month
             }
         }
 
-        private IEnumerable<(DateTime Date, int Week)> MonthInformation()
+        private IEnumerable<(DateTime Date, int Week)> DatesAndWeeks()
         {
             // Gets all dates in the month. Selected the date and the week number for each date.
             var days = Enumerable.Range(1, DateTime.DaysInMonth(Year, Month))
