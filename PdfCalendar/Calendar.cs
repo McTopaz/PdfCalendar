@@ -20,7 +20,7 @@ namespace PdfCalendar
         public Data Data { get; private set; }
         public Options Options { get; set; }
         internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
-        internal Dictionary<DateTime, IRemainingInformation> RemainingInformation { get; set; }
+        internal Dictionary<DateTime, IRemainingInformation> MonthInformation { get; set; }
 
         
 
@@ -55,7 +55,7 @@ namespace PdfCalendar
         {
             var mdi = new ManageDateInformation(ForYear.Year, Data);
             CellInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as ICellInformation);
-            RemainingInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as IRemainingInformation);
+            MonthInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as IRemainingInformation);
         }
 
         private void Fonts()
@@ -118,7 +118,7 @@ namespace PdfCalendar
                     Month = month.Number,
                     Year = ForYear.Year,
                     CellInformation = CellInformation,
-                    RemainingInformation = RemainingInformation
+                    MonthInformation = MonthInformation
                 };
                 generator.Generate();
                 Document.Add(generator.Container);
