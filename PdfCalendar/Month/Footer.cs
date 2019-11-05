@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -28,13 +29,14 @@ namespace PdfCalendar.Month
 
         private PdfPTable TableSection()
         {
-            var list = RemainingInfo();
+            //var list = RemainingInfoOld();
+            var remaining = MonthInformation.Where(d => d.Key.Month == Month).ToDictionary(d => d.Key, d => d.Value).Values.SelectMany(x => x.Remaining);
             var table = FooterTable();
-            Populate(table, list);
+            Populate(table, remaining);
             return table;
         }
 
-        private IEnumerable<(DateTime Date, string Info)> RemainingInfo()
+        private IEnumerable<(DateTime Date, string Info)> RemainingInfoOld()
         {
             var bs = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday)).Where(d => d.Month == Month);
             var ph = DateSystem.GetPublicHoliday(Year, CountryCode.SE).Select(h => h.Date).Where(d => d.Month == Month);
@@ -160,7 +162,7 @@ namespace PdfCalendar.Month
             return table;
         }
 
-        private void Populate(PdfPTable table, IEnumerable<(DateTime Date, string Event)> list)
+        private void Populate(PdfPTable table, IEnumerable<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)> list)
         {
             var offset = 10;
 
@@ -170,8 +172,8 @@ namespace PdfCalendar.Month
             // The first 10 dates and events in the list are for column 1, rest 10 dates and events in the list are for column 2.
             // If there is less or equal to 10 dates and events then column 1 is only used. Column 2 will be empty.
             // The extracted dates and events are placed in stacks for easier pop the element from the stack.
-            var column1 = new Stack<(DateTime Date, string Event)>(list.Take(offset).Reverse());
-            var column2 = new Stack<(DateTime Date, string Event)>(list.Skip(offset).Take(offset).Reverse());
+            var column1 = new Stack<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>(list.Take(offset).Reverse());
+            var column2 = new Stack<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>(list.Skip(offset).Take(offset).Reverse());
 
             // Iterate over all items in the stack for column 1.
             while (column1.Count > 0)
@@ -193,7 +195,7 @@ namespace PdfCalendar.Month
 
         }
 
-        private PdfPCell Cell((DateTime Date, string Event) item)
+        private PdfPCell Cell((DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image) item)
         {
             var c1 = new Chunk(item.Date.ToString("dd MMMM"));
             c1.Font.SetStyle("bold");
@@ -202,7 +204,7 @@ namespace PdfCalendar.Month
             var c2 = new Chunk(" ");
             c2.Font.Size = FontSize;
 
-            var c3 = new Chunk(item.Event);
+            var c3 = new Chunk(item.Text);
             c3.Font.Size = FontSize;
 
             var line = new Paragraph();
