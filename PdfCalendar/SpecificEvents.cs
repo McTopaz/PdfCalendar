@@ -16,7 +16,6 @@ namespace PdfCalendar
         int Year { get; set; }
         Data Data { get; set; }
         IEnumerable<PublicHoliday> Holidays { get; set; } 
-        
 
         public SpecificEvents(int year, Data data)
         {
@@ -73,6 +72,7 @@ namespace PdfCalendar
 
         private void SetupTeamDays()
         {
+            var brailleDay = new DateTime(Year, 1, 4);
             var heart = new DateTime(Year, 2, 14);
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
@@ -83,6 +83,8 @@ namespace PdfCalendar
             var fathersDay = CalculateFathersDay();
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
+            list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
+            list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));        // Same day as Braille day.
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
             list.Add((mothersDay, Images.Woman, 16, 16,"Mors dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));

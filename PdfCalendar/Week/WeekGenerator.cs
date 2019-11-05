@@ -30,7 +30,11 @@ namespace PdfCalendar.Week
         /// <summary>
         /// Dates in the week.
         /// </summary>
-        internal IEnumerable<DateTime> Dates;
+        internal IEnumerable<DateTime> Dates { get; set; }
+        /// <summary>
+        /// Cell information about the cells in the week.
+        /// </summary>
+        internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
 
         const float WeekNumberSize = 20;
         const float WeekNumberHeight = 40;

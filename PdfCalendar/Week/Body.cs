@@ -59,24 +59,29 @@ namespace PdfCalendar.Week
         private IPdfPCellEvent CellImage(DateTime date)
         {
             IPdfPCellEvent image = new NoCellEvent();   // No image as default.
+            if (CellInformation.ContainsKey(date))
+            {
+                var tmp = CellInformation[date].Image;
+                image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
+            }
 
-            // Insert user specific image for date.
-            if (Data.Images.Any(d => d.Date == date))
-            {
-                image = UserSpecificImage(date);
-            }
-            // Insert holiday images for date.
-            else if (Data.HolidayEvents.Any(d => d.Date == date))
-            {
-                var tmp = Data.HolidayEvents.First(d => d.Date == date);
-                image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
-            }
-            // Insert team day images for date.
-            else if (Data.TeamDayEvents.Any(d => d.Date == date))
-            {
-                var tmp = Data.TeamDayEvents.First(d => d.Date == date);
-                image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
-            }
+            //// Insert user specific image for date.
+            //if (Data.Images.Any(d => d.Date == date))
+            //{
+            //    image = UserSpecificImage(date);
+            //}
+            //// Insert holiday images for date.
+            //else if (Data.HolidayEvents.Any(d => d.Date == date))
+            //{
+            //    var tmp = Data.HolidayEvents.First(d => d.Date == date);
+            //    image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
+            //}
+            //// Insert team day images for date.
+            //else if (Data.TeamDayEvents.Any(d => d.Date == date))
+            //{
+            //    var tmp = Data.TeamDayEvents.First(d => d.Date == date);
+            //    image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
+            //}
 
             return image;
         }

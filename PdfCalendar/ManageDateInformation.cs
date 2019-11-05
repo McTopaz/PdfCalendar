@@ -13,21 +13,22 @@ namespace PdfCalendar
     {
         int Year { get; set; }
         Data Data { get; set; }
-        public Dictionary<DateTime, DateInformation> LookupDateTable { get; set; }
+        internal Dictionary<DateTime, DateInformation> LookupDateTable { get; set; }
 
         public ManageDateInformation(int year, Data data)
         {
             Year = year;
             Data = data;
             CreateLookup();
-            SetupDatesInDefaultOrder();
+            LoadInformation();
+            SpecifyInformation();
         }
 
         private void CreateLookup()
         {
             var publicHoliday = DateSystem.GetPublicHoliday(Year, CountryCode.SE).Select(h => h.Date);
             var specificHolidays = Data.HolidayEvents.Select(h => h.Date);
-            var birthdays = Data.Birthdays.Select(b => b.Birthday);
+            var birthdays = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
             var events = Data.Events.Select(e => e.Date);
             var images = Data.Images.Select(i => i.Date);
             var teamDays = Data.TeamDayEvents.Select(t => t.Date);
@@ -38,10 +39,21 @@ namespace PdfCalendar
                 .Concat(images)
                 .Concat(teamDays)
                 .Distinct()
-                .ToDictionary(d => d, d => new DateInformation(d));
+                .OrderBy(d => d)
+                .ToDictionary(d => d, d => new DateInformation(Year, d));
         }
 
-        private void SetupDatesInDefaultOrder()
+        private DateTime BirthdayInThisYear(int year, DateTime birthday)
+        {
+            return new DateTime(year, birthday.Month, birthday.Day);
+        }
+
+        private bool HasBirthday(DateTime birthday, DateTime date)
+        {
+            return birthday.Month == date.Month && birthday.Day == date.Day;
+        }
+
+        private void LoadInformation()
         {
             SetupHolidays();
             SetupTeamdays();
@@ -52,60 +64,72 @@ namespace PdfCalendar
 
         private void SetupHolidays()
         {
-            foreach (var item in Data.HolidayEvents)
+            foreach (var item in Data.Holidays)
             {
                 var di = LookupDateTable[item.Date];
-                di.Holiday = item.Text;
-                di.Text = item.Text;
-                di.Image = item.Image;
-            }
-
-            foreach (var item in DateSystem.GetPublicHoliday(Year, CountryCode.SE))
-            {
-                var di = LookupDateTable[item.Date];
-                di.Holiday = item.LocalName;
-                di.Text = item.LocalName;
+                di.Holiday = (item.Text, item.Image, item.Width, item.Height);
             }
         }
 
         private void SetupTeamdays()
         {
-            foreach (var item in Data.TeamDayEvents)
+            var dates = Data.TeamDayEvents.Select(t => t.Date).Distinct().OrderBy(d => d);
+
+            foreach (var item in dates)
             {
                 var di = LookupDateTable[item.Date];
-                di.TeamDay = item.Text;
-                di.Text = item.Text;
-                di.Image = item.Image;
+                di.TeamDays = Data.TeamDayEvents.Where(t => t.Date == item.Date).Select(t => (t.Text, t.Image, t.Width, t.Height));
             }
         }
 
         private void SetupBirthdays()
         {
-            foreach (var item in Data.Birthdays)
+            var dates = Data.Birthdays
+                .Select(b => BirthdayInThisYear(Year, b.Birthday))
+                .Distinct()
+                .OrderBy(d => d);
+
+            foreach (var date in dates)
             {
-                var di = LookupDateTable[item.Birthday];
-                di.Birthday = item.Name;
-                di.Text = item.Name;
-                di.Image = Images.Ballons;
+                var di = LookupDateTable[date];
+                di.Birthdays = Data.Birthdays.Where(b => HasBirthday(b.Birthday, date));
             }
         }
 
         private void SetupEvents()
         {
-            foreach (var item in Data.Events)
+            var dates = Data.Events.Select(e => e.Date).Distinct().OrderBy(d => d);
+
+            foreach (var item in dates)
             {
                 var di = LookupDateTable[item.Date];
-                di.Event = item.Event;
-                di.Text = item.Event;
+                di.Events = Data.Events.Where(e => e.Date == item.Date).Select(e => e.Event);
             }
         }
 
         private void SetupImages()
         {
-            foreach (var item in Data.Images)
+            var dates = Data.Images.Select(i => i.Date).Distinct().OrderBy(d => d);
+
+            foreach (var item in dates)
             {
                 var di = LookupDateTable[item.Date];
-                di.Image = new System.Drawing.Bitmap(item.FilePath);
+                di.Images = Data.Images.Where(i => i.Date == item.Date).Select(i => (FileFromPath(i.FilePath, i.Width, i.Height), i.Width, i.Height));
+            }
+        }
+
+        private System.Drawing.Bitmap FileFromPath(string filePath, float width, float height)
+        {
+            var image = new System.Drawing.Bitmap(filePath);
+            image.SetResolution(width, height);
+            return image;
+        }
+
+        private void SpecifyInformation()
+        {
+            foreach (var item in LookupDateTable.Values)
+            {
+                item.SpecifyContent();
             }
         }
     }

@@ -32,51 +32,60 @@ namespace PdfCalendar.Week
                 return;
             }
 
-            var dateOfWeek = Dates.First(d => d.DayOfWeek == expectedDay);  // The date of the week for this day of the week.
-
-            /*
-             Please change the order if necessary.
-             Make sure to have the same order as the Month.MonthGenerator.RemainingInfo() method.
-             Keep the empty day at the lowest when there are no information for a date.
-            */
-
-            // VIP birthday.
-            if (Data.Birthdays.Any(b => b.VIP && BirthDayOnThisDay(dateOfWeek, b.Birthday)))
+            var dateInWeek = Dates.First(d => d.DayOfWeek == expectedDay);  // The date of the week for this day of the week.
+            if (CellInformation.ContainsKey(dateInWeek))
             {
-                DayWithBirthdayVIP(dateOfWeek);
+                var c = CellInformation[dateInWeek];
+                AddAnyContent(c.Text.ToString());
             }
-            // Public holiday.
-            else if (DateSystem.IsPublicHoliday(dateOfWeek, CountryCode.SE))
-            {
-                DayWithHoliday(dateOfWeek);
-            }
-            // Holiday specific.
-            else if (Data.HolidayEvents.Any(h => h.Date == dateOfWeek))
-            {
-                var tmp = Data.HolidayEvents.First(h => h.Date == dateOfWeek);
-                AddAnyContent(tmp.Text);
-            }
-            // None VIP birthday.
-            else if (Data.Birthdays.Any(b => !b.VIP && BirthDayOnThisDay(dateOfWeek, b.Birthday)))
-            {
-                DayWithBirthday(dateOfWeek);
-            }
-            // Team day specific.
-            else if (Data.TeamDayEvents.Any(t => t.Date == dateOfWeek))
-            {
-                var tmp = Data.TeamDayEvents.First(t => t.Date == dateOfWeek);
-                AddAnyContent(tmp.Text);
-            }
-            // Date with event.
-            else if (Data.Events.Any(e => e.Date == dateOfWeek))
-            {
-                DayWithEvent(dateOfWeek);
-            }
-            // Nothing special for the date.
             else
             {
                 EmptyDay();
             }
+
+            ///*
+            // Please change the order if necessary.
+            // Make sure to have the same order as the Month.MonthGenerator.RemainingInfo() method.
+            // Keep the empty day at the lowest when there are no information for a date.
+            //*/
+
+            //// VIP birthday.
+            //if (Data.Birthdays.Any(b => b.VIP && BirthDayOnThisDay(dateOfWeek, b.Birthday)))
+            //{
+            //    DayWithBirthdayVIP(dateOfWeek);
+            //}
+            //// Public holiday.
+            //else if (DateSystem.IsPublicHoliday(dateOfWeek, CountryCode.SE))
+            //{
+            //    DayWithHoliday(dateOfWeek);
+            //}
+            //// Holiday specific.
+            //else if (Data.HolidayEvents.Any(h => h.Date == dateOfWeek))
+            //{
+            //    var tmp = Data.HolidayEvents.First(h => h.Date == dateOfWeek);
+            //    AddAnyContent(tmp.Text);
+            //}
+            //// None VIP birthday.
+            //else if (Data.Birthdays.Any(b => !b.VIP && BirthDayOnThisDay(dateOfWeek, b.Birthday)))
+            //{
+            //    DayWithBirthday(dateOfWeek);
+            //}
+            //// Team day specific.
+            //else if (Data.TeamDayEvents.Any(t => t.Date == dateOfWeek))
+            //{
+            //    var tmp = Data.TeamDayEvents.First(t => t.Date == dateOfWeek);
+            //    AddAnyContent(tmp.Text);
+            //}
+            //// Date with event.
+            //else if (Data.Events.Any(e => e.Date == dateOfWeek))
+            //{
+            //    DayWithEvent(dateOfWeek);
+            //}
+            //// Nothing special for the date.
+            //else
+            //{
+            //    EmptyDay();
+            //}
         }
 
         private bool BirthDayOnThisDay(DateTime today, DateTime birthday)

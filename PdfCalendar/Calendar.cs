@@ -19,7 +19,9 @@ namespace PdfCalendar
         public DateTime ForYear { get; private set; }
         public Data Data { get; private set; }
         public Options Options { get; set; }
-        internal Dictionary<DateTime, DateInformation> DateInformation { get; set; }
+        internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
+        internal Dictionary<DateTime, IRemainingInformation> RemainingInformation { get; set; }
+
         
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
@@ -27,13 +29,14 @@ namespace PdfCalendar
             PdfFile = pdfFile;
             ForYear = new DateTime(forYear.Year, 1, 1);
             Data = new Data();
+            new HolidayManager(forYear.Year, Data);
             new SpecificEvents(ForYear.Year, Data);
             Options = new Options();
         }
 
         public void Create()
         {
-            DateInformationHandler();
+            DateInformation();
 
             using (var stream = File.Open(PdfFile.FullName, FileMode.Create))
             {
@@ -48,10 +51,11 @@ namespace PdfCalendar
             }
         }
 
-        private void DateInformationHandler()
+        private void DateInformation()
         {
             var mdi = new ManageDateInformation(ForYear.Year, Data);
-            DateInformation = mdi.LookupDateTable;
+            CellInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as ICellInformation);
+            RemainingInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as IRemainingInformation);
         }
 
         private void Fonts()
@@ -63,8 +67,6 @@ namespace PdfCalendar
         {
             Document.PageSize.BackgroundColor = BaseColor.BLACK;
         }
-
-        
 
         private void Generate()
         {
@@ -114,7 +116,9 @@ namespace PdfCalendar
                     Data = Data,
                     Name = month.Name,
                     Month = month.Number,
-                    Year = ForYear.Year
+                    Year = ForYear.Year,
+                    CellInformation = CellInformation,
+                    RemainingInformation = RemainingInformation
                 };
                 generator.Generate();
                 Document.Add(generator.Container);

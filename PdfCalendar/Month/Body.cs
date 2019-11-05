@@ -91,7 +91,8 @@ namespace PdfCalendar.Month
                     Table = table,
                     Number = week,
                     Year = Year,
-                    Dates = dates
+                    Dates = dates,
+                    CellInformation = CellInformation
                 };
                 generator.Generate();
             }
