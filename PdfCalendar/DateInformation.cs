@@ -50,6 +50,7 @@ namespace PdfCalendar
             TeamDays = Enumerable.Empty<(string Text, Bitmap Image, float Width, float Height)>();
             Events = Enumerable.Empty<string>();
             Images = Enumerable.Empty<(Bitmap Image, float Width, float Height)>();
+            Remaining = Enumerable.Empty<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>();
         }
 
         public void SpecifyContent()
