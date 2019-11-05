@@ -64,7 +64,6 @@ namespace PdfCalendar.Week
                 var tmp = CellInformation[date].Image;
                 image = EventSpecificImage(tmp.Image, tmp.Width, tmp.Height);
             }
-
             return image;
         }
 
