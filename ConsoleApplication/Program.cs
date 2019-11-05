@@ -41,7 +41,7 @@ namespace ConsoleApplication
                 (new DateTime(2018, 1, 1), "Bar", false, true),     // Public holiday, overrode holiday, second in list: Display in footer.
                 (new DateTime(1929, 1, 5), "Ada", true, false),     // Dead person, first in list: Display in month.
                 (new DateTime(1939, 1, 5), "Beda", true, false),    // Dead person, second in list: Display in footer.
-                (new DateTime(1987, 1, 4), "Uffe", false, false),   // Display in month.
+                (new DateTime(1987, 1, 3), "Uffe", false, false),   // Display in month.
                 (new DateTime(1957, 1, 24), "Nisse", false, false), // Sharing with other person, first in list: Display in month.
                 (new DateTime(1957, 1, 24), "Nasse", false, false), // Sharing with other person, second in list: Display in footer.
                 (new DateTime(1958, 1, 24), "Bosse", false, false), // Sharing with other person, third in list: Display in footer.
@@ -64,8 +64,6 @@ namespace ConsoleApplication
             var dateEvents = new List<(DateTime, string)>
             {
                 (jan1, "Test override"),
-                (jan4, "Punktskriftens dag"),
-                (jan4, "Världshypnosdagen"),
                 (jan4, "asdf 0000"),
                 (jan4, "asdf 0001"),
                 (jan8, "Hoppborgdagen0"),
@@ -89,8 +87,8 @@ namespace ConsoleApplication
 
             var list = new List<(DateTime Date, string FilePath, float Width, float Height)>
             {
-                (new DateTime(year, 1, 1), path, 15f, 10f),
-                (new DateTime(year, 1, 3), path, 15f, 10f)
+                (new DateTime(year, 1, 2), path, 15f, 10f),
+                (new DateTime(year, 1, 9), path, 15f, 10f)
             };
             return list;
         }
