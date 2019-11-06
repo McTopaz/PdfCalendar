@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PdfCalendar
+namespace PdfCalendar.Handlers
 {
-    class ManageDateInformation
+    class DateInformationHandler
     {
         int Year { get; set; }
         Data Data { get; set; }
         internal Dictionary<DateTime, DateInformation> LookupDateTable { get; set; }
 
-        public ManageDateInformation(int year, Data data)
+        public DateInformationHandler(int year, Data data)
         {
             Year = year;
             Data = data;

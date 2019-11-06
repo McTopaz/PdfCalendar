@@ -59,7 +59,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Images.resx</DependentUpon>
     </Compile>
-    <Compile Include="ManageDateInformation.cs" />
+    <Compile Include="Handlers\DateInformationHandler.cs" />
     <Compile Include="Month\Body.cs" />
     <Compile Include="Month\Footer.cs" />
     <Compile Include="Month\Header.cs" />

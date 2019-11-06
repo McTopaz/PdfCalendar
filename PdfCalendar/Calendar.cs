@@ -54,7 +54,7 @@ namespace PdfCalendar
 
         private void DateInformation()
         {
-            var mdi = new ManageDateInformation(ForYear.Year, Data);
+            var mdi = new DateInformationHandler(ForYear.Year, Data);
             CellInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as ICellInformation);
             MonthInformation = mdi.LookupDateTable.ToDictionary(d => d.Key, d => d.Value as IRemainingInformation);
         }
