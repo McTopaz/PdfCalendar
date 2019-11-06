@@ -70,7 +70,7 @@
     <Compile Include="Riddle.cs" />
     <Compile Include="SelectableRiddle.cs" />
     <Compile Include="Handlers\TeamDayHandler.cs" />
-    <Compile Include="TextFormat.cs" />
+    <Compile Include="Misc\TextFormat.cs" />
     <Compile Include="Pages\TitlePage.cs" />
     <Compile Include="Week\Body.cs" />
     <Compile Include="Week\Footer.cs" />
