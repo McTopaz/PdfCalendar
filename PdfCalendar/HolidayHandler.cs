@@ -10,7 +10,7 @@ using Nager.Date.Model;
 
 namespace PdfCalendar
 {
-    class HolidayManager
+    class HolidayHandler
     {
         int Year { get; set; }
         Data Data { get; set; }
@@ -20,7 +20,7 @@ namespace PdfCalendar
         IEnumerable<(DateTime Date, string Text, Bitmap Image, float Width, float Height)> SpecificHolidays;
         List<(DateTime Date, string Text, Bitmap Image, float Width, float Height)> Holidays { get; set; }
 
-        public HolidayManager(int year, Data data)
+        public HolidayHandler(int year, Data data)
         {
             Year = year;
             Data = data;

@@ -29,7 +29,7 @@ namespace PdfCalendar
             PdfFile = pdfFile;
             ForYear = new DateTime(forYear.Year, 1, 1);
             Data = new Data();
-            new HolidayManager(forYear.Year, Data);
+            new HolidayHandler(forYear.Year, Data);
             new TeamDayHandler(ForYear.Year, Data);
             Options = new Options();
         }
