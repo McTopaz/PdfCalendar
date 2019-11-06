@@ -35,7 +35,7 @@
                 <!-- Override info -->
                 <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
                     <Image Source="/GenerateCalendar;component/Images/Override.png" Height="18" />
-                    <Label Content="Any event specified here will override holiday or birthday for that particular date." FontSize="10" FontStyle="Italic" VerticalContentAlignment="Center" />
+                    <Label Content="Any image specified here will override any automated image for that particular date." FontSize="10" FontStyle="Italic" VerticalContentAlignment="Center" />
                 </StackPanel>
             </StackPanel>
                         
