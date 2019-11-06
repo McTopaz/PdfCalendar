@@ -49,7 +49,7 @@ namespace PdfCalendar.Month
             return table;
         }
 
-        private void Populate(PdfPTable table, IEnumerable<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)> list)
+        private void Populate(PdfPTable table, IEnumerable<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)> remaining)
         {
             var offset = 10;
 
@@ -59,8 +59,8 @@ namespace PdfCalendar.Month
             // The first 10 dates and events in the list are for column 1, rest 10 dates and events in the list are for column 2.
             // If there is less or equal to 10 dates and events then column 1 is only used. Column 2 will be empty.
             // The extracted dates and events are placed in stacks for easier pop the element from the stack.
-            var column1 = new Stack<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>(list.Take(offset).Reverse());
-            var column2 = new Stack<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>(list.Skip(offset).Take(offset).Reverse());
+            var column1 = new Stack<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>(remaining.Take(offset).Reverse());
+            var column2 = new Stack<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>(remaining.Skip(offset).Take(offset).Reverse());
 
             // Iterate over all items in the stack for column 1.
             while (column1.Count > 0)
@@ -84,19 +84,31 @@ namespace PdfCalendar.Month
 
         private PdfPCell Cell((DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image) item)
         {
+            // Date in format: day month.
             var c1 = new Chunk(item.Date.ToString("dd MMMM"));
             c1.Font.SetStyle("bold");
             c1.Font.Size = FontSize;
 
+            // Separator.
             var c2 = new Chunk(" ");
             c2.Font.Size = FontSize;
 
+            // Text for the cell.
             var c3 = new Chunk(item.Text);
             c3.Font.Size = FontSize;
 
-            var line = new Paragraph();
-            line.AddRange(new Chunk[] { c1, c2, c3 });
+            // Image.
+            var converter = new ImageConverter();
+            var bytes = converter.ConvertTo(item.Image.Bitmap, typeof(byte[])) as byte[];
+            var image = iTextSharp.text.Image.GetInstance(bytes);
+            image.ScaleAbsolute(item.Image.Width, item.Image.Height);
+            var c4 = new Chunk(image, 0, -4);
 
+            // Insert the above parts in a line.
+            var line = new Paragraph();
+            line.AddRange(new Chunk[] { c1, c2, c3, c2, c4});
+
+            // Create a cell and att the line into it.
             var cell = new PdfPCell
             {
                 Border = PdfPCell.NO_BORDER
