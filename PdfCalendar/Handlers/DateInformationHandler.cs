@@ -10,7 +10,7 @@ namespace PdfCalendar.Handlers
     {
         int Year { get; set; }
         Data Data { get; set; }
-        internal Dictionary<DateTime, DateInformation> LookupDateTable { get; set; }
+        internal Dictionary<DateTime, DateInformation> DateInformations { get; set; }
 
         public DateInformationHandler(int year, Data data)
         {
@@ -28,7 +28,7 @@ namespace PdfCalendar.Handlers
             var events = Data.Events.Select(e => e.Date);
             var images = Data.Images.Select(i => i.Date);
             var teamDays = Data.TeamDays.Select(t => t.Date);
-            LookupDateTable = holidays
+            DateInformations = holidays
                 .Concat(birthdays)
                 .Concat(events)
                 .Concat(images)
@@ -61,7 +61,7 @@ namespace PdfCalendar.Handlers
         {
             foreach (var item in Data.Holidays)
             {
-                var di = LookupDateTable[item.Date];
+                var di = DateInformations[item.Date];
                 di.Holidays = Data.Holidays.Where(h => h.Date == item.Date).Select(h => (h.Text, h.Image, h.Width, h.Height));
             }
         }
@@ -72,7 +72,7 @@ namespace PdfCalendar.Handlers
 
             foreach (var item in dates)
             {
-                var di = LookupDateTable[item.Date];
+                var di = DateInformations[item.Date];
                 di.TeamDays = Data.TeamDays.Where(t => t.Date == item.Date).Select(t => (t.Text, t.Image, t.Width, t.Height));
             }
         }
@@ -86,7 +86,7 @@ namespace PdfCalendar.Handlers
 
             foreach (var date in dates)
             {
-                var di = LookupDateTable[date];
+                var di = DateInformations[date];
                 di.Birthdays = Data.Birthdays.Where(b => HasBirthday(b.Birthday, date));
             }
         }
@@ -97,7 +97,7 @@ namespace PdfCalendar.Handlers
 
             foreach (var item in dates)
             {
-                var di = LookupDateTable[item.Date];
+                var di = DateInformations[item.Date];
                 di.Events = Data.Events.Where(e => e.Date == item.Date).Select(e => e.Event);
             }
         }
@@ -108,7 +108,7 @@ namespace PdfCalendar.Handlers
 
             foreach (var item in dates)
             {
-                var di = LookupDateTable[item.Date];
+                var di = DateInformations[item.Date];
                 di.Images = Data.Images.Where(i => i.Date == item.Date).Select(i => (FileFromPath(i.FilePath, i.Width, i.Height), i.Width, i.Height));
             }
         }
@@ -122,7 +122,7 @@ namespace PdfCalendar.Handlers
 
         private void SpecifyInformation()
         {
-            foreach (var item in LookupDateTable.Values)
+            foreach (var item in DateInformations.Values)
             {
                 item.SpecifyContent();
             }
