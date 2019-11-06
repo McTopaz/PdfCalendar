@@ -11,13 +11,13 @@ using Nager.Date.Model;
 
 namespace PdfCalendar
 {
-    class SpecificEvents
+    class TeamDayHandler
     {
         int Year { get; set; }
         Data Data { get; set; }
         IEnumerable<PublicHoliday> Holidays { get; set; }
 
-        public SpecificEvents(int year, Data data)
+        public TeamDayHandler(int year, Data data)
         {
             Year = year;
             Data = data;
@@ -48,7 +48,7 @@ namespace PdfCalendar
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
-            Data.TeamDayEvents = list;
+            Data.TeamDays = list;
         }
 
         private DateTime CalculateMothersDay()

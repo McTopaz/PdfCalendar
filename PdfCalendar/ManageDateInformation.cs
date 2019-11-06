@@ -27,7 +27,7 @@ namespace PdfCalendar
             var birthdays = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
             var events = Data.Events.Select(e => e.Date);
             var images = Data.Images.Select(i => i.Date);
-            var teamDays = Data.TeamDayEvents.Select(t => t.Date);
+            var teamDays = Data.TeamDays.Select(t => t.Date);
             LookupDateTable = holidays
                 .Concat(birthdays)
                 .Concat(events)
@@ -68,12 +68,12 @@ namespace PdfCalendar
 
         private void SetupTeamdays()
         {
-            var dates = Data.TeamDayEvents.Select(t => t.Date).Distinct().OrderBy(d => d);
+            var dates = Data.TeamDays.Select(t => t.Date).Distinct().OrderBy(d => d);
 
             foreach (var item in dates)
             {
                 var di = LookupDateTable[item.Date];
-                di.TeamDays = Data.TeamDayEvents.Where(t => t.Date == item.Date).Select(t => (t.Text, t.Image, t.Width, t.Height));
+                di.TeamDays = Data.TeamDays.Where(t => t.Date == item.Date).Select(t => (t.Text, t.Image, t.Width, t.Height));
             }
         }
 

@@ -15,7 +15,7 @@ namespace PdfCalendar
         public IEnumerable<(DateTime Date, Riddle Riddle)> Riddles { get; set; }
         public IEnumerable<(DateTime Date, string Citation)> Citations { get; set; }
         internal IEnumerable<(DateTime Date, string Text, Bitmap Image, float Width, float Height)> Holidays { get; set; }
-        internal IEnumerable<(DateTime Date, Bitmap Image, float Width, float Height, string Text)> TeamDayEvents { get; set; }
+        internal IEnumerable<(DateTime Date, Bitmap Image, float Width, float Height, string Text)> TeamDays { get; set; }
 
         public Data()
         {
