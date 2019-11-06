@@ -96,6 +96,7 @@
     <Compile Include="ViewModels\vmDateImages.cs" />
     <Compile Include="ViewModels\vmFooter.cs" />
     <Compile Include="ViewModels\vmHeader.cs" />
+    <Compile Include="ViewModels\vmMainWindow.cs" />
     <Compile Include="ViewModels\vmOptions.cs" />
     <Compile Include="ViewModels\vmPdfFile.cs" />
     <Compile Include="ViewModels\vmRiddles.cs" />

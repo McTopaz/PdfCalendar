@@ -5,19 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenerateCalendar"
         xmlns:views="clr-namespace:GenerateCalendar.Views"
+        xmlns:viewModel="clr-namespace:GenerateCalendar.ViewModels"
         mc:Ignorable="d"
         Title="Generate calendar" Height="850" Width="1000" Icon="Calendar.ico">
+
+    <Window.DataContext>
+        <viewModel:vmMainWindow />
+    </Window.DataContext>
     
     <DockPanel LastChildFill="True">
-        
-        <!-- Header -->
-        <views:Header x:Name="viewHeader" DockPanel.Dock="Top" Margin="6,0,6,0" />
 
-        <!-- Footer -->
-        <views:Footer x:Name="viewFooter" DockPanel.Dock="Bottom" Margin="6,0,6,0" />
-        
-        <!-- Body -->
-        <views:Body x:Name="viewBody" Margin="6,0,6,0" />
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem Content="GUI-Version" />
+            <StatusBarItem Content="{Binding GuiVersion}" />
+            <StatusBarItem Content="API-Version" />
+            <StatusBarItem Content="{Binding ApiVerison}" />
+        </StatusBar>
+
+        <DockPanel LastChildFill="True" DockPanel.Dock="Top" Margin="0,0,0,6">
+            
+            <!-- Header -->
+            <views:Header x:Name="viewHeader" DockPanel.Dock="Top" Margin="6,0,6,0" />
+
+            <!-- Footer -->
+            <views:Footer x:Name="viewFooter" DockPanel.Dock="Bottom" Margin="6,0,6,0" />
+
+            <!-- Body -->
+            <views:Body x:Name="viewBody" Margin="6,0,6,0" />
+            
+        </DockPanel>
     </DockPanel>
-    
 </Window>
