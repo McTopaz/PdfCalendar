@@ -15,59 +15,14 @@ namespace PdfCalendar
     {
         int Year { get; set; }
         Data Data { get; set; }
-        IEnumerable<PublicHoliday> Holidays { get; set; } 
+        IEnumerable<PublicHoliday> Holidays { get; set; }
 
         public SpecificEvents(int year, Data data)
         {
             Year = year;
             Data = data;
             Holidays = DateSystem.GetPublicHoliday(Year, CountryCode.SE);
-            SetupHolidays();
             SetupTeamDays();
-        }
-
-        private void SetupHolidays()
-        {
-            var easter = Holidays.First(h => h.LocalName == "Påskdagen").Date.AddDays(-1);
-            var national = new DateTime(Year, 6, 6);
-            var pentecostEve = Holidays.First(h => h.LocalName == "Pingstdagen").Date.AddDays(-1);
-            var midsommer = Holidays.First(h => h.LocalName == "Midsommarafton").Date;
-            var christmas = new DateTime(Year, 12, 24);
-            var newYear = new DateTime(Year, 12, 31);
-
-            var advent = CalculateAdvent();
-
-            var list = new List<(DateTime, Bitmap, float, float, string)>();
-            list.Add((easter, Images.EasterEgg, 13, 13, "Påskafton"));
-            list.Add((national, Images.SwedishFlag, 15, 10, "Svenska nationaldagen"));
-            list.Add((pentecostEve, Images.NarcissusPoeticus, 10, 12, "Pingstafton"));
-            list.Add((midsommer, Images.MidsommerPole, 10, 15, "Midsommarafton"));
-            list.AddRange(advent);
-            list.Add((christmas, Images.ChristmasTree, 10, 15, "Julafton"));
-            list.Add((newYear, Images.NewYear, 12, 12, "Nyår"));
-
-            Data.HolidayEvents = list;
-        }
-
-        private IEnumerable<(DateTime, Bitmap, float, float, string)> CalculateAdvent()
-        {
-            var advent4 = new DateTime(Year, 12, 25);
-            do
-            {
-                advent4 = advent4.AddDays(-1);
-            }
-            while (advent4.DayOfWeek != DayOfWeek.Sunday);
-
-            var advent1 = advent4.AddDays(-21);
-            var advent2 = advent4.AddDays(-14);
-            var advent3 = advent4.AddDays(-7);
-
-            var list = new List<(DateTime, Bitmap, float, float, string)>();
-            list.Add((advent1, Images.Advent1, 30, 14, "Första advent"));
-            list.Add((advent2, Images.Advent2, 30, 14, "Andra advent"));
-            list.Add((advent3, Images.Advent3, 30, 14, "Tredje advent"));
-            list.Add((advent4, Images.Advent4, 30, 14, "Fjärde advent"));
-            return list;
         }
 
         private void SetupTeamDays()
