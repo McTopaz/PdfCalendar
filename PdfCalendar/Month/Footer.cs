@@ -300,7 +300,30 @@ namespace PdfCalendar.Month
 
             mainTable.AddCell(cell1);
             mainTable.AddCell(cell2);
+            BottomRow(mainTable);
             return mainTable;
+        }
+
+        /// <summary>
+        /// Create a bottom row in the lowest part of the footer.
+        /// </summary>
+        /// <param name="table">The table containing the footer.</param>
+        private void BottomRow(PdfPTable table)
+        {
+            // This row is used for images in the row that are "quite" heigh.
+            // Without this row, the bottom item in the 'left section' will overlay the black section of the page.
+            // The footer is a table with two columns. By adding two "empty" cells to the table a bottom row can be inserted.
+
+            var p = new Phrase(Environment.NewLine);
+            p.Font.Size = 1;    // Change the font size to alter the height of the bottom row.
+
+            var cell = new PdfPCell(p)
+            {
+                BackgroundColor = BaseColor.WHITE,
+                Border = PdfPCell.NO_BORDER
+            };
+            table.AddCell(cell);
+            table.AddCell(cell);
         }
     }
 }
