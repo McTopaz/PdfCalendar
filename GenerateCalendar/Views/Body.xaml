@@ -21,8 +21,7 @@
             </StackPanel>
         </GroupBox.Header>
 
-        <StackPanel Orientation="Vertical">
-
+        <ListBox HorizontalContentAlignment="Stretch">
             <views:Year x:Name="viewYear" />
             <views:Options x:Name="viewOptions" />
             <views:Birthdays x:Name="viewBirthDays" />
@@ -32,8 +31,7 @@
             <views:SelectableRiddles x:Name="viewSelectableRiddles" />
             <views:Citations x:Name="viewCitations" />
             <views:PdfFile x:Name="viewPdfFile" />
+        </ListBox>
 
-        </StackPanel>
-        
     </GroupBox>
 </UserControl>
