@@ -9,7 +9,7 @@ using Nager.Date;
 using Nager.Date.Model;
 
 
-namespace PdfCalendar
+namespace PdfCalendar.Handlers
 {
     class TeamDayHandler
     {

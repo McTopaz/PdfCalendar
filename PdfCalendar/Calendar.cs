@@ -7,6 +7,8 @@ using System.IO;
 using System.Diagnostics;
 using System.Globalization;
 
+using PdfCalendar.Handlers;
+
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 

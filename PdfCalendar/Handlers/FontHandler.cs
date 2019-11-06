@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-namespace PdfCalendar
+namespace PdfCalendar.Handlers
 {
     static class FontHandler
     {

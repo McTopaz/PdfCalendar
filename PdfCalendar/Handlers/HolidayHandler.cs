@@ -8,7 +8,7 @@ using System.Drawing;
 using Nager.Date;
 using Nager.Date.Model;
 
-namespace PdfCalendar
+namespace PdfCalendar.Handlers
 {
     class HolidayHandler
     {
