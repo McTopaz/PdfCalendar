@@ -36,6 +36,8 @@ namespace ConsoleApplication
         {
             var list = new List<(DateTime Birthday, string Name, bool Dead, bool VIP)>
             {
+                (new DateTime(1979, 6, 6), "Molle", false, true),   // Public holiday, override holiday, first in list: Display in month. Holiday in footer with image.
+                (new DateTime(1979, 6, 21), "Mulle", false, true),  // Public holiday, override holiday, first in list: Display in month. Holiday in footer with image.
                 (new DateTime(1989, 1, 1), "Lasse", false, true),   // Public holiday, override holiday, first in list: Display in month.
                 (new DateTime(2018, 1, 1), "Foo", false, true),     // Public holiday, overrode holiday, second in list: Display in footer.
                 (new DateTime(2018, 1, 1), "Bar", false, true),     // Public holiday, overrode holiday, second in list: Display in footer.
