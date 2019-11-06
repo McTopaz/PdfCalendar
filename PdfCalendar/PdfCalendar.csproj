@@ -65,13 +65,13 @@
     <Compile Include="Month\Header.cs" />
     <Compile Include="Month\MonthGenerator.cs" />
     <Compile Include="Options.cs" />
-    <Compile Include="PreviousDecember.cs" />
+    <Compile Include="Pages\PreviousDecember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Riddle.cs" />
     <Compile Include="SelectableRiddle.cs" />
     <Compile Include="Handlers\TeamDayHandler.cs" />
     <Compile Include="TextFormat.cs" />
-    <Compile Include="TitlePage.cs" />
+    <Compile Include="Pages\TitlePage.cs" />
     <Compile Include="Week\Body.cs" />
     <Compile Include="Week\Footer.cs" />
     <Compile Include="Week\ImageInCell.cs" />

@@ -9,7 +9,7 @@ using PdfCalendar.Handlers;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-namespace PdfCalendar
+namespace PdfCalendar.Pages
 {
     class TitlePage : PdfPTable
     {

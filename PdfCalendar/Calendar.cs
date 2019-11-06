@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Globalization;
 
 using PdfCalendar.Handlers;
+using PdfCalendar.Pages;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -23,8 +24,6 @@ namespace PdfCalendar
         public Options Options { get; set; }
         internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
         internal Dictionary<DateTime, IRemainingInformation> MonthInformation { get; set; }
-
-        
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
         {
