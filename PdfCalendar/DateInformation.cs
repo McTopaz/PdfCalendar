@@ -25,6 +25,9 @@ namespace PdfCalendar
 
     class DateInformation : ICellInformation, IRemainingInformation
     {
+        const float BirthdayImageWidth = 12;
+        const float BirthdayImageHeight = 12;
+
         public int Year { get; private set; }
         public DateTime Date { get; private set; }
         public DateType Type { get; private set; }
@@ -35,7 +38,7 @@ namespace PdfCalendar
 
         
         public IEnumerable<(DateTime Birthday, string Name, bool Dead, bool VIP)> Birthdays { get; internal set; }
-        public (string Text, Bitmap Image, float Width, float Height) Holiday { get; internal set; }
+        public IEnumerable<(string Text, Bitmap Image, float Width, float Height)> Holidays { get; internal set; }
         public IEnumerable<(string Text, Bitmap Image, float Width, float Height)> TeamDays { get; internal set; }
         public IEnumerable<string> Events { get; internal set; }
         public IEnumerable<(Bitmap Image, float Width, float Height)> Images { get; internal set; }
@@ -47,6 +50,7 @@ namespace PdfCalendar
             Type = DateType.NotSet;
 
             Birthdays = Enumerable.Empty<(DateTime, string, bool, bool)>();
+            Holidays = Enumerable.Empty<(string Text, Bitmap Image, float Width, float Height)>();
             TeamDays = Enumerable.Empty<(string Text, Bitmap Image, float Width, float Height)>();
             Events = Enumerable.Empty<string>();
             Images = Enumerable.Empty<(Bitmap Image, float Width, float Height)>();
@@ -59,20 +63,21 @@ namespace PdfCalendar
             {
                 Type = DateType.Birthday;
                 var tmp = Birthdays.Where(b => b.VIP).First();
-                CellInformation((tmp.Birthday, tmp.Name, tmp.Dead), (PdfCalendar.Images.Ballons, 12, 12));
+                CellInformation((tmp.Birthday, tmp.Name, tmp.Dead), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight));
                 RemainingInformationVIP();
             }
-            else if (!string.IsNullOrWhiteSpace(Holiday.Text))
+            else if (Holidays.Count() > 0)
             {
                 Type = DateType.Holiday;
-                CellInformation(Holiday.Text, (Holiday.Image, Holiday.Width, Holiday.Height));
+                var tmp = Holidays.First();
+                CellInformation(tmp.Text, (tmp.Image, tmp.Width, tmp.Height));
                 RemainingInformationHolidays();
             }
             else if (Birthdays.Count() > 0 && !Birthdays.First().VIP)
             {
                 Type = DateType.Birthday;
                 var tmp = Birthdays.Where(b => !b.VIP).First();
-                CellInformation((tmp.Birthday, tmp.Name, tmp.Dead), (PdfCalendar.Images.Ballons, 12, 12));
+                CellInformation((tmp.Birthday, tmp.Name, tmp.Dead), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight));
                 RemainingInformationNoVIP();
             }
             else if (TeamDays.Count() > 0)
@@ -114,17 +119,17 @@ namespace PdfCalendar
 
         private void RemainingInformationVIP()
         {
-            var vip = Birthdays.Where(b => b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.NoImage, 16f, 16f)));
-            var holiday = (Date, Holiday.Text, (Holiday.Image, Holiday.Width, Holiday.Height));
-            var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var vip = Birthdays.Where(b => b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
+            var holidays = Holidays.Select(h => (Date, h.Text, (h.Image, h.Width, h.Height)));
+            var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
-            Remaining = vip.Concat(new[] { holiday }).Concat(noVip).Concat(teamDays).Concat(events);
+            Remaining = vip.Concat(holidays).Concat(noVip).Concat(teamDays).Concat(events);
         }
 
         private void RemainingInformationHolidays()
         {
-            var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
             Remaining = noVip.Concat(teamDays).Concat(events);
@@ -132,7 +137,7 @@ namespace PdfCalendar
 
         private void RemainingInformationNoVIP()
         {
-            var noVip = Birthdays.Where(b => !b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var noVip = Birthdays.Where(b => !b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
             Remaining = noVip.Concat(teamDays).Concat(events);

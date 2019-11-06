@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Nager.Date;
-using Nager.Date.Model;
-
 namespace PdfCalendar
 {
     class ManageDateInformation
@@ -26,14 +23,12 @@ namespace PdfCalendar
 
         private void CreateLookup()
         {
-            var publicHoliday = DateSystem.GetPublicHoliday(Year, CountryCode.SE).Select(h => h.Date);
-            var specificHolidays = Data.HolidayEvents.Select(h => h.Date);
+            var holidays = Data.Holidays.Select(h => h.Date);
             var birthdays = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
             var events = Data.Events.Select(e => e.Date);
             var images = Data.Images.Select(i => i.Date);
             var teamDays = Data.TeamDayEvents.Select(t => t.Date);
-            LookupDateTable = publicHoliday
-                .Concat(specificHolidays)
+            LookupDateTable = holidays
                 .Concat(birthdays)
                 .Concat(events)
                 .Concat(images)
@@ -67,7 +62,7 @@ namespace PdfCalendar
             foreach (var item in Data.Holidays)
             {
                 var di = LookupDateTable[item.Date];
-                di.Holiday = (item.Text, item.Image, item.Width, item.Height);
+                di.Holidays = Data.Holidays.Where(h => h.Date == item.Date).Select(h => (h.Text, h.Image, h.Width, h.Height));
             }
         }
 
