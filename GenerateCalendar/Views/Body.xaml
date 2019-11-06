@@ -21,7 +21,7 @@
             </StackPanel>
         </GroupBox.Header>
 
-        <ListBox HorizontalContentAlignment="Stretch">
+        <ListBox HorizontalContentAlignment="Stretch" BorderThickness="0">
             <views:Year x:Name="viewYear" />
             <views:Options x:Name="viewOptions" />
             <views:Birthdays x:Name="viewBirthDays" />
