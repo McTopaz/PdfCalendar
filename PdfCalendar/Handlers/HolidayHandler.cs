@@ -35,6 +35,7 @@ namespace PdfCalendar.Handlers
         private IEnumerable<(DateTime Date, string Text, Bitmap Image, float Widgh, float Height)> SetupSpecificHolidays()
         {
             var easter = CommonHolidays.First(h => h.LocalName == "Påskdagen").Date.AddDays(-1);
+            var firstMay = new DateTime(Year, 5, 1);
             var national = new DateTime(Year, 6, 6);
             var pentecostEve = CommonHolidays.First(h => h.LocalName == "Pingstdagen").Date.AddDays(-1);
             var midsommer = CommonHolidays.First(h => h.LocalName == "Midsommarafton").Date;
@@ -44,6 +45,7 @@ namespace PdfCalendar.Handlers
 
             var list = new List<(DateTime, string, Bitmap, float, float)>();
             list.Add((easter, "Påskafton", Images.EasterEgg, 13, 13));
+            list.Add((firstMay, "Första maj", Images.FirstMay, 14, 14));
             list.Add((national, "Svenska nationaldagen", Images.SwedishFlag, 15, 10));
             list.Add((pentecostEve, "Pingstafton", Images.NarcissusPoeticus, 10, 12));
             list.Add((midsommer, "Midsommarafton", Images.MidsommerPole, 10, 15));
