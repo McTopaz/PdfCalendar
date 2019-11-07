@@ -51,6 +51,8 @@ namespace PdfCalendar.Handlers
             var globeDay = new DateTime(Year, 4, 22);
             var worldBookDay = new DateTime(Year, 4, 23);
             var laboratoryAnimalsDay = new DateTime(Year, 4, 24);
+            var labourEnvironmentDay = new DateTime(Year, 4, 28);
+            var outdoorRecreationDay = new DateTime(Year, 4, 29);
             // May.
             // Jun.
             // Jul.
@@ -96,6 +98,8 @@ namespace PdfCalendar.Handlers
             list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
             list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
             list.Add((laboratoryAnimalsDay, Images.NoImage, 16, 16, "Försökdjurens dag"));
+            list.Add((labourEnvironmentDay, Images.NoImage, 16, 16, "Arbetsmiljödagen"));
+            list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
             // May.
             // Jun.
             // Jul.
