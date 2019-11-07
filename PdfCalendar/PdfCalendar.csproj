@@ -106,6 +106,7 @@
     <None Include="Images\Nobel.png" />
     <None Include="Images\NoImage.png" />
     <None Include="Images\SwedenFinnsFlag.png" />
+    <None Include="Images\PI.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>
