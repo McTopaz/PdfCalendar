@@ -35,6 +35,7 @@ namespace PdfCalendar.Handlers
             var rockSock = new DateTime(Year, 3, 21);
             var water = new DateTime(Year, 3, 22);
             var waffleDay = new DateTime(Year, 3, 25);
+            var childBookDay = new DateTime(Year, 4, 2);
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var kladdkaka = new DateTime(Year, 11, 7);
@@ -54,6 +55,7 @@ namespace PdfCalendar.Handlers
             list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
             list.Add((water, Images.Water, 12, 12, "Vattendagen"));
             list.Add((waffleDay, Images.Waffle, 12, 12, "Våffeldagen"));
+            list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
             list.Add((mothersDay, Images.Woman, 16, 16,"Mors dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
