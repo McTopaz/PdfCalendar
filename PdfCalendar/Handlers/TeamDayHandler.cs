@@ -37,6 +37,8 @@ namespace PdfCalendar.Handlers
             var waffleDay = new DateTime(Year, 3, 25);
             var childBookDay = new DateTime(Year, 4, 2);
             var whoDay = new DateTime(Year, 4, 7);          // World heatl organization.
+            var globeDay = new DateTime(Year, 4, 22);
+            var worldBookDay = new DateTime(Year, 4, 23);
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var kladdkaka = new DateTime(Year, 11, 7);
@@ -58,6 +60,8 @@ namespace PdfCalendar.Handlers
             list.Add((waffleDay, Images.Waffle, 12, 12, "Våffeldagen"));
             list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
             list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
+            list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
+            list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
             list.Add((mothersDay, Images.Woman, 16, 16,"Mors dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
