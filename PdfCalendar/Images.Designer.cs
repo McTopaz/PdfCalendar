@@ -353,6 +353,16 @@ namespace PdfCalendar {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap StarWars {
+            get {
+                object obj = ResourceManager.GetObject("StarWars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SwedenFinnsFlag {
             get {
                 object obj = ResourceManager.GetObject("SwedenFinnsFlag", resourceCulture);
