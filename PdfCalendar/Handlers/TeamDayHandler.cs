@@ -54,6 +54,7 @@ namespace PdfCalendar.Handlers
             var labourEnvironmentDay = new DateTime(Year, 4, 28);
             var outdoorRecreationDay = new DateTime(Year, 4, 29);
             // May.
+            var worldLaughterDay = new DateTime(Year, 5, 1);
             // Jun.
             // Jul.
             // Aug.
@@ -101,6 +102,7 @@ namespace PdfCalendar.Handlers
             list.Add((labourEnvironmentDay, Images.NoImage, 16, 16, "Arbetsmiljödagen"));
             list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
             // May.
+            list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
             // Jun.
             // Jul.
             // Aug.

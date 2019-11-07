@@ -109,6 +109,7 @@
     <None Include="Images\MidsommerPole.png" />
     <None Include="Images\Kladdkaka.png" />
     <None Include="Images\NarcissusPoeticus.png" />
+    <None Include="Images\Laugh.png" />
     <Content Include="Images\NewYear.png" />
     <None Include="Images\Nobel.png" />
     <None Include="Images\NoImage.png" />
