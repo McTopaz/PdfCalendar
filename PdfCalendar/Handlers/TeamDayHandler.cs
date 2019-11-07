@@ -28,8 +28,8 @@ namespace PdfCalendar.Handlers
         private void SetupTeamDays()
         {
             var brailleDay = new DateTime(Year, 1, 4);
-            var swedenFinns = new DateTime(Year, 1, 24);
             var heart = new DateTime(Year, 2, 14);
+            var swedenFinns = new DateTime(Year, 2, 24);
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var kladdkaka = new DateTime(Year, 11, 7);
