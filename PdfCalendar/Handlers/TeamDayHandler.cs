@@ -49,7 +49,7 @@ namespace PdfCalendar.Handlers
             list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
-            list.Add((womansDay, Images.Woman, 16, 16, "Internationella kvinnodagen"));
+            list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
             list.Add((rockSock, Images.Sock, 12, 12, "Rocka sockorna"));
             list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
