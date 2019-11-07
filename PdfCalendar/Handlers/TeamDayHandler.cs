@@ -58,6 +58,7 @@ namespace PdfCalendar.Handlers
             var pressFreedomDay = new DateTime(Year, 5, 3);
             var starWarsDay = new DateTime(Year, 5, 4);
             var europeDay = new DateTime(Year, 5, 9);
+            var jamCakeDay = CalculateJamCakeDay();
             // Jun.
             // Jul.
             // Aug.
@@ -109,6 +110,7 @@ namespace PdfCalendar.Handlers
             list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
             list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
+            list.Add((jamCakeDay, Images.NoImage, 16, 16, "Syltkakans dag"));
             // Jun.
             // Jul.
             // Aug.
@@ -143,6 +145,17 @@ namespace PdfCalendar.Handlers
                 .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .ElementAt(1);
             return sunday;
+        }
+
+        private DateTime CalculateJamCakeDay()
+        {
+            // Second wednesday in may.
+            var may = 5;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, may))
+                .Select(d => new DateTime(Year, may, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Wednesday)
+                .ElementAt(1);
+            return date;
         }
     }
 }
