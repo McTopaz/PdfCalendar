@@ -27,26 +27,38 @@ namespace PdfCalendar.Handlers
 
         private void SetupTeamDays()
         {
+            // Jan.
             var brailleDay = new DateTime(Year, 1, 4);
             var holocaustDay = new DateTime(Year, 1, 27);
+            // Feb.
             var runeBergDay = new DateTime(Year, 2, 5);
             var heart = new DateTime(Year, 2, 14);
             var crimeVictimsDay = new DateTime(Year, 2, 22);
             var swedenFinns = new DateTime(Year, 2, 24);
             var mosquitoNestBoxDay = new DateTime(Year, 2, 28);
+            // Mar.
             var womansDay = new DateTime(Year, 3, 8);
             var pi = new DateTime(Year, 3, 14);
             var rockSock = new DateTime(Year, 3, 21);
             var water = new DateTime(Year, 3, 22);
             var waffleDay = new DateTime(Year, 3, 25);
+            // Apr.
             var childBookDay = new DateTime(Year, 4, 2);
-            var whoDay = new DateTime(Year, 4, 7);          // World heatl organization.
+            var whoDay = new DateTime(Year, 4, 7);          // World health organization.
             var globeDay = new DateTime(Year, 4, 22);
             var worldBookDay = new DateTime(Year, 4, 23);
+            // May.
+            // Jun.
+            // Jul.
+            // Aug.
+            // Sep.
+            // Oct.
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
+            // Nov.
             var kladdkaka = new DateTime(Year, 11, 7);
             var chocolate = new DateTime(Year, 11, 11);
+            // Dec.
             var nobel = new DateTime(Year, 12, 10);
             var mothersDay = CalculateMothersDay();
             var fathersDay = CalculateFathersDay();
