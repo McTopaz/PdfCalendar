@@ -95,6 +95,7 @@
     <None Include="Images\Ballons.png" />
     <None Include="Images\Braille.png" />
     <None Include="Images\Book.png" />
+    <None Include="Images\Badge.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <Content Include="Images\EasterEgg.png" />
