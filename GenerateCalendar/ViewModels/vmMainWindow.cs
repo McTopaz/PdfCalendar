@@ -16,8 +16,18 @@ namespace GenerateCalendar.ViewModels
 
         public vmMainWindow()
         {
-            GuiVersion = "gui";
-            ApiVerison = "api";
+            GuiVersion = LookupGuiVersion();
+            ApiVerison = LookupApiVersion();
+        }
+
+        private string LookupGuiVersion()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
+        private string LookupApiVersion()
+        {
+            return System.Reflection.Assembly.GetAssembly(typeof(PdfCalendar.Calendar)).GetName().Version.ToString();
         }
     }
 }

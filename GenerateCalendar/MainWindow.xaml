@@ -16,9 +16,22 @@
     <DockPanel LastChildFill="True">
 
         <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem Content="GUI-Version" />
+            <StatusBarItem>
+                <StatusBarItem.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/GenerateCalendar;component/Images/Gui.png" Height="16" />
+                    </StackPanel>
+                </StatusBarItem.Content>
+            </StatusBarItem>
             <StatusBarItem Content="{Binding GuiVersion}" />
-            <StatusBarItem Content="API-Version" />
+            <Separator Width="5" Visibility="Hidden" />
+            <StatusBarItem>
+                <StatusBarItem.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/GenerateCalendar;component/Images/Api.png" Height="16" />
+                    </StackPanel>
+                </StatusBarItem.Content>
+            </StatusBarItem>
             <StatusBarItem Content="{Binding ApiVerison}" />
         </StatusBar>
 
