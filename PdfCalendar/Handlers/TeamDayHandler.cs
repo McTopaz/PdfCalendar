@@ -55,6 +55,7 @@ namespace PdfCalendar.Handlers
             var outdoorRecreationDay = new DateTime(Year, 4, 29);
             // May.
             var worldLaughterDay = new DateTime(Year, 5, 1);
+            var pressFreedomDay = new DateTime(Year, 5, 3);
             // Jun.
             // Jul.
             // Aug.
@@ -103,6 +104,7 @@ namespace PdfCalendar.Handlers
             list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
             // May.
             list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
+            list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
             // Jun.
             // Jul.
             // Aug.
