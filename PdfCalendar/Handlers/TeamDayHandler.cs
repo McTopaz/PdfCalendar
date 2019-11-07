@@ -57,6 +57,7 @@ namespace PdfCalendar.Handlers
             var worldLaughterDay = new DateTime(Year, 5, 1);
             var pressFreedomDay = new DateTime(Year, 5, 3);
             var starWarsDay = new DateTime(Year, 5, 4);
+            var europeDay = new DateTime(Year, 5, 9);
             // Jun.
             // Jul.
             // Aug.
@@ -107,6 +108,7 @@ namespace PdfCalendar.Handlers
             list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
             list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
             list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
+            list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
             // Jun.
             // Jul.
             // Aug.
