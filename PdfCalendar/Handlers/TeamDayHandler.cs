@@ -44,11 +44,13 @@ namespace PdfCalendar.Handlers
             var water = new DateTime(Year, 3, 22);
             var worldMeteorologyDay = new DateTime(Year, 3, 23);
             var waffleDay = new DateTime(Year, 3, 25);
+            var bipolarDay = new DateTime(Year, 3, 30);
             // Apr.
             var childBookDay = new DateTime(Year, 4, 2);
             var whoDay = new DateTime(Year, 4, 7);          // World health organization.
             var globeDay = new DateTime(Year, 4, 22);
             var worldBookDay = new DateTime(Year, 4, 23);
+            var laboratoryAnimalsDay = new DateTime(Year, 4, 24);
             // May.
             // Jun.
             // Jul.
@@ -87,11 +89,13 @@ namespace PdfCalendar.Handlers
             list.Add((water, Images.Water, 12, 12, "Vattendagen"));
             list.Add((worldMeteorologyDay, Images.WHO, 15, 10, "Världsmeteorologidagen"));
             list.Add((waffleDay, Images.Waffle, 12, 12, "Våffeldagen"));
+            list.Add((bipolarDay, Images.NoImage, 16, 16, "Bipolärdagen"));
             // Apr.
             list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
             list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
             list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
             list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
+            list.Add((laboratoryAnimalsDay, Images.NoImage, 16, 16, "Försökdjurens dag"));
             // May.
             // Jun.
             // Jul.
