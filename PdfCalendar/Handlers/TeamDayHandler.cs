@@ -28,7 +28,10 @@ namespace PdfCalendar.Handlers
         private void SetupTeamDays()
         {
             var brailleDay = new DateTime(Year, 1, 4);
+            var holocaustDay = new DateTime(Year, 1, 27);
+            var runeBergDay = new DateTime(Year, 2, 5);
             var heart = new DateTime(Year, 2, 14);
+            var crimeVictimsDay = new DateTime(Year, 2, 22);
             var swedenFinns = new DateTime(Year, 2, 24);
             var womansDay = new DateTime(Year, 3, 8);
             var pi = new DateTime(Year, 3, 14);
@@ -50,7 +53,10 @@ namespace PdfCalendar.Handlers
             var list = new List<(DateTime, Bitmap, float, float, string)>();
             list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
             list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
+            list.Add((holocaustDay, Images.NoImage, 16, 16, "Förintelsens minnesdag"));
+            list.Add((runeBergDay, Images.NoImage, 16, 16, "Runebergsdagen"));
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
+            list.Add((crimeVictimsDay, Images.NoImage, 16, 16, "Brottsoffersdagen"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
