@@ -107,6 +107,8 @@
     <None Include="Images\NoImage.png" />
     <None Include="Images\SwedenFinnsFlag.png" />
     <None Include="Images\PI.png" />
+    <None Include="Images\Sock.png" />
+    <None Include="Images\Quil.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>

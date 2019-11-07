@@ -32,6 +32,7 @@ namespace PdfCalendar.Handlers
             var swedenFinns = new DateTime(Year, 2, 24);
             var womansDay = new DateTime(Year, 3, 8);
             var pi = new DateTime(Year, 3, 14);
+            var rockSock = new DateTime(Year, 3, 21);
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var kladdkaka = new DateTime(Year, 11, 7);
@@ -42,11 +43,13 @@ namespace PdfCalendar.Handlers
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
             list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
-            list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));        // Same day as Braille day.
+            list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
             list.Add((womansDay, Images.Woman, 16, 16, "Internationella kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
+            list.Add((rockSock, Images.Sock, 12, 12, "Rocka sockorna"));
+            list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
             list.Add((mothersDay, Images.Woman, 16, 16,"Mors dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
