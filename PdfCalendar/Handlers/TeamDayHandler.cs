@@ -59,6 +59,7 @@ namespace PdfCalendar.Handlers
             var starWarsDay = new DateTime(Year, 5, 4);
             var europeDay = new DateTime(Year, 5, 9);
             var jamCakeDay = CalculateJamCakeDay();
+            var againstHomophobiaDay = new DateTime(Year, 5, 17);
             // Jun.
             // Jul.
             // Aug.
@@ -111,6 +112,7 @@ namespace PdfCalendar.Handlers
             list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
             list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
+            list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
             // Jun.
             // Jul.
             // Aug.
