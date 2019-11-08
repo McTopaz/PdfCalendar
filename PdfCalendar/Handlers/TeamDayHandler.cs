@@ -98,7 +98,7 @@ namespace PdfCalendar.Handlers
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
             list.Add((crimeVictimsDay, Images.NoImage, 16, 16, "Brottsofferdagen"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
-            list.Add((mosquitoNestBoxDay, Images.NoImage, 16, 16, "Myggholkens dag"));
+            list.Add((mosquitoNestBoxDay, Images.NestBox, 12, 12, "Myggholkens dag"));
             // Mar.
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
