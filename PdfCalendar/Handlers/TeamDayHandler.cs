@@ -110,7 +110,7 @@ namespace PdfCalendar.Handlers
             list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
             list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
-            list.Add((jamCakeDay, Images.NoImage, 16, 16, "Syltkakans dag"));
+            list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
             // Jun.
             // Jul.
             // Aug.

@@ -169,6 +169,9 @@
   <data name="Globe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Globe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="HallonGrotta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\HallonGrotta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

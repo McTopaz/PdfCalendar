@@ -104,6 +104,7 @@
     <None Include="Images\Globe.png" />
     <None Include="Images\FirePlace.png" />
     <None Include="Images\Europe.png" />
+    <None Include="Images\HallonGrotta.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />
