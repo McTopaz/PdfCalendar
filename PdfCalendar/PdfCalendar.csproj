@@ -133,6 +133,7 @@
     <None Include="Images\Quil.png" />
     <None Include="Images\StarWars.png" />
     <None Include="Images\Shield.png" />
+    <None Include="Images\Oleander.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>
