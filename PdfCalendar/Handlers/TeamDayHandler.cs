@@ -94,7 +94,7 @@ namespace PdfCalendar.Handlers
             // Mar.
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
-            list.Add((againstPoliceViolence, Images.Badge, 12, 12, "Dagen mot poilsvåld"));
+            list.Add((againstPoliceViolence, Images.Badge, 12, 12, "Dagen mot polisvåld"));
             list.Add((rockSock, Images.Sock, 12, 12, "Rocka sockorna"));
             list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
             list.Add((water, Images.Water, 12, 12, "Vattendagen"));
