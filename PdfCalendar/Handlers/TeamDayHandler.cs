@@ -66,6 +66,8 @@ namespace PdfCalendar.Handlers
             var worldEnvironmentDay = new DateTime(Year, 6, 5);
             var worldKnittingDay = new DateTime(Year, 6, 8);
             var archiveDay = new DateTime(Year, 6, 9);
+            var heraldryDay = new DateTime(Year, 6, 10);
+            var wildFlowersDay = new DateTime(Year, 6, 13);
             // Jul.
             // Aug.
             // Sep.
@@ -125,6 +127,8 @@ namespace PdfCalendar.Handlers
             list.Add((worldEnvironmentDay, Images.Globe, 12, 12, "Världsmiljödagen"));
             list.Add((worldKnittingDay, Images.KnittingNeedles, 12, 12, "Världsstickningsdagen"));
             list.Add((archiveDay, Images.Archive, 12, 12, "Arkivdagen"));
+            list.Add((heraldryDay, Images.Shield, 12, 12, "Heraldikdagen"));
+            list.Add((wildFlowersDay, Images.Flowers, 12, 12, "Vilda blommornas dag"));
             // Jul.
             // Aug.
             // Sep.

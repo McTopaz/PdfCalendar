@@ -108,6 +108,7 @@
     <None Include="Images\Europe.png" />
     <None Include="Images\HallonGrotta.png" />
     <None Include="Images\Glove.png" />
+    <None Include="Images\Flowers.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />
@@ -126,6 +127,7 @@
     <None Include="Images\Sock.png" />
     <None Include="Images\Quil.png" />
     <None Include="Images\StarWars.png" />
+    <None Include="Images\Shield.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>
