@@ -113,12 +113,12 @@ namespace PdfCalendar.Handlers
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
             list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
             list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
+            list.Add((mothersDay, Images.Woman, 16, 16, "Mors dag"));
             // Jun.
             // Jul.
             // Aug.
             // Sep.
             // Oct.
-            list.Add((mothersDay, Images.Woman, 16, 16,"Mors dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
