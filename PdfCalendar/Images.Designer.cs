@@ -183,9 +183,39 @@ namespace PdfCalendar {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cister {
+            get {
+                object obj = ResourceManager.GetObject("Cister", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EasterEgg {
             get {
                 object obj = ResourceManager.GetObject("EasterEgg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Embroidery {
+            get {
+                object obj = ResourceManager.GetObject("Embroidery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Emoji {
+            get {
+                object obj = ResourceManager.GetObject("Emoji", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

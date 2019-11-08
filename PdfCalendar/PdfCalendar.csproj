@@ -100,6 +100,7 @@
     <None Include="Images\Archive.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
+    <None Include="Images\Cister.png" />
     <Content Include="Images\EasterEgg.png" />
     <None Include="Images\Eye.png" />
     <None Include="Images\FirstMay.png" />
@@ -109,6 +110,8 @@
     <None Include="Images\HallonGrotta.png" />
     <None Include="Images\Glove.png" />
     <None Include="Images\Flowers.png" />
+    <None Include="Images\Embroidery.png" />
+    <None Include="Images\Emoji.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />

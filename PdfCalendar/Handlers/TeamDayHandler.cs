@@ -69,6 +69,9 @@ namespace PdfCalendar.Handlers
             var heraldryDay = new DateTime(Year, 6, 10);
             var wildFlowersDay = new DateTime(Year, 6, 13);
             // Jul.
+            var emojiDay = new DateTime(Year, 7, 17);
+            var bellmanDay = new DateTime(Year, 7, 26);
+            var embroideryDay = new DateTime(Year, 7, 30);
             // Aug.
             // Sep.
             // Oct.
@@ -130,6 +133,9 @@ namespace PdfCalendar.Handlers
             list.Add((heraldryDay, Images.Shield, 12, 12, "Heraldikdagen"));
             list.Add((wildFlowersDay, Images.Flowers, 12, 12, "Vilda blommornas dag"));
             // Jul.
+            list.Add((emojiDay, Images.Emoji, 12, 12, "Emojidagen"));
+            list.Add((bellmanDay, Images.Cister, 30, 14, "Bellmansdagen"));
+            list.Add((embroideryDay, Images.Embroidery, 12, 12, "Broderidagen"));
             // Aug.
             // Sep.
             // Oct.
