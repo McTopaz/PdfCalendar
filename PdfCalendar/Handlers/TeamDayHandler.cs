@@ -75,6 +75,7 @@ namespace PdfCalendar.Handlers
             // Aug.
             var hembygdsgardDay = new DateTime(Year, 8, 4);
             var hiroshimaDay = new DateTime(Year, 8, 6);
+            var leftHandedDay = new DateTime(Year, 8, 13);
             // Sep.
             // Oct.
             var cinnamonBun = new DateTime(Year, 10, 4);
@@ -141,6 +142,7 @@ namespace PdfCalendar.Handlers
             // Aug.
             list.Add((hembygdsgardDay, Images.Cabin, 12, 12, "Hembygdsgårdens dag"));
             list.Add((hiroshimaDay, Images.Oleander, 12, 12, "Hiroshimadagen"));
+            list.Add((leftHandedDay, Images.LeftHand, 12, 12, "Vänsterhäntas dag"));
             // Sep.
             // Oct.
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
