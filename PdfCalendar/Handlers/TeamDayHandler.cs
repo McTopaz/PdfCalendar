@@ -60,6 +60,7 @@ namespace PdfCalendar.Handlers
             var europeDay = new DateTime(Year, 5, 9);
             var jamCakeDay = CalculateJamCakeDay();
             var againstHomophobiaDay = new DateTime(Year, 5, 17);
+            var gaad = CalculateGAAD();   // Global Accessibility Awarness Day
             // Jun.
             // Jul.
             // Aug.
@@ -113,6 +114,7 @@ namespace PdfCalendar.Handlers
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
             list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
             list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
+            list.Add((gaad, Images.Keyboard, 12, 12, "Tillgänglighets- medvetenhetsdagen"));
             list.Add((mothersDay, Images.Woman, 16, 16, "Mors dag"));
             // Jun.
             // Jul.
@@ -157,6 +159,20 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, may, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Wednesday)
                 .ElementAt(1);
+            return date;
+        }
+
+        /// <summary>
+        /// Global Accessibility Awareness Day - Third Thursday in May.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateGAAD()
+        {
+            var may = 5;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, may))
+                .Select(d => new DateTime(Year, may, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Thursday)
+                .ElementAt(2);
             return date;
         }
     }
