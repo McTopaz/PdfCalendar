@@ -63,6 +63,7 @@ namespace PdfCalendar.Handlers
             var gaad = CalculateGAAD();   // Global Accessibility Awarness Day
             var nationalParkDay = new DateTime(Year, 5, 24);
             // Jun.
+            var worldEnvironmentDay = new DateTime(Year, 6, 5);
             // Jul.
             // Aug.
             // Sep.
@@ -119,6 +120,7 @@ namespace PdfCalendar.Handlers
             list.Add((nationalParkDay, Images.Tree, 12, 12, "Nationalparkernas dag"));
             list.Add((mothersDay, Images.Woman, 16, 16, "Mors dag"));
             // Jun.
+            list.Add((worldEnvironmentDay, Images.Globe, 12, 12, "Världsmiljödagen"));
             // Jul.
             // Aug.
             // Sep.
