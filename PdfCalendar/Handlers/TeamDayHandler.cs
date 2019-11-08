@@ -106,7 +106,7 @@ namespace PdfCalendar.Handlers
             list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
             list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
             list.Add((laboratoryAnimalsDay, Images.NoImage, 16, 16, "Försökdjurens dag"));
-            list.Add((labourEnvironmentDay, Images.NoImage, 16, 16, "Arbetsmiljödagen"));
+            list.Add((labourEnvironmentDay, Images.Glove, 12, 12, "Arbetsmiljödagen"));
             list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
             // May.
             list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));

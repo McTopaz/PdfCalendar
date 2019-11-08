@@ -106,6 +106,7 @@
     <None Include="Images\FirePlace.png" />
     <None Include="Images\Europe.png" />
     <None Include="Images\HallonGrotta.png" />
+    <None Include="Images\Glove.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />
