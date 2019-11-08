@@ -61,6 +61,7 @@ namespace PdfCalendar.Handlers
             var jamCakeDay = CalculateJamCakeDay();
             var againstHomophobiaDay = new DateTime(Year, 5, 17);
             var gaad = CalculateGAAD();   // Global Accessibility Awarness Day
+            var nationalParkDay = new DateTime(Year, 5, 24);
             // Jun.
             // Jul.
             // Aug.
@@ -115,6 +116,7 @@ namespace PdfCalendar.Handlers
             list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
             list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
             list.Add((gaad, Images.Keyboard, 12, 12, "Tillgänglighets- medvetenhetsdagen"));
+            list.Add((nationalParkDay, Images.Tree, 12, 12, "Nationalparkernas dag"));
             list.Add((mothersDay, Images.Woman, 16, 16, "Mors dag"));
             // Jun.
             // Jul.
