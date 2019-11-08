@@ -77,6 +77,7 @@ namespace PdfCalendar.Handlers
             var hiroshimaDay = new DateTime(Year, 8, 6);
             var leftHandedDay = new DateTime(Year, 8, 13);
             var archaeology = new DateTime(Year, 8, 20);
+            var meatBallDay = new DateTime(Year, 8, 23);
             // Sep.
             // Oct.
             var cinnamonBun = new DateTime(Year, 10, 4);
@@ -145,6 +146,7 @@ namespace PdfCalendar.Handlers
             list.Add((hiroshimaDay, Images.Oleander, 12, 12, "Hiroshimadagen"));
             list.Add((leftHandedDay, Images.LeftHand, 12, 12, "Vänsterhäntas dag"));
             list.Add((archaeology, Images.Vase, 12, 12, "Arkelogidagen"));
+            list.Add((meatBallDay, Images.Meatball, 12, 12, "Köttbullens dag"));
             // Sep.
             // Oct.
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
