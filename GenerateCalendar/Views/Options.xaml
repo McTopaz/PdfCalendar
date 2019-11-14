@@ -50,6 +50,26 @@
             <!-- Second vertical container -->
             <StackPanel Orientation="Vertical" Margin="6,0,6,0">
 
+                <!-- Standard/Winter time -->
+                <CheckBox IsChecked="{Binding Options.StandardTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Snow.png" Height="16" />
+                            <Label Content="Include standard time (Winter time)" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+
+                <!-- Daylight saving/Summer time -->
+                <CheckBox IsChecked="{Binding Options.DaylightSavingTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Sun.png" Height="16" />
+                            <Label Content="Include Daylight saving time (Summer time)" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
+
             </StackPanel>
             
             <!-- Third vertical container -->
