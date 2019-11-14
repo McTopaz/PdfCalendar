@@ -17,12 +17,16 @@ namespace GenerateCalendar.ViewModels
     {
         public ObservableCollection<Birthday> Birthdays { get; set; }
         public RelayCommand AddRow { get; private set; }
+        public RelayCommand Sort { get; private set; }
 
         public vmBirthdays()
         {
             Birthdays = new ObservableCollection<Birthday>();
             AddRow = new RelayCommand();
             AddRow.Callback += InsertRow;
+            Sort = new RelayCommand();
+            Sort.Callback += Sort_Callback;
+            Sort.Enable = _ => Birthdays.Count > 1;
         }
 
         private void InsertRow()
@@ -30,6 +34,10 @@ namespace GenerateCalendar.ViewModels
             var item = new Birthday();
             Birthdays = Birthdays == null ? new ObservableCollection<Birthday>() : Birthdays;
             Birthdays.Add(item);
+        }
+
+        private void Sort_Callback()
+        {
         }
     }
 }

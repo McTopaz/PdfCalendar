@@ -30,6 +30,13 @@
                         <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
                     </StackPanel>
                 </Button>
+
+                <!-- Sort birthdays -->
+                <Button Command="{Binding Sort}" Width="40" Margin="6" ToolTip="Sort birthdays">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/GenerateCalendar;component/Images/Sort.png" Height="16" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
 
             <DataGrid ItemsSource="{Binding Birthdays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250" DockPanel.Dock="Bottom">

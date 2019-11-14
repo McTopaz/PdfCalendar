@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/api.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/gui.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/sort.png")]
 
 
