@@ -49,7 +49,7 @@ namespace GenerateCalendar.Misc
             container.Options = vms.vmOptions.Options;
             container.Birthdays = vms.vmBirthdays.Birthdays;
             container.Events = vms.vmDateEvents.DateEvents;
-            container.Images = vms.vmDateImages.DateImages.Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
+            container.Images = vms.vmDateImages.DateImages.Where(i => ValidImageFile(i)).Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
             container.Riddles = vms.vmRiddles.Riddles;
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles;
             container.Citations = vms.vmCitations.Citations;
@@ -79,6 +79,11 @@ namespace GenerateCalendar.Misc
             var path = Path.GetTempPath();
             var file = Path.Combine(path, name);
             return new FileInfo(file);
+        }
+
+        private bool ValidImageFile(DateImage image)
+        {
+            return image.FilePath != null && image.FilePath.Exists;
         }
 
         private void SaveContent(FileInfo file, string content)
