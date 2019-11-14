@@ -24,6 +24,7 @@ namespace PdfCalendar
         public Options Options { get; set; }
         internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
         internal Dictionary<DateTime, IRemainingInformation> MonthInformation { get; set; }
+        TeamDayHandler TeamDays { get; set; }
 
         public Calendar(FileInfo pdfFile, DateTime forYear)
         {
@@ -31,12 +32,13 @@ namespace PdfCalendar
             ForYear = new DateTime(forYear.Year, 1, 1);
             Data = new Data();
             new HolidayHandler(forYear.Year, Data);
-            new TeamDayHandler(ForYear.Year, Data);
+            TeamDays = new TeamDayHandler(ForYear.Year, Data);
             Options = new Options();
         }
 
         public void Create()
         {
+            OptionSpecificDays();
             DateInformation();
 
             using (var stream = File.Open(PdfFile.FullName, FileMode.Create))
@@ -50,6 +52,11 @@ namespace PdfCalendar
                 Document.Close();
                 writer.Close();
             }
+        }
+
+        private void OptionSpecificDays()
+        {
+            TeamDays.OptionSpecific(Options);
         }
 
         private void DateInformation()

@@ -23,6 +23,9 @@ namespace ConsoleApplication
             var calendar = new Calendar(file, calendarYear);
             calendar.Options.TitlePage = false;
             calendar.Options.PreviousDecember = false;
+            calendar.Options.DaylightSavingTime = true;
+            calendar.Options.StandardTime = true;
+
             calendar.Data.Birthdays = Birthdays();
             calendar.Data.Events = Events();
             calendar.Data.Images = Images();

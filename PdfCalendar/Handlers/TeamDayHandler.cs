@@ -92,6 +92,7 @@ namespace PdfCalendar.Handlers
             var fathersDay = CalculateFathersDay();
 
 
+
             var list = new List<(DateTime, Bitmap, float, float, string)>();
             // Jan.
             list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
@@ -113,6 +114,7 @@ namespace PdfCalendar.Handlers
             list.Add((worldMeteorologyDay, Images.WHO, 15, 10, "Världsmeteorologidagen"));
             list.Add((waffleDay, Images.Waffle, 12, 12, "Våffeldagen"));
             list.Add((bipolarDay, Images.NoImage, 16, 16, "Bipolärdagen"));
+
             // Apr.
             list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
             list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
@@ -152,11 +154,32 @@ namespace PdfCalendar.Handlers
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
+
             // Nov.
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
             // Dec.
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
+            Data.TeamDays = list;
+        }
+
+        public void OptionSpecific(Options options)
+        {
+            var list = new List<(DateTime, Bitmap, float, float, string)>(Data.TeamDays);
+
+            // Daylight saving time - Summer time.
+            if (options.DaylightSavingTime)
+            {
+                var daylightSavingTime = CalculateDaylightSavingTime();
+                list.Add((daylightSavingTime, Images.Sun, 13, 13, "Sommartid"));
+            }
+
+            // Standard time - Winter time.
+            if (options.StandardTime)
+            {
+                var standardTime = CalculateStandardTime();
+                list.Add((standardTime, Images.Snow, 13, 13, "Vintertid"));
+            }
             Data.TeamDays = list;
         }
 
@@ -201,6 +224,34 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, may, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Thursday)
                 .ElementAt(2);
+            return date;
+        }
+
+        /// <summary>
+        /// Daylight saving time - Last sunday in March.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateDaylightSavingTime()
+        {
+            var march = 3;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, march))
+                .Select(d => new DateTime(Year, march, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
+                .Last();
+            return date;
+        }
+
+        /// <summary>
+        /// Standard time - Last sunday in October.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateStandardTime()
+        {
+            var october = 10;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, october))
+                .Select(d => new DateTime(Year, october, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
+                .Last();
             return date;
         }
     }
