@@ -47,7 +47,7 @@ namespace GenerateCalendar.Misc
             var container = new Container();
             container.Year = vms.vmYear.SelectedYear;
             container.Options = vms.vmOptions.Options;
-            container.Birthdays = vms.vmBirthdays.Birthdays;
+            container.Birthdays = vms.vmBirthdays.Birthdays.Where(b => !string.IsNullOrWhiteSpace(b.Name));
             container.Events = vms.vmDateEvents.DateEvents;
             container.Images = vms.vmDateImages.DateImages.Where(i => ValidImageFile(i)).Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
             container.Riddles = vms.vmRiddles.Riddles;
@@ -159,7 +159,7 @@ namespace GenerateCalendar.Misc
 
             vms.vmYear.SelectedYear = container.Year;
             vms.vmOptions.Options = container.Options;
-            vms.vmBirthdays.Birthdays = container.Birthdays;
+            vms.vmBirthdays.Birthdays = new ObservableCollection<Birthday>(container.Birthdays);
             vms.vmDateEvents.DateEvents = container.Events;
             vms.vmDateImages.DateImages = DateImagesFromFile(container);
             vms.vmRiddles.Riddles = container.Riddles;
