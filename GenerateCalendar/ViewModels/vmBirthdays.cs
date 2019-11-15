@@ -38,6 +38,10 @@ namespace GenerateCalendar.ViewModels
 
         private void Sort_Callback()
         {
+            var sorted = Birthdays
+                .OrderBy(b => b.BirthDay.Month)
+                .ThenBy(b => b.BirthDay.Day);
+            Birthdays = new ObservableCollection<Birthday>(sorted);
         }
     }
 }
