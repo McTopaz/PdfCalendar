@@ -79,6 +79,7 @@ namespace PdfCalendar.Handlers
             var archaeology = new DateTime(Year, 8, 20);
             var meatBallDay = new DateTime(Year, 8, 23);
             // Sep.
+            var brunchDay = CalculateBrunchDay();
             // Oct.
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
@@ -114,7 +115,6 @@ namespace PdfCalendar.Handlers
             list.Add((worldMeteorologyDay, Images.WHO, 15, 10, "Världsmeteorologidagen"));
             list.Add((waffleDay, Images.Waffle, 12, 12, "Våffeldagen"));
             list.Add((bipolarDay, Images.NoImage, 16, 16, "Bipolärdagen"));
-
             // Apr.
             list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
             list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
@@ -150,11 +150,11 @@ namespace PdfCalendar.Handlers
             list.Add((archaeology, Images.Vase, 12, 12, "Arkelogidagen"));
             list.Add((meatBallDay, Images.Meatball, 12, 12, "Köttbullens dag"));
             // Sep.
+            list.Add((brunchDay, Images.Cutlery, 12, 12, "Brunchdagen"));
             // Oct.
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
-
             // Nov.
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
@@ -252,6 +252,20 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, october, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .Last();
+            return date;
+        }
+
+        /// <summary>
+        /// Brunch day - Third sunday in September.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateBrunchDay()
+        {
+            var september = 9;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, september))
+                .Select(d => new DateTime(Year, september, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
+                .ElementAt(2);
             return date;
         }
     }

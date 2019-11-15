@@ -103,6 +103,7 @@
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
+    <None Include="Images\Cutlery.png" />
     <Content Include="Images\EasterEgg.png" />
     <None Include="Images\Eye.png" />
     <None Include="Images\FirstMay.png" />
