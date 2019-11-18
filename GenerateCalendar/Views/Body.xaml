@@ -21,17 +21,101 @@
             </StackPanel>
         </GroupBox.Header>
 
-        <ListBox HorizontalContentAlignment="Stretch" BorderThickness="0">
-            <views:Year x:Name="viewYear" />
-            <views:Options x:Name="viewOptions" />
-            <views:Birthdays x:Name="viewBirthDays" />
-            <views:DateEvents x:Name="viewDateEvents" />
-            <views:DateImages x:Name="viewDateImages" />
-            <views:Riddles x:Name="viewRiddles" />
-            <views:SelectableRiddles x:Name="viewSelectableRiddles" />
-            <views:Citations x:Name="viewCitations" />
-            <views:PdfFile x:Name="viewPdfFile" />
-        </ListBox>
+                <DockPanel LastChildFill="True">
+                    
+                    <views:Year x:Name="viewYear" DockPanel.Dock="Top" />
+                    <views:PdfFile x:Name="viewPdfFile" DockPanel.Dock="Bottom" />
+                    
+                    <TabControl>
+
+                        <!-- Options -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Wrench.png" Height="16" />
+                                    <Label Content="Options" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:Options x:Name="viewOptions" />
+                        </TabItem>
+
+                        <!-- Birthdays -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Ballons.png" Height="16" />
+                                    <Label Content="Birthdays" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:Birthdays x:Name="viewBirthDays" />
+                        </TabItem>
+
+                        <!-- Date events -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
+                                    <Label Content="Events" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:DateEvents x:Name="viewDateEvents" />
+                        </TabItem>
+
+                        <!-- Date images -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
+                                    <Label Content="Images" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:DateImages x:Name="viewDateImages" />
+                        </TabItem>
+
+                        <!-- Riddles -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Question.png" Height="16" />
+                                    <Label Content="Riddle" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:Riddles x:Name="viewRiddles" />
+                        </TabItem>
+
+                        <!-- Selectable riddles -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Question.png" Height="16" />
+                                    <Label Content="Selectable riddle" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:SelectableRiddles x:Name="viewSelectableRiddles" />
+                        </TabItem>
+
+                        <!-- Citations -->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Text.png" Height="16" />
+                                    <Label Content="Citations" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:Citations x:Name="viewCitations" />
+                        </TabItem>
+
+                    </TabControl>
+                </DockPanel>
+
+                <!--<views:Options x:Name="viewOptions" />
+                <views:Birthdays x:Name="viewBirthDays" />
+                <views:DateEvents x:Name="viewDateEvents" />
+                <views:DateImages x:Name="viewDateImages" />
+                <views:Riddles x:Name="viewRiddles" />
+                <views:SelectableRiddles x:Name="viewSelectableRiddles" />
+                <views:Citations x:Name="viewCitations" />-->
+                
 
     </GroupBox>
 </UserControl>

@@ -13,100 +13,91 @@
         <viewModels:vmBirthdays />
     </UserControl.DataContext>
 
-    <Expander Margin="0,0,0,12">
-        <Expander.Header>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/GenerateCalendar;component/Images/Ballons.png" Height="16" />
-                <Label Content="Birthdays" />
-            </StackPanel>
-        </Expander.Header>
+    <DockPanel LastChildFill="True">
 
-        <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <!-- Add new row -->
+            <Button Command="{Binding AddRow}" Width="40" Margin="6" ToolTip="Add row">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
+                </StackPanel>
+            </Button>
 
-                <!-- Add new row -->
-                <Button Command="{Binding AddRow}" Width="40" Margin="6" ToolTip="Add row">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
-                    </StackPanel>
-                </Button>
+            <!-- Sort birthdays -->
+            <Button Command="{Binding Sort}" Width="40" Margin="6" ToolTip="Sort birthdays">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/GenerateCalendar;component/Images/Sort.png" Height="16" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
 
-                <!-- Sort birthdays -->
-                <Button Command="{Binding Sort}" Width="40" Margin="6" ToolTip="Sort birthdays">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/GenerateCalendar;component/Images/Sort.png" Height="16" />
-                    </StackPanel>
-                </Button>
-            </StackPanel>
+        <DataGrid ItemsSource="{Binding Birthdays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" DockPanel.Dock="Bottom">
+            <DataGrid.Columns>
 
-            <DataGrid ItemsSource="{Binding Birthdays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250" DockPanel.Dock="Bottom">
-                <DataGrid.Columns>
-
-                    <!-- Name -->
-                    <DataGridTextColumn Width="400" Binding="{Binding Name}">
-                        <DataGridTextColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/USer.png" Height="16" />
-                                <Label Content="Name" />
-                            </StackPanel>
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
+                <!-- Name -->
+                <DataGridTextColumn Width="400" Binding="{Binding Name}">
+                    <DataGridTextColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/USer.png" Height="16" />
+                            <Label Content="Name" />
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
                     
-                    <!-- Date -->
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
-                                <Label Content="Birthday" />
-                            </StackPanel>
-                        </DataGridTemplateColumn.Header>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <DatePicker SelectedDate="{Binding BirthDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0">
-                                    <interactivity:Interaction.Triggers>
-                                        <interactivity:EventTrigger EventName="SelectedDateChanged">
-                                            <interactivity:InvokeCommandAction Command="{Binding BirthdayChanged}" />
-                                        </interactivity:EventTrigger>
-                                    </interactivity:Interaction.Triggers>
-                                </DatePicker>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                <!-- Date -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
+                            <Label Content="Birthday" />
+                        </StackPanel>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding BirthDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0">
+                                <interactivity:Interaction.Triggers>
+                                    <interactivity:EventTrigger EventName="SelectedDateChanged">
+                                        <interactivity:InvokeCommandAction Command="{Binding BirthdayChanged}" />
+                                    </interactivity:EventTrigger>
+                                </interactivity:Interaction.Triggers>
+                            </DatePicker>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                     
-                    <!-- Dead -->
-                    <DataGridCheckBoxColumn Binding="{Binding Dead}">
-                        <DataGridCheckBoxColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/GraveStone.png" Height="16" />
-                                <Label Content="Dead" />
-                            </StackPanel>
-                        </DataGridCheckBoxColumn.Header>
-                    </DataGridCheckBoxColumn>
+                <!-- Dead -->
+                <DataGridCheckBoxColumn Binding="{Binding Dead}">
+                    <DataGridCheckBoxColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/GraveStone.png" Height="16" />
+                            <Label Content="Dead" />
+                        </StackPanel>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
                     
-                    <!-- VIP -->
-                    <DataGridCheckBoxColumn Binding="{Binding VIP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        <DataGridCheckBoxColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/Star.png" />
-                                <Label Content="VIP" />
-                            </StackPanel>
-                        </DataGridCheckBoxColumn.Header>
-                    </DataGridCheckBoxColumn>
+                <!-- VIP -->
+                <DataGridCheckBoxColumn Binding="{Binding VIP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridCheckBoxColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Star.png" />
+                            <Label Content="VIP" />
+                        </StackPanel>
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
 
-                    <!-- Age -->
-                    <DataGridTextColumn Binding="{Binding Age}">
-                        <DataGridTextColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/Age.png" />
-                                <Label Content="Age" />
-                            </StackPanel>
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
+                <!-- Age -->
+                <DataGridTextColumn Binding="{Binding Age}">
+                    <DataGridTextColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Age.png" />
+                            <Label Content="Age" />
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
 
-                </DataGrid.Columns>
-            </DataGrid>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        </DockPanel>
-    </Expander>
+    </DockPanel>
 </UserControl>

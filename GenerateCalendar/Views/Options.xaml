@@ -12,13 +12,7 @@
         <viewModels:vmOptions />
     </UserControl.DataContext>
     
-    <Expander Margin="0,0,0,12">
-        <Expander.Header>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/GenerateCalendar;component/Images/Wrench.png" Height="16" />
-                <Label Content="Options" />
-            </StackPanel>
-        </Expander.Header>
+    <ContentControl Margin="0,0,0,12">
 
         <!-- Horizontal container -->
         <StackPanel Orientation="Horizontal" Margin="12">
@@ -79,6 +73,6 @@
             
         </StackPanel>
 
-    </Expander>
+    </ContentControl>
     
 </UserControl>

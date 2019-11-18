@@ -12,55 +12,46 @@
         <viewModels:vmDateEvents />
     </UserControl.DataContext>
     
-    <Expander Margin="0,0,0,12">
-        <Expander.Header>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
-                <Label Content="Events" />
-            </StackPanel>
-        </Expander.Header>
+    <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
-        <DockPanel LastChildFill="True">
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-
-                <!-- Add new row -->
-                <Button Command="{Binding AddRow}" Width="40" Margin="6" ToolTip="Add row">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
-                    </StackPanel>
-                </Button>
+            <!-- Add new row -->
+            <Button Command="{Binding AddRow}" Width="40" Margin="6" ToolTip="Add row">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/GenerateCalendar;component/Images/AddRow.png" Height="16" />
+                </StackPanel>
+            </Button>
                 
-            </StackPanel>
+        </StackPanel>
 
-            <DataGrid ItemsSource="{Binding DateEvents, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" Height="250" DockPanel.Dock="Bottom">
-                <DataGrid.Columns>
+        <DataGrid ItemsSource="{Binding DateEvents, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" DockPanel.Dock="Bottom">
+            <DataGrid.Columns>
 
-                    <!-- Event -->
-                    <DataGridTextColumn Binding="{Binding Event, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
-                        <DataGridTextColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
-                                <Label Content="Event" />
-                            </StackPanel>
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
+                <!-- Event -->
+                <DataGridTextColumn Binding="{Binding Event, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="500">
+                    <DataGridTextColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
+                            <Label Content="Event" />
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
 
-                    <!-- Date -->
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.Header>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
-                                <Label Content="Date" />
-                            </StackPanel>
-                        </DataGridTemplateColumn.Header>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </DockPanel>
-    </Expander>
+                <!-- Date -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Day.png" Height="16" />
+                            <Label Content="Date" />
+                        </StackPanel>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </UserControl>
