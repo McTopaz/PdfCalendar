@@ -141,7 +141,8 @@ namespace PdfCalendar.Pages
                     Data = new Data(),
                     Table = table,
                     Number = week,
-                    Dates = dates
+                    Dates = dates,
+                    CellInformation = new Dictionary<DateTime, ICellInformation>()
                 };
                 generator.Generate();
             }
