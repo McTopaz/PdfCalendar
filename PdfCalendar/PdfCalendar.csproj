@@ -104,6 +104,7 @@
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
     <None Include="Images\Cutlery.png" />
+    <None Include="Images\Dove.png" />
     <Content Include="Images\EasterEgg.png" />
     <None Include="Images\Eye.png" />
     <None Include="Images\FirstMay.png" />
