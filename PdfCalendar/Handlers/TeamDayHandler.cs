@@ -101,9 +101,9 @@ namespace PdfCalendar.Handlers
             var faoDay = new DateTime(Year, 10, 16);           // World hunger day.
             var mealDay = CalculateMealDay();
             var stutteringDay = new DateTime(Year, 10, 22);
-
-
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
+            var schoolLibraryDay = new DateTime(Year, 10, 27);
+
             var uniqueStoreDay = CalculateUniqueStoreDay();
             // Nov.
             var kladdkaka = new DateTime(Year, 11, 7);
@@ -198,8 +198,10 @@ namespace PdfCalendar.Handlers
             list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
             list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
             list.Add((stutteringDay, Images.Stuttering, 12, 14, "Stamningsdagen"));
-
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
+            list.Add((schoolLibraryDay, Images.Books, 12, 12, "Skolbiblioteksdagen"));
+            list.Add((schoolLibraryDay, Images.Teddy, 12, 12, "Nalle dagen"));                  // Same as school library day.
+
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
             list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));
             // Nov.
