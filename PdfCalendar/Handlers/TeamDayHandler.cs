@@ -90,7 +90,7 @@ namespace PdfCalendar.Handlers
             // Oct.
             var vegetarianDay = new DateTime(Year, 10, 1);
             var farmAnimalDay = new DateTime(Year, 10, 2);
-            var cinnamonBun = new DateTime(Year, 10, 4);
+            var cinnamonBunDay = new DateTime(Year, 10, 4);
             var childrenDay = CalculateChildrenDay();
             var creamCakeDay = CalculateCreamCakeDay();
 
@@ -175,7 +175,8 @@ namespace PdfCalendar.Handlers
             // Oct.
             list.Add((vegetarianDay, Images.Carrot, 12, 12, "Vegetariska dagen"));
             list.Add((farmAnimalDay, Images.Cat, 12, 12, "Lantbruksdjurens dag"));
-            list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
+            list.Add((cinnamonBunDay, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
+            list.Add((cinnamonBunDay, Images.Dog, 16, 16, "Djurens dag"));                      // Same day as cinnamon bun day.
             list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
             list.Add((creamCakeDay, Images.Cake, 12, 12, "Gräddtårtans dag"));
 
