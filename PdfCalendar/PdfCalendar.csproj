@@ -169,6 +169,7 @@
     <None Include="Images\Shrimp.png" />
     <None Include="Images\Sausage.png" />
     <None Include="Images\Stuttering.png" />
+    <None Include="Images\NoMeat.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>

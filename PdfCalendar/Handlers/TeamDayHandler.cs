@@ -109,6 +109,7 @@ namespace PdfCalendar.Handlers
             var uniqueStoreDay = CalculateUniqueStoreDay();
             var luteFiskDay = CalculateLuteFiskDay();
             // Nov.
+            var veganDay = new DateTime(Year, 11, 1);
             var kladdkaka = new DateTime(Year, 11, 7);
             var chocolate = new DateTime(Year, 11, 11);
             // Dec.
@@ -185,7 +186,7 @@ namespace PdfCalendar.Handlers
             list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
             list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
             // Oct.
-            list.Add((vegetarianDay, Images.Carrot, 12, 12, "Vegetariska dagen"));
+            list.Add((vegetarianDay, Images.NoMeat, 12, 12, "Vegetariandagen"));
             list.Add((farmAnimalDay, Images.Cat, 12, 12, "Lantbruksdjurens dag"));
             list.Add((cinnamonBunDay, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((cinnamonBunDay, Images.Dog, 16, 16, "Djurens dag"));                      // Same day as cinnamon bun day.
@@ -211,6 +212,7 @@ namespace PdfCalendar.Handlers
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
             list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));
             // Nov.
+            list.Add((veganDay, Images.Carrot, 12, 12, "Vegandagen"));
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
             // Dec.

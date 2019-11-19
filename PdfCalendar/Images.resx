@@ -304,6 +304,9 @@
   <data name="NoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\NoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NoMeat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\NoMeat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Oleander" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Oleander.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
