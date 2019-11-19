@@ -88,9 +88,12 @@ namespace PdfCalendar.Handlers
             var astronomyDayNight = new DateTime(Year, 9, 23);
             var translateDay = new DateTime(Year, 9, 30);
             // Oct.
+            var vegetarianDay = new DateTime(Year, 10, 1);
+            var farmAnimalDay = new DateTime(Year, 10, 2);
+            var cinnamonBun = new DateTime(Year, 10, 4);
             var childrenDay = CalculateChildrenDay();
             var creamCakeDay = CalculateCreamCakeDay();
-            var cinnamonBun = new DateTime(Year, 10, 4);
+
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var uniqueStoreDay = CalculateUniqueStoreDay();
             // Nov.
@@ -170,10 +173,13 @@ namespace PdfCalendar.Handlers
             list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
             list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
             // Oct.
+            list.Add((vegetarianDay, Images.Carrot, 12, 12, "Vegetariska dagen"));
+            list.Add((farmAnimalDay, Images.Cat, 12, 12, "Lantbruksdjurens dag"));
+            list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
             list.Add((creamCakeDay, Images.Cake, 12, 12, "Gräddtårtans dag"));
+
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
-            list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
             list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));
             // Nov.
