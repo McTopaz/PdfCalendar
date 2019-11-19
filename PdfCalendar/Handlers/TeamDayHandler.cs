@@ -107,6 +107,7 @@ namespace PdfCalendar.Handlers
             var internetDay = new DateTime(Year, 10, 29);
             var neibourDay = new DateTime(Year, 10, 31);
             var uniqueStoreDay = CalculateUniqueStoreDay();
+            var luteFiskDay = CalculateLuteFiskDay();
             // Nov.
             var kladdkaka = new DateTime(Year, 11, 7);
             var chocolate = new DateTime(Year, 11, 11);
@@ -206,7 +207,7 @@ namespace PdfCalendar.Handlers
             list.Add((carDay, Images.Car, 12, 12, "Bilens dag"));
             list.Add((internetDay, Images.Internet, 12, 12, "Internet-dagen"));
             list.Add((neibourDay, Images.Neibour, 30, 12, "Grannens dag"));
-
+            list.Add((luteFiskDay, Images.Fish, 12, 12, "Lutfiskens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
             list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));
             // Nov.
@@ -387,6 +388,16 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, october, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Thursday)
                 .ElementAt(2);
+            return date;
+        }
+
+        /// <summary>
+        /// Lute fisk day - Friday before All saints' day.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateLuteFiskDay()
+        {
+            var date = Holidays.Where(h => h.LocalName == "Alla helgons dag").First().Date.AddDays(-1);
             return date;
         }
     }
