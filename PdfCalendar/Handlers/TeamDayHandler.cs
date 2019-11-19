@@ -86,6 +86,7 @@ namespace PdfCalendar.Handlers
             var peaceDay = new DateTime(Year, 9, 21);
             var carFreeDay = new DateTime(Year, 9, 22);
             var astronomyDayNight = new DateTime(Year, 9, 23);
+            var translateDay = new DateTime(Year, 9, 30);
             // Oct.
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
@@ -164,6 +165,7 @@ namespace PdfCalendar.Handlers
             list.Add((peaceDay, Images.Dove, 12, 12, "Fredsdagen"));
             list.Add((carFreeDay, Images.NoCar, 12, 12, "Bilfria dagen"));
             list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
+            list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
             // Oct.
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
