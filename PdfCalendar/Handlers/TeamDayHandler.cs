@@ -93,6 +93,8 @@ namespace PdfCalendar.Handlers
             var cinnamonBunDay = new DateTime(Year, 10, 4);
             var childrenDay = CalculateChildrenDay();
             var creamCakeDay = CalculateCreamCakeDay();
+            var chemistryDay = new DateTime(Year, 10, 9);
+            var girlDay = new DateTime(Year, 10, 11);
 
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var uniqueStoreDay = CalculateUniqueStoreDay();
@@ -179,6 +181,8 @@ namespace PdfCalendar.Handlers
             list.Add((cinnamonBunDay, Images.Dog, 16, 16, "Djurens dag"));                      // Same day as cinnamon bun day.
             list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
             list.Add((creamCakeDay, Images.Cake, 12, 12, "Gräddtårtans dag"));
+            list.Add((chemistryDay, Images.Chemistry, 12, 12, "Kemins dag"));
+            list.Add((girlDay, Images.Girl, 12, 12, "Flickdagen"));
 
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));

@@ -105,6 +105,7 @@
     <None Include="Images\Cake.png" />
     <None Include="Images\Carrot.png" />
     <None Include="Images\Cat.png" />
+    <None Include="Images\Chemistry.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
@@ -122,6 +123,7 @@
     <None Include="Images\Flowers.png" />
     <None Include="Images\Embroidery.png" />
     <None Include="Images\Emoji.png" />
+    <None Include="Images\Girl.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />
