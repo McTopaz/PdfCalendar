@@ -340,7 +340,7 @@ namespace PdfCalendar.Handlers
         }
 
         /// <summary>
-        /// 
+        /// Cream cake day - First Sunday in October.
         /// </summary>
         /// <returns></returns>
         private DateTime CalculateCreamCakeDay()
@@ -353,6 +353,10 @@ namespace PdfCalendar.Handlers
             return date;
         }
 
+        /// <summary>
+        /// Unique store day - Last Sunaday in October.
+        /// </summary>
+        /// <returns></returns>
         private DateTime CalculateUniqueStoreDay()
         {
             var october = 10;
