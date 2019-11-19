@@ -146,6 +146,7 @@
     <None Include="Images\Sun.png" />
     <None Include="Images\Pumps.png" />
     <None Include="Images\NoCar.png" />
+    <None Include="Images\Star.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>
