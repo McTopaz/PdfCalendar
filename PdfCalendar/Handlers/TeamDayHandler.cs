@@ -88,6 +88,7 @@ namespace PdfCalendar.Handlers
             var astronomyDayNight = new DateTime(Year, 9, 23);
             var translateDay = new DateTime(Year, 9, 30);
             // Oct.
+            var childrenDay = CalculateChildrenDay();
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             // Nov.
@@ -167,6 +168,7 @@ namespace PdfCalendar.Handlers
             list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
             list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
             // Oct.
+            list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
@@ -282,6 +284,20 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, september, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .ElementAt(2);
+            return date;
+        }
+
+        /// <summary>
+        /// Childrens' day - First monday in October.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateChildrenDay()
+        {
+            var october = 10;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, october))
+                .Select(d => new DateTime(Year, october, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Monday)
+                .First();
             return date;
         }
     }
