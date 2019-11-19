@@ -89,6 +89,7 @@ namespace PdfCalendar.Handlers
             var translateDay = new DateTime(Year, 9, 30);
             // Oct.
             var childrenDay = CalculateChildrenDay();
+            var creamCakeDay = CalculateCreamCakeDay();
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var uniqueStoreDay = CalculateUniqueStoreDay();
@@ -170,6 +171,7 @@ namespace PdfCalendar.Handlers
             list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
             // Oct.
             list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
+            list.Add((creamCakeDay, Images.Cake, 12, 12, "Gräddtårtans dag"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
@@ -299,6 +301,16 @@ namespace PdfCalendar.Handlers
             var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, october))
                 .Select(d => new DateTime(Year, october, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Monday)
+                .First();
+            return date;
+        }
+
+        private DateTime CalculateCreamCakeDay()
+        {
+            var october = 10;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, october))
+                .Select(d => new DateTime(Year, october, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
                 .First();
             return date;
         }

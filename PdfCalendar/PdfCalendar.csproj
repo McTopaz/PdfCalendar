@@ -102,6 +102,7 @@
     <None Include="Images\Archive.png" />
     <None Include="Images\Cabin.png" />
     <None Include="Images\Child.png" />
+    <None Include="Images\Cake.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
