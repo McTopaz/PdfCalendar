@@ -100,6 +100,7 @@ namespace PdfCalendar.Handlers
             var blindCaneDay = new DateTime(Year, 10, 15);
             var faoDay = new DateTime(Year, 10, 16);           // World hunger day.
             var mealDay = CalculateMealDay();
+            var stutteringDay = new DateTime(Year, 10, 22);
 
 
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
@@ -196,6 +197,7 @@ namespace PdfCalendar.Handlers
             list.Add((faoDay, Images.FAO, 26, 10, "Världshungerdagen (FAO)"));
             list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
             list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
+            list.Add((stutteringDay, Images.Stuttering, 12, 14, "Stamningsdagen"));
 
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
