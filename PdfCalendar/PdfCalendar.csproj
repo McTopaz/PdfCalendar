@@ -126,6 +126,7 @@
     <None Include="Images\Emoji.png" />
     <None Include="Images\Girl.png" />
     <None Include="Images\Egg.png" />
+    <None Include="Images\FetaCheese.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />
