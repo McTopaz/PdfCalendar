@@ -81,6 +81,8 @@ namespace PdfCalendar.Handlers
             // Sep.
             var brunchDay = CalculateBrunchDay();
             var cultureHouseDay = new DateTime(Year, 9, 8);
+            var geologyDay = new DateTime(Year, 9, 12);
+            var highHeelsDay = new DateTime(Year, 9, 17);
             // Oct.
             var cinnamonBun = new DateTime(Year, 10, 4);
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
@@ -154,6 +156,8 @@ namespace PdfCalendar.Handlers
             // Sep.
             list.Add((brunchDay, Images.Cutlery, 12, 12, "Brunchdagen"));
             list.Add((cultureHouseDay, Images.House, 12, 12, "Kulturhusens dag (RÄÄ)"));
+            list.Add((geologyDay, Images.Mountains, 12, 12, "Geologins dag"));
+            list.Add((highHeelsDay, Images.Pumps, 12, 12, "Höga klackars dag"));
             // Oct.
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((cinnamonBun, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
