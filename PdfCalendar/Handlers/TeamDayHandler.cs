@@ -97,6 +97,7 @@ namespace PdfCalendar.Handlers
             var girlDay = new DateTime(Year, 10, 11);
             var eggDay = CalculateEggDay();
             var shrimpwichDay = new DateTime(Year, 10, 14);
+            var blindCaneDay = new DateTime(Year, 10, 15);
 
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var uniqueStoreDay = CalculateUniqueStoreDay();
@@ -187,6 +188,7 @@ namespace PdfCalendar.Handlers
             list.Add((girlDay, Images.Girl, 12, 12, "Flickdagen"));
             list.Add((eggDay, Images.Egg, 12, 12, "Äggets dag"));
             list.Add((shrimpwichDay, Images.Shrimp, 12, 12, "Räkmackans dag"));
+            list.Add((blindCaneDay, Images.BlindCane, 16, 16, "Vita käppens dag"));
 
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));

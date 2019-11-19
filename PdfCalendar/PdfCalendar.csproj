@@ -106,6 +106,7 @@
     <None Include="Images\Carrot.png" />
     <None Include="Images\Cat.png" />
     <None Include="Images\Chemistry.png" />
+    <None Include="Images\BlindCane.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
