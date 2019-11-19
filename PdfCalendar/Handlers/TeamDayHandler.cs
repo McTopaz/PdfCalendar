@@ -105,7 +105,7 @@ namespace PdfCalendar.Handlers
             var schoolLibraryDay = new DateTime(Year, 10, 27);
             var carDay = new DateTime(Year, 10, 28);
             var internetDay = new DateTime(Year, 10, 29);
-
+            var neibourDay = new DateTime(Year, 10, 31);
             var uniqueStoreDay = CalculateUniqueStoreDay();
             // Nov.
             var kladdkaka = new DateTime(Year, 11, 7);
@@ -205,6 +205,7 @@ namespace PdfCalendar.Handlers
             list.Add((schoolLibraryDay, Images.Teddy, 12, 12, "Nalle dagen"));                  // Same as school library day.
             list.Add((carDay, Images.Car, 12, 12, "Bilens dag"));
             list.Add((internetDay, Images.Internet, 12, 12, "Internet-dagen"));
+            list.Add((neibourDay, Images.Neibour, 30, 12, "Grannens dag"));
 
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
             list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));

@@ -148,6 +148,7 @@
     <None Include="Images\House.png" />
     <None Include="Images\Mountains.png" />
     <None Include="Images\Internet.png" />
+    <None Include="Images\Neibour.png" />
     <Content Include="Images\NewYear.png" />
     <None Include="Images\Nobel.png" />
     <None Include="Images\NoImage.png" />
