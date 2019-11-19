@@ -88,6 +88,7 @@ namespace PdfCalendar.Handlers
             var chocolate = new DateTime(Year, 11, 11);
             // Dec.
             var nobel = new DateTime(Year, 12, 10);
+            var lucia = new DateTime(Year, 12, 13);
             // Other.
             var mothersDay = CalculateMothersDay();
             var fathersDay = CalculateFathersDay();
@@ -160,6 +161,7 @@ namespace PdfCalendar.Handlers
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
             // Dec.
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
+            list.Add((lucia, Images.Lucia, 16, 16, "Lucia"));
             Data.TeamDays = list;
         }
 

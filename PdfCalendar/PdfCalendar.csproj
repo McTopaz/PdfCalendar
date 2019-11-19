@@ -128,6 +128,7 @@
     <None Include="Images\NestBox.png" />
     <None Include="Images\LeftHand.png" />
     <None Include="Images\Meatball.png" />
+    <None Include="Images\Lucia.png" />
     <Content Include="Images\NewYear.png" />
     <None Include="Images\Nobel.png" />
     <None Include="Images\NoImage.png" />
