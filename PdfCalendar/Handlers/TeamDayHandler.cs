@@ -99,7 +99,7 @@ namespace PdfCalendar.Handlers
             var shrimpwichDay = new DateTime(Year, 10, 14);
             var blindCaneDay = new DateTime(Year, 10, 15);
             var faoDay = new DateTime(Year, 10, 16);           // World hunger day.
-            
+            var mealDay = CalculateMealDay();
 
 
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
@@ -194,6 +194,8 @@ namespace PdfCalendar.Handlers
             list.Add((blindCaneDay, Images.BlindCane, 16, 16, "Vita käppens dag"));
             list.Add((blindCaneDay, Images.FetaCheese, 12, 12, "Fetaostens dag"));              // Same day as blind cane day.
             list.Add((faoDay, Images.FAO, 26, 10, "Världshungerdagen (FAO)"));
+            list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
+            list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
 
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
@@ -362,6 +364,20 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, october, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Friday)
                 .ElementAt(1);
+            return date;
+        }
+
+        /// <summary>
+        /// Meal day - Third Thursdag in October.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateMealDay()
+        {
+            var october = 10;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, october))
+                .Select(d => new DateTime(Year, october, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Thursday)
+                .ElementAt(2);
             return date;
         }
     }
