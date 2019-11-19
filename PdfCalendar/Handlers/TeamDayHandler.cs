@@ -95,6 +95,8 @@ namespace PdfCalendar.Handlers
             var creamCakeDay = CalculateCreamCakeDay();
             var chemistryDay = new DateTime(Year, 10, 9);
             var girlDay = new DateTime(Year, 10, 11);
+            var eggDay = CalculateEggDay();
+            var shrimpwichDay = new DateTime(Year, 10, 14);
 
             var unDay = new DateTime(Year, 10, 24);         // United Nation's day.
             var uniqueStoreDay = CalculateUniqueStoreDay();
@@ -183,6 +185,8 @@ namespace PdfCalendar.Handlers
             list.Add((creamCakeDay, Images.Cake, 12, 12, "Gräddtårtans dag"));
             list.Add((chemistryDay, Images.Chemistry, 12, 12, "Kemins dag"));
             list.Add((girlDay, Images.Girl, 12, 12, "Flickdagen"));
+            list.Add((eggDay, Images.Egg, 12, 12, "Äggets dag"));
+            list.Add((shrimpwichDay, Images.Shrimp, 12, 12, "Räkmackans dag"));
 
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
@@ -316,6 +320,10 @@ namespace PdfCalendar.Handlers
             return date;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private DateTime CalculateCreamCakeDay()
         {
             var october = 10;
@@ -333,6 +341,20 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, october, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Saturday)
                 .Last();
+            return date;
+        }
+
+        /// <summary>
+        /// Egg day - Second friday in October.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateEggDay()
+        {
+            var october = 10;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, october))
+                .Select(d => new DateTime(Year, october, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Friday)
+                .ElementAt(1);
             return date;
         }
     }
