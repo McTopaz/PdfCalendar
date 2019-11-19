@@ -109,6 +109,7 @@
     <None Include="Images\Chemistry.png" />
     <None Include="Images\BlindCane.png" />
     <None Include="Images\Books.png" />
+    <None Include="Images\Car.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
