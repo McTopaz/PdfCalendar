@@ -104,7 +104,8 @@ namespace PdfCalendar
         private void PreviousDecember()
         {
             Document.NewPage();
-            var summary = new PreviousDecember(Year - 1);
+            var previousYear = Year - 1;
+            var summary = new PreviousDecember(previousYear, CellInformation);
             Document.Add(summary);
         }
 
