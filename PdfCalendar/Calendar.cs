@@ -129,8 +129,19 @@ namespace PdfCalendar
                     MonthInformation = MonthInformation
                 };
                 generator.Generate();
+
+                var distance = CreateDistanceObject(generator.Container);
+                Document.Add(distance);
                 Document.Add(generator.Container);
             }
+        }
+
+        private IElement CreateDistanceObject(PdfPTable content)
+        {
+            var diff = Document.PageSize.Height - content.TotalHeight;
+            var half = diff / 2;
+            var distance = half;
+            return new Paragraph(distance, Environment.NewLine);
         }
 
         public void Show()
