@@ -27,7 +27,7 @@ namespace GenerateCalendar.Misc
             var citations = vms.vmCitations.Citations.Select(c => (MakeDate(year.Year, c.Month), c.Text));
 
             // Create the calendar and specify options and data.
-            calendar = new Calendar(file, vms.vmYear.SelectedYear);
+            calendar = new Calendar(file, vms.vmYear.SelectedYear.Year);
             calendar.Options = options;
             calendar.Data.Birthdays = birthdays;
             calendar.Data.Events = events;
