@@ -19,20 +19,20 @@ namespace PdfCalendar
     {
         Document Document { get; set; }
         public FileInfo PdfFile { get; private set; }
-        public DateTime ForYear { get; private set; }
+        public int Year { get; private set; }
         public Data Data { get; private set; }
         public Options Options { get; set; }
         internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
         internal Dictionary<DateTime, IRemainingInformation> MonthInformation { get; set; }
         TeamDayHandler TeamDays { get; set; }
 
-        public Calendar(FileInfo pdfFile, DateTime forYear)
+        public Calendar(FileInfo pdfFile, int year)
         {
             PdfFile = pdfFile;
-            ForYear = new DateTime(forYear.Year, 1, 1);
+            Year = year;
             Data = new Data();
-            new HolidayHandler(forYear.Year, Data);
-            TeamDays = new TeamDayHandler(ForYear.Year, Data);
+            new HolidayHandler(Year, Data);
+            TeamDays = new TeamDayHandler(Year, Data);
             Options = new Options();
         }
 
@@ -61,7 +61,7 @@ namespace PdfCalendar
 
         private void DateInformation()
         {
-            var mdi = new DateInformationHandler(ForYear.Year, Data);
+            var mdi = new DateInformationHandler(Year, Data);
             CellInformation = mdi.DateInformations.ToDictionary(d => d.Key, d => d.Value as ICellInformation);
             MonthInformation = mdi.DateInformations.ToDictionary(d => d.Key, d => d.Value as IRemainingInformation);
         }
@@ -97,14 +97,14 @@ namespace PdfCalendar
         private void TitlePage()
         {
             Document.NewPage();
-            var title = new TitlePage(ForYear.Year);
+            var title = new TitlePage(Year);
             Document.Add(title);
         }
 
         private void PreviousDecember()
         {
             Document.NewPage();
-            var summary = new PreviousDecember(ForYear.Year - 1);
+            var summary = new PreviousDecember(Year - 1);
             Document.Add(summary);
         }
 
@@ -124,7 +124,7 @@ namespace PdfCalendar
                     Data = Data,
                     Name = month.Name,
                     Month = month.Number,
-                    Year = ForYear.Year,
+                    Year = Year,
                     CellInformation = CellInformation,
                     MonthInformation = MonthInformation
                 };
