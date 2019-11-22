@@ -103,10 +103,21 @@ namespace PdfCalendar
 
         private void PreviousDecember()
         {
-            Document.NewPage();
             var previousYear = Year - 1;
-            var summary = new PreviousDecember(previousYear, CellInformation);
-            Document.Add(summary);
+            var data = new Data();
+
+            data.Birthdays = Data.Birthdays;
+            data.Events = Data.Events.Select(e => (e.Date.AddYears(-1), e.Event));
+            data.Images = Data.Images.Select(i => (i.Date.AddYears(-1), i.FilePath, i.Width, i.Height));
+            new HolidayHandler(previousYear, data);
+            new TeamDayHandler(previousYear, data);
+
+            var mdi = new DateInformationHandler(previousYear, data);
+            var cellInformation = mdi.DateInformations.ToDictionary(d => d.Key, d => d.Value as ICellInformation);
+            var previousDecember = new PreviousDecember(previousYear, cellInformation);
+
+            Document.NewPage();
+            Document.Add(previousDecember);
         }
 
         private void Content()

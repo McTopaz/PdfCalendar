@@ -24,10 +24,7 @@ namespace PdfCalendar.Pages
         public PreviousDecember(int previousYear, Dictionary<DateTime, ICellInformation> cellInformation) : base (1)
         {
             PreviousYear = previousYear;
-            CellInformation = cellInformation
-                .Where(d => d.Key.Month == 12)
-                .Select(d => ConvertToPreviousYear(d))
-                .ToDictionary(d => d.Key, d => d.Value);
+            CellInformation = cellInformation;
 
             Setup();
             Title();
@@ -35,50 +32,6 @@ namespace PdfCalendar.Pages
             Calendar();
             DistanceRow();
             Summary();
-        }
-
-        private KeyValuePair<DateTime, ICellInformation> ConvertToPreviousYear(KeyValuePair<DateTime, ICellInformation> content)
-        {
-            var year = content.Key.AddYears(-1);
-            return new KeyValuePair<DateTime, ICellInformation>(year, content.Value);
-        }
-
-        private void HandleAdvent()
-        {
-            var advent = CalculcateAdvent();
-        }
-
-        private IEnumerable<(DateTime Date, string Text, Bitmap Image, float Widgh, float Height)> CalculcateAdvent()
-        {
-            var advent4 = new DateTime(PreviousYear, 12, 25);
-            do
-            {
-                advent4 = advent4.AddDays(-1);
-            }
-            while (advent4.DayOfWeek != DayOfWeek.Sunday);
-
-            var advent1 = advent4.AddDays(-21);
-            var advent2 = advent4.AddDays(-14);
-            var advent3 = advent4.AddDays(-7);
-
-            var list = new List<(DateTime, string, Bitmap, float, float)>();
-            list.Add((advent1, "Första advent", Images.Advent1, 30, 14));
-            list.Add((advent2, "Andra advent", Images.Advent2, 30, 14));
-            list.Add((advent3, "Tredje advent", Images.Advent3, 30, 14));
-            list.Add((advent4, "Fjärde advent", Images.Advent4, 30, 14));
-            return list;
-        }
-
-        private void RemoveIncorrectAdvent()
-        {
-            for (int i = 0; i < CellInformation.Keys.Count; i++)
-            {
-                var value = CellInformation.ElementAt(i).Value;
-                if (value.Text.ToString().Contains("Advent"))
-                {
-                    
-                }
-            }
         }
 
         private void Setup()
