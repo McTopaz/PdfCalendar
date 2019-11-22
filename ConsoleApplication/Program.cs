@@ -20,9 +20,9 @@ namespace ConsoleApplication
             var year = DateTime.Now.Year;
             var calendarYear = new DateTime(year, 1, 1);
 
-            var calendar = new Calendar(file, calendarYear);
+            var calendar = new Calendar(file, DateTime.Now.Year);
             calendar.Options.TitlePage = false;
-            calendar.Options.PreviousDecember = false;
+            calendar.Options.PreviousDecember = true;
             calendar.Options.DaylightSavingTime = true;
             calendar.Options.StandardTime = true;
 
@@ -52,7 +52,8 @@ namespace ConsoleApplication
                 (new DateTime(1958, 1, 24), "Bosse", false, false), // Sharing with other person, third in list: Display in footer.
                 (new DateTime(1979, 4, 19), "Frasse", true, false), // Public holiday, don't override holiday.
                 (new DateTime(1969, 4, 22), "Morgan", true, true),  // Public holiday, dead person, override holiday, first in list: Display in month.
-                (new DateTime(1969, 4, 22), "Harry", true, true)    // Public holiday, dead person, override holiday, second in list: Display in fotter.
+                (new DateTime(1969, 4, 22), "Harry", true, true),   // Public holiday, dead person, override holiday, second in list: Display in fotter.
+                (new DateTime(1988, 12, 27), "Osbourne", false, false)  // Display in month and previous december.
             };
             return list;
         }
@@ -77,7 +78,8 @@ namespace ConsoleApplication
                 (jan6, "Hoppborgdagen4"),
                 (jan8, "Ha skoj dag"),
                 (jan8, "Ha kul"),
-                (may30, "Steffe.Age++")
+                (may30, "Steffe.Age++"),
+                (new DateTime(year, 12, 28), "Mossa mossa")
             };
 
             return dateEvents;
@@ -93,7 +95,8 @@ namespace ConsoleApplication
             var list = new List<(DateTime Date, string FilePath, float Width, float Height)>
             {
                 (new DateTime(year, 1, 2), path, 15f, 10f),
-                (new DateTime(year, 1, 9), path, 15f, 10f)
+                (new DateTime(year, 1, 9), path, 15f, 10f),
+                (new DateTime(year, 12, 29), path, 15f, 10f)
             };
             return list;
         }
