@@ -156,6 +156,7 @@ namespace GenerateCalendar.Misc
 
             container.ToLocalTimeZone();                    // When serializing, any DateTime object is serialized to UTF. Convert the DateTime objects to local time.
             var file = ExistingFile(container.FilePath);    // Make sure the file path of the calendar exist. Else, create a valid file path.
+            FixMissingBirthdayChangedCallback(container.Birthdays);
 
             vms.vmYear.SelectedYear = container.Year;
             vms.vmOptions.Options = container.Options;
@@ -193,6 +194,21 @@ namespace GenerateCalendar.Misc
             var path = Path.GetTempPath();
             var tmp = Path.Combine(path, name);
             return new FileInfo(tmp);
+        }
+
+        private void FixMissingBirthdayChangedCallback(IEnumerable<Birthday> birthdays)
+        {
+            // Note:
+            // Without this, the age property of the Birthday class won't change when chaning a birthday.
+            // When serializing an ICommand the callback to the method is somehow lost.
+            // Even if the callback is set in the constructor the callback is not triggered.
+            // This resets the callback.
+
+            foreach (var item in birthdays)
+            {
+                item.BirthdayChanged = new RelayCommand();
+                item.BirthdayChanged.Callback += item.BirthdayChanged_Callback;
+            }
         }
     }
 }

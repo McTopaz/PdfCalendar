@@ -29,7 +29,7 @@ namespace GenerateCalendar.Data
             BirthdayChanged.Callback += BirthdayChanged_Callback;
         }
 
-        private void BirthdayChanged_Callback()
+        public void BirthdayChanged_Callback()
         {
             Age = vms.vmYear.SelectedYear.Year - BirthDay.Year;
         }
