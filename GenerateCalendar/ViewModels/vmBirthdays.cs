@@ -43,5 +43,19 @@ namespace GenerateCalendar.ViewModels
                 .ThenBy(b => b.BirthDay.Day);
             Birthdays = new ObservableCollection<Birthday>(sorted);
         }
+
+        public void Callbacks()
+        {
+            vms.vmYear.Changed.Callback += YearChanged;
+        }
+
+        private void YearChanged()
+        {
+            var year = vms.vmYear.SelectedYear.Year;
+            foreach (var item in Birthdays)
+            {
+                item.Age = year - item.BirthDay.Year;
+            }
+        }
     }
 }

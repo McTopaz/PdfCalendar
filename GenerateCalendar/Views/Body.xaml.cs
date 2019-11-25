@@ -44,6 +44,7 @@ namespace GenerateCalendar.Views
         {
             vms.vmDateEvents.Callbacks();
             vms.vmDateImages.Callbacks();
+            vms.vmBirthdays.Callbacks();
         }
     }
 }
