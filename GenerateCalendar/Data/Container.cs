@@ -18,8 +18,8 @@ namespace GenerateCalendar.Data
         public IEnumerable<Birthday> Birthdays { get; set; }
         public ObservableCollection<DateEvent> Events { get; set; }
         public IEnumerable<DateImageLite> Images { get; set; }
-        public ObservableCollection<MonthText> Riddles { get; set; }
-        public ObservableCollection<MonthTextChoices> SelectableRiddles { get; set; }
+        public IEnumerable<MonthText> Riddles { get; set; }
+        public IEnumerable<MonthTextChoices> SelectableRiddles { get; set; }
         public ObservableCollection<MonthText> Citations { get; set; }
         public string FilePath { get; set; }
 

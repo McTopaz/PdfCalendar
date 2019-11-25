@@ -12,3 +12,16 @@ C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\obj\Debug\Con
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CopyComplete
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.exe
 C:\Users\IKGHP2001\Programmering\C#\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.csprojAssemblyReference.cache
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.exe
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\ConsoleApplication.exe
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\ConsoleApplication.pdb
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\PdfCalendar.dll
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\itextsharp.dll
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\Nager.Date.dll
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\PdfCalendar.pdb
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\itextsharp.xml
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\Nager.Date.xml
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CopyComplete
