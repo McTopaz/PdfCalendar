@@ -142,17 +142,27 @@ namespace PdfCalendar
                 };
                 generator.Generate();
 
-                var distance = CreateDistanceObject(generator.Container);
+                var pageSpacing = Data.PageSpacing.Where(s => s.Month == generator.Month).First();
+                var distance = CreateDistanceObject(generator.Container, pageSpacing.Auto, pageSpacing.Top);
                 Document.Add(distance);
                 Document.Add(generator.Container);
             }
         }
 
-        private IElement CreateDistanceObject(PdfPTable content)
+        private IElement CreateDistanceObject(PdfPTable content, bool auto, int top)
         {
-            var diff = Document.PageSize.Height - content.TotalHeight;
-            var half = diff / 2;
-            var distance = half;
+            float distance;
+            if (auto)
+            {
+                var diff = Document.PageSize.Height - content.TotalHeight;
+                var half = diff / 2;
+                distance = half;
+            }
+            else
+            {
+                distance = top;
+            }
+
             return new Paragraph(distance, Environment.NewLine);
         }
 
