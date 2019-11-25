@@ -87,13 +87,18 @@
                 </DataGridCheckBoxColumn>
 
                 <!-- Age -->
-                <DataGridTextColumn Binding="{Binding Age}">
+                <DataGridTextColumn Binding="{Binding Age}" >
                     <DataGridTextColumn.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/GenerateCalendar;component/Images/Age.png" />
                             <Label Content="Age" />
                         </StackPanel>
                     </DataGridTextColumn.Header>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
             </DataGrid.Columns>
