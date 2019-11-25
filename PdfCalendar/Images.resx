@@ -328,6 +328,9 @@
   <data name="Shrimp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Shrimp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SignLanguage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\SignLanguage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Snow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

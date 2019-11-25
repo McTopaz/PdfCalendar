@@ -59,6 +59,7 @@ namespace PdfCalendar.Handlers
             var starWarsDay = new DateTime(Year, 5, 4);
             var europeDay = new DateTime(Year, 5, 9);
             var jamCakeDay = CalculateJamCakeDay();
+            var signLanguageDay = new DateTime(Year, 5, 14);
             var againstHomophobiaDay = new DateTime(Year, 5, 17);
             var gaad = CalculateGAAD();   // Global Accessibility Awarness Day
             var nationalParkDay = new DateTime(Year, 5, 24);
@@ -156,6 +157,7 @@ namespace PdfCalendar.Handlers
             list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
             list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
+            list.Add((signLanguageDay, Images.SignLanguage, 12, 15, "Teckenspråkets dag"));
             list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
             list.Add((gaad, Images.Keyboard, 12, 12, "Tillgänglighets- medvetenhetsdagen"));
             list.Add((nationalParkDay, Images.Tree, 12, 12, "Nationalparkernas dag"));
