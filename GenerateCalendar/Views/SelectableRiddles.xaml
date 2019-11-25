@@ -103,6 +103,16 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+                <!-- Answer -->
+                <DataGridTextColumn Binding="{Binding Information, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="250">
+                    <DataGridTextColumn.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
+                            <Label Content="Answer" />
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

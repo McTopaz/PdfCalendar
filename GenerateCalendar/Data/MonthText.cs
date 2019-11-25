@@ -13,6 +13,7 @@ namespace GenerateCalendar.Data
     {
         public int Month { get; set; }
         public string Text { get; set; }
+        public string Information { get; set; }
 
         public MonthText()
         {

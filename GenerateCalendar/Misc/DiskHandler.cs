@@ -50,7 +50,7 @@ namespace GenerateCalendar.Misc
             container.Birthdays = vms.vmBirthdays.Birthdays.Where(b => !string.IsNullOrWhiteSpace(b.Name));
             container.Events = vms.vmDateEvents.DateEvents;
             container.Images = vms.vmDateImages.DateImages.Where(i => ValidImageFile(i)).Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
-            container.Riddles = vms.vmRiddles.Riddles.Where(r => !string.IsNullOrWhiteSpace(r.Text));
+            container.Riddles = vms.vmRiddles.Riddles.Where(r => !string.IsNullOrWhiteSpace(r.Text) && !string.IsNullOrWhiteSpace(r.Information));
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles.Where(r => ValidSelectableRiddle(r));
             container.Citations = vms.vmCitations.Citations;
             container.FilePath = file.FullName;
@@ -88,7 +88,7 @@ namespace GenerateCalendar.Misc
 
         private bool ValidSelectableRiddle(MonthTextChoices riddle)
         {
-            return !string.IsNullOrEmpty(riddle.Text) && !string.IsNullOrEmpty(riddle.ChoiceA) && !string.IsNullOrEmpty(riddle.ChoiceB) && !string.IsNullOrEmpty(riddle.ChoiceC);
+            return !string.IsNullOrEmpty(riddle.Text) && !string.IsNullOrEmpty(riddle.ChoiceA) && !string.IsNullOrEmpty(riddle.ChoiceB) && !string.IsNullOrEmpty(riddle.ChoiceC) && !string.IsNullOrEmpty(riddle.Information);
         }
 
         private void SaveContent(FileInfo file, string content)
