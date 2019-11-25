@@ -59,7 +59,9 @@ namespace PdfCalendar
 
         public void SpecifyContent()
         {
-            if (Birthdays.Count() > 0 && Birthdays.First().VIP)
+            var g = Birthdays.Any(b => b.VIP);
+
+            if (Birthdays.Count() > 0 && Birthdays.Any(b => b.VIP))
             {
                 Type = DateType.Birthday;
                 var tmp = Birthdays.Where(b => b.VIP).First();
@@ -73,7 +75,7 @@ namespace PdfCalendar
                 CellInformation(tmp.Text, (tmp.Image, tmp.Width, tmp.Height));
                 RemainingInformationHolidays();
             }
-            else if (Birthdays.Count() > 0 && !Birthdays.First().VIP)
+            else if (Birthdays.Count() > 0 && !Birthdays.Any(b => b.VIP))
             {
                 Type = DateType.Birthday;
                 var tmp = Birthdays.Where(b => !b.VIP).First();
