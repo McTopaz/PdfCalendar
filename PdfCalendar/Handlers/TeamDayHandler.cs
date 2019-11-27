@@ -113,6 +113,7 @@ namespace PdfCalendar.Handlers
             var veganDay = new DateTime(Year, 11, 1);
             var kladdkaka = new DateTime(Year, 11, 7);
             var chocolate = new DateTime(Year, 11, 11);
+            var againstWomenViolenceDay = new DateTime(Year, 11, 25);
             // Dec.
             var nobel = new DateTime(Year, 12, 10);
             var lucia = new DateTime(Year, 12, 13);
@@ -217,6 +218,7 @@ namespace PdfCalendar.Handlers
             list.Add((veganDay, Images.Carrot, 12, 12, "Vegandagen"));
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
             list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
+            list.Add((againstWomenViolenceDay, Images.AgainstWomenViolence, 12, 12, "Dagen mot kvinnovåld"));
             // Dec.
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
             list.Add((lucia, Images.Lucia, 16, 16, "Lucia"));

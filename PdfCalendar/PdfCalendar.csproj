@@ -110,6 +110,7 @@
     <None Include="Images\BlindCane.png" />
     <None Include="Images\Books.png" />
     <None Include="Images\Car.png" />
+    <None Include="Images\AgainstWomenViolence.png" />
     <Content Include="Images\ChristmasTree.png" />
     <Content Include="Images\CinnamonBun.png" />
     <None Include="Images\Cister.png" />
