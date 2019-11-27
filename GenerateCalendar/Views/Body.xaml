@@ -104,6 +104,17 @@
                             </TabItem.Header>
                             <views:Citations x:Name="viewCitations" />
                         </TabItem>
+                        
+                        <!-- Page såacings-->
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/Size.png" Height="16" />
+                            <Label Content="Page sizing" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <views:PageSpacings x:Name="viewPageSpacings" />
+                </TabItem>
 
                     </TabControl>
                 </DockPanel>

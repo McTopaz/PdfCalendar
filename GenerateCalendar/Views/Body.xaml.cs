@@ -38,6 +38,7 @@ namespace GenerateCalendar.Views
             vms.vmSelectableRiddles = viewSelectableRiddles.DataContext as ViewModels.vmSelectableRiddles;
             vms.vmCitations = viewCitations.DataContext as ViewModels.vmCitations;
             vms.vmPdfFile = viewPdfFile.DataContext as ViewModels.vmPdfFile;
+            vms.vmPageSpacing = viewPageSpacings.DataContext as ViewModels.vmPageSpacing;
         }
 
         private void SetupCallbacks()

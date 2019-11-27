@@ -53,6 +53,7 @@ namespace GenerateCalendar.Misc
             container.Riddles = vms.vmRiddles.Riddles.Where(r => !string.IsNullOrWhiteSpace(r.Text) && !string.IsNullOrWhiteSpace(r.Information));
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles.Where(r => ValidSelectableRiddle(r));
             container.Citations = vms.vmCitations.Citations;
+            container.PageSpacings = vms.vmPageSpacing.PageSpacings;
             container.FilePath = file.FullName;
 
             var serializer = new JavaScriptSerializer();
@@ -171,6 +172,7 @@ namespace GenerateCalendar.Misc
             vms.vmRiddles.Riddles = new ObservableCollection<MonthText>(container.Riddles);
             vms.vmSelectableRiddles.Riddles = new ObservableCollection<MonthTextChoices>(container.SelectableRiddles);
             vms.vmCitations.Citations = container.Citations;
+            vms.vmPageSpacing.PageSpacings = container.PageSpacings != null ? new ObservableCollection<PageSpacing>(container.PageSpacings) : new ObservableCollection<PageSpacing>();
             vms.vmPdfFile.FilePath = file;
         }
 

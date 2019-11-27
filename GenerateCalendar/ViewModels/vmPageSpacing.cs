@@ -18,12 +18,13 @@ namespace GenerateCalendar.ViewModels
 
         public vmPageSpacing()
         {
+            PageSpacings = new ObservableCollection<PageSpacing>();
             DefaultItems();
         }
 
         private void DefaultItems()
         {
-            var jan = new PageSpacing() { Month = 1, Top = 100 };
+            var jan = new PageSpacing() { Month = 1, Left = 10, Top = 100, Right = 20, Bottom = 200 };
             var feb = new PageSpacing() { Month = 2 };
             var mar = new PageSpacing() { Month = 3 };
             var apr = new PageSpacing() { Month = 4 };

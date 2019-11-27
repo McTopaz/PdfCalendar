@@ -21,6 +21,7 @@ namespace GenerateCalendar.Data
         public IEnumerable<MonthText> Riddles { get; set; }
         public IEnumerable<MonthTextChoices> SelectableRiddles { get; set; }
         public ObservableCollection<MonthText> Citations { get; set; }
+        public IEnumerable<PageSpacing> PageSpacings { get; set; }
         public string FilePath { get; set; }
 
         public void ToLocalTimeZone()

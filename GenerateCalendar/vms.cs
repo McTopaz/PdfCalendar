@@ -22,5 +22,6 @@ namespace GenerateCalendar
         public static vmSelectableRiddles vmSelectableRiddles { get; set; }
         public static vmCitations vmCitations { get; set; }
         public static vmPdfFile vmPdfFile { get; set; }
+        public static vmPageSpacing vmPageSpacing { get; set; }
     }
 }

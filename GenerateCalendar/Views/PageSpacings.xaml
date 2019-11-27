@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:GenerateCalendar.Views"
              xmlns:Misc="clr-namespace:GenerateCalendar.Misc"
              xmlns:viewModels="clr-namespace:GenerateCalendar.ViewModels"
-             xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:nummeric="clr-namespace:ControlLib;assembly=NumericUpDown"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -24,12 +23,8 @@
         <DataGrid ItemsSource="{Binding PageSpacings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="False" CanUserDeleteRows="True" AutoGenerateColumns="False" DockPanel.Dock="Bottom">
 
             <DataGrid.Resources>
-                <ObjectDataProvider x:Key="MonthValues" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
-                    <ObjectDataProvider.MethodParameters>
-                        <x:Type TypeName="Misc:Months"/>
-                    </ObjectDataProvider.MethodParameters>
-                </ObjectDataProvider>
                 <Misc:MonthConverter x:Key="MonthToIntConverter" />
+                <Misc:InverseBooleanConverter x:Key="InvertBooleanConverter" />
             </DataGrid.Resources>
 
             <DataGrid.Columns>
@@ -44,23 +39,29 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox ItemsSource="{Binding Source={StaticResource MonthValues}}" SelectedItem="{Binding Month, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MonthToIntConverter}}" IsReadOnly="True" />
+                            <Label Content="{Binding Month, Converter={StaticResource MonthToIntConverter}}"  />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
                 <!-- Auto -->
-                <DataGridCheckBoxColumn Binding="{Binding Auto}">
+                <DataGridCheckBoxColumn Binding="{Binding Auto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <DataGridCheckBoxColumn.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/GenerateCalendar;component/Images/Star.png" Height="16" />
                             <Label Content="Auto" />
                         </StackPanel>
                     </DataGridCheckBoxColumn.Header>
+                    <DataGridCheckBoxColumn.ElementStyle>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridCheckBoxColumn.ElementStyle>
                 </DataGridCheckBoxColumn>
                 
                 <!-- Left -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Visibility="Collapsed">
                     <DataGridTemplateColumn.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/GenerateCalendar;component/Images/Left.png" Height="16" />
@@ -69,7 +70,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <nummeric:NumericUpDown Value="{Binding Margin.Left, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="200" MinValue="0" />
+                            <nummeric:NumericUpDown Value="{Binding Left, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="{Binding MaxValue}" MinValue="0" IsEnabled="{Binding Auto, Converter={StaticResource InvertBooleanConverter}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -84,13 +85,13 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <nummeric:NumericUpDown Value="{Binding Margin.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="200" MinValue="0" />
+                            <nummeric:NumericUpDown Value="{Binding Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="{Binding MaxValue}" MinValue="0" IsEnabled="{Binding Auto, Converter={StaticResource InvertBooleanConverter}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
                 <!-- Right -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Visibility="Collapsed">
                     <DataGridTemplateColumn.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/GenerateCalendar;component/Images/Right.png" Height="16" />
@@ -99,13 +100,13 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <nummeric:NumericUpDown Value="{Binding Margin.Right, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="200" MinValue="0" />
+                            <nummeric:NumericUpDown Value="{Binding Right, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="{Binding MaxValue}" MinValue="0" IsEnabled="{Binding Auto, Converter={StaticResource InvertBooleanConverter}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
                 <!-- Bottom -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Visibility="Collapsed">
                     <DataGridTemplateColumn.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/GenerateCalendar;component/Images/Bottom.png" Height="16" />
@@ -114,7 +115,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <nummeric:NumericUpDown Value="{Binding Margin.Bottom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="200" MinValue="0" />
+                            <nummeric:NumericUpDown Value="{Binding Bottom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxValue="{Binding MaxValue}" MinValue="0" IsEnabled="{Binding Auto, Converter={StaticResource InvertBooleanConverter}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
