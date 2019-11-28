@@ -12,7 +12,7 @@ namespace PdfCalendar
         public string ChoiceB { get; set; }
         public string ChoiceC { get; set; }
 
-        public SelectableRiddle(string question, string choiceA, string choiceB, string choiceC) : base(question)
+        public SelectableRiddle(string question, string choiceA, string choiceB, string choiceC, string answer) : base(question, answer)
         {
             ChoiceA = choiceA;
             ChoiceB = choiceB;

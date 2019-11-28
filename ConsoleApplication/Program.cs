@@ -108,9 +108,9 @@ namespace ConsoleApplication
             var feb = new DateTime(year, 2, 1);
             var riddles = new List<(DateTime Date, Riddle Riddle)>
             {
-                (jan, new Riddle("På vilken väg går man tillbaka, men kommer ändå närmare målet?")),
-                (jan, new SelectableRiddle("Vad är PI?", "3,14", "22/7", "Ett irrationelt tal")),
-                (feb, new Riddle("Vilken råtta äter inte ost?"))
+                (jan, new Riddle("På vilken väg går man tillbaka, men kommer ändå närmare målet?", "Hemvägen")),
+                (jan, new SelectableRiddle("Vad är PI?", "3,14", "22/7", "Ett irrationelt tal", "Ett irrationelt tal")),
+                (feb, new Riddle("Vilken råtta äter inte ost?", "Dammråttan"))
             };
             return riddles;
         }

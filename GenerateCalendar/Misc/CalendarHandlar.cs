@@ -22,8 +22,8 @@ namespace GenerateCalendar.Misc
             var birthdays = vms.vmBirthdays.Birthdays.Select(d => (d.BirthDay, d.Name, d.Dead, d.VIP));
             var events = vms.vmDateEvents.DateEvents.Select(d => (d.Date, d.Event));
             var images = vms.vmDateImages.DateImages.Select(d => (Date: d.Date, FilePath: d.FilePath.FullName, Width: (float)d.Width, Height: (float)d.Height));
-            var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text)));
-            var selectable = vms.vmSelectableRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.ChoiceA, r.ChoiceB, r.ChoiceC)));
+            var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.Information)));
+            var selectable = vms.vmSelectableRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.ChoiceA, r.ChoiceB, r.ChoiceC, r.Information)));
             var citations = vms.vmCitations.Citations.Select(c => (MakeDate(year.Year, c.Month), c.Text));
             var pageSpacings = vms.vmPageSpacing.PageSpacings.Select(i => (i.Month, i.Auto, (int)i.Left, (int)i.Top, (int)i.Right, (int)i.Bottom));
 
@@ -44,14 +44,14 @@ namespace GenerateCalendar.Misc
             return new DateTime(year, month, 1);
         }
 
-        private Riddle MakeRiddle(string question)
+        private Riddle MakeRiddle(string question, string answer)
         {
-            return new Riddle(question);
+            return new Riddle(question, answer);
         }
 
-        private Riddle MakeRiddle(string question, string choiceA, string choiceB, string choiceC)
+        private Riddle MakeRiddle(string question, string choiceA, string choiceB, string choiceC, string answer)
         {
-            return new SelectableRiddle(question, choiceA, choiceB, choiceC);
+            return new SelectableRiddle(question, choiceA, choiceB, choiceC, answer);
         }
     }
 }
