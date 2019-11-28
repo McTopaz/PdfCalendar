@@ -172,7 +172,7 @@ namespace GenerateCalendar.Misc
             vms.vmRiddles.Riddles = new ObservableCollection<MonthText>(container.Riddles);
             vms.vmSelectableRiddles.Riddles = new ObservableCollection<MonthTextChoices>(container.SelectableRiddles);
             vms.vmCitations.Citations = container.Citations;
-            vms.vmPageSpacing.PageSpacings = container.PageSpacings != null ? new ObservableCollection<PageSpacing>(container.PageSpacings) : new ObservableCollection<PageSpacing>();
+            vms.vmPageSpacing.PageSpacings = SetupPageSpacings(container.PageSpacings);
             vms.vmPdfFile.FilePath = file;
         }
 
@@ -215,6 +215,22 @@ namespace GenerateCalendar.Misc
             {
                 item.BirthdayChanged = new RelayCommand();
                 item.BirthdayChanged.Callback += item.BirthdayChanged_Callback;
+            }
+        }
+
+        private ObservableCollection<PageSpacing> SetupPageSpacings(IEnumerable<PageSpacing> pageSpacings)
+        {
+            if (pageSpacings == null)
+            {
+                // If the JSN-file don't contain any page spacing, create default page spacings for each month.
+
+                vms.vmPageSpacing.PageSpacings.Clear();
+                vms.vmPageSpacing.DefaultItems();
+                return vms.vmPageSpacing.PageSpacings;
+            }
+            else
+            {
+                return new ObservableCollection<PageSpacing>(pageSpacings);
             }
         }
     }

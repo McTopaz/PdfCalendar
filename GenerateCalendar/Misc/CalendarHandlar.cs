@@ -25,6 +25,7 @@ namespace GenerateCalendar.Misc
             var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text)));
             var selectable = vms.vmSelectableRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.ChoiceA, r.ChoiceB, r.ChoiceC)));
             var citations = vms.vmCitations.Citations.Select(c => (MakeDate(year.Year, c.Month), c.Text));
+            var pageSpacings = vms.vmPageSpacing.PageSpacings.Select(i => (i.Month, i.Auto, (int)i.Left, (int)i.Top, (int)i.Right, (int)i.Bottom));
 
             // Create the calendar and specify options and data.
             calendar = new Calendar(file, vms.vmYear.SelectedYear.Year);
@@ -34,6 +35,7 @@ namespace GenerateCalendar.Misc
             calendar.Data.Images = images;
             calendar.Data.Riddles = riddles.Concat(selectable);
             calendar.Data.Citations = citations;
+            calendar.Data.PageSpacing = pageSpacings;
             calendar.Create();
         }
 

@@ -27,7 +27,14 @@ namespace GenerateCalendar.Data
             Top = 0;
             Right = 0;
             Bottom = 0;
-            MaxValue = 200;
+
+            // Some wierd bug with the NumericUpDown control. Cannot type 200 in the control if the max value is set to 200. 
+            // By using the up botton on the control it's possible to reach to 200.
+            // Work-around bug by allowing 201 as maximum value.
+            // Allowing 201 instead of 200 as maxium value is negligible.
+            MaxValue = 201;
+
+            
         }
     }
 }

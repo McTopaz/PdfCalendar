@@ -22,7 +22,7 @@ namespace GenerateCalendar.ViewModels
             DefaultItems();
         }
 
-        private void DefaultItems()
+        public void DefaultItems()
         {
             var jan = new PageSpacing() { Month = 1, Left = 10, Top = 100, Right = 20, Bottom = 200 };
             var feb = new PageSpacing() { Month = 2 };
