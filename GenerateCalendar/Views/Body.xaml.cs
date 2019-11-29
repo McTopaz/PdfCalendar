@@ -33,8 +33,6 @@ namespace GenerateCalendar.Views
             vms.vmOptions = viewOptions.DataContext as ViewModels.vmOptions;
             vms.vmBirthdays = viewBirthDays.DataContext as ViewModels.vmBirthdays;
             vms.vmEvents = viewEvents.DataContext as ViewModels.vmEvents;
-            vms.vmDateEvents = viewDateEvents.DataContext as ViewModels.vmDateEvents;
-            vms.vmDateImages = viewDateImages.DataContext as ViewModels.vmDateImages;
             vms.vmRiddles = viewRiddles.DataContext as ViewModels.vmRiddles;
             vms.vmSelectableRiddles = viewSelectableRiddles.DataContext as ViewModels.vmSelectableRiddles;
             vms.vmCitations = viewCitations.DataContext as ViewModels.vmCitations;
@@ -44,8 +42,6 @@ namespace GenerateCalendar.Views
 
         private void SetupCallbacks()
         {
-            vms.vmDateEvents.Callbacks();
-            vms.vmDateImages.Callbacks();
             vms.vmBirthdays.Callbacks();
             vms.vmEvents.Callbacks();
         }

@@ -61,28 +61,6 @@
                             <views:Events x:Name="viewEvents" />
                         </TabItem>
                         
-                        <!-- Date events -->
-                        <TabItem Visibility="Collapsed">
-                            <TabItem.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
-                                    <Label Content="Events" />
-                                </StackPanel>
-                            </TabItem.Header>
-                            <views:DateEvents x:Name="viewDateEvents" />
-                        </TabItem>
-
-                        <!-- Date images -->
-                        <TabItem Visibility="Collapsed">
-                            <TabItem.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
-                                    <Label Content="Images" />
-                                </StackPanel>
-                            </TabItem.Header>
-                            <views:DateImages x:Name="viewDateImages" />
-                        </TabItem>
-
                         <!-- Riddles -->
                         <TabItem>
                             <TabItem.Header>

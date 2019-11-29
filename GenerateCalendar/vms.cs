@@ -17,8 +17,6 @@ namespace GenerateCalendar
         public static vmOptions vmOptions { get; set; }
         public static vmBirthdays vmBirthdays { get; set; }
         public static vmEvents vmEvents { get; set; }
-        public static vmDateEvents vmDateEvents { get; set; }
-        public static vmDateImages vmDateImages { get; set; }
         public static vmRiddles vmRiddles { get; set; }
         public static vmSelectableRiddles vmSelectableRiddles { get; set; }
         public static vmCitations vmCitations { get; set; }

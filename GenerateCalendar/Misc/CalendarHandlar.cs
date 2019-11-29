@@ -20,8 +20,6 @@ namespace GenerateCalendar.Misc
             var year = vms.vmYear.SelectedYear;
             var file = vms.vmPdfFile.FilePath;
             var birthdays = vms.vmBirthdays.Birthdays.Select(d => (d.BirthDay, d.Name, d.Dead, d.VIP));
-            var events = vms.vmDateEvents.DateEvents.Select(d => (d.Date, d.Event));
-            var images = vms.vmDateImages.DateImages.Select(d => (Date: d.Date, FilePath: d.FilePath.FullName, Width: (float)d.Width, Height: (float)d.Height));
             var riddles = vms.vmRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.Information)));
             var selectable = vms.vmSelectableRiddles.Riddles.Select(r => (MakeDate(year.Year, r.Month), MakeRiddle(r.Text, r.ChoiceA, r.ChoiceB, r.ChoiceC, r.Information)));
             var citations = vms.vmCitations.Citations.Select(c => (MakeDate(year.Year, c.Month), c.Text));
@@ -31,8 +29,6 @@ namespace GenerateCalendar.Misc
             calendar = new Calendar(file, vms.vmYear.SelectedYear.Year);
             calendar.Options = options;
             calendar.Data.Birthdays = birthdays;
-            calendar.Data.Events = events;
-            calendar.Data.Images = images;
             calendar.Data.Riddles = riddles.Concat(selectable);
             calendar.Data.Citations = citations;
             calendar.Data.PageSpacing = pageSpacings;

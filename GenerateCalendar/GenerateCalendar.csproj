@@ -77,22 +77,18 @@
     </ApplicationDefinition>
     <Compile Include="Data\Birthday.cs" />
     <Compile Include="Data\Container.cs" />
-    <Compile Include="Data\DateImage.cs" />
     <Compile Include="Data\Event.cs" />
     <Compile Include="Data\MonthText.cs" />
     <Compile Include="Data\MonthTextChoices.cs" />
     <Compile Include="Data\PageSpacing.cs" />
     <Compile Include="Misc\CalendarHandlar.cs" />
     <Compile Include="Misc\Converters.cs" />
-    <Compile Include="Data\DateEvent.cs" />
     <Compile Include="Misc\DiskHandler.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Misc\RelayCommand.cs" />
     <Compile Include="ViewModels\vmBirthdays.cs" />
     <Compile Include="ViewModels\vmBody.cs" />
     <Compile Include="ViewModels\vmCitations.cs" />
-    <Compile Include="ViewModels\vmDateEvents.cs" />
-    <Compile Include="ViewModels\vmDateImages.cs" />
     <Compile Include="ViewModels\vmEvents.cs" />
     <Compile Include="ViewModels\vmFooter.cs" />
     <Compile Include="ViewModels\vmHeader.cs" />
@@ -111,12 +107,6 @@
     </Compile>
     <Compile Include="Views\Citations.xaml.cs">
       <DependentUpon>Citations.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DateEvents.xaml.cs">
-      <DependentUpon>DateEvents.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DateImages.xaml.cs">
-      <DependentUpon>DateImages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events.xaml.cs">
       <DependentUpon>Events.xaml</DependentUpon>
@@ -167,14 +157,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Citations.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DateEvents.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DateImages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
