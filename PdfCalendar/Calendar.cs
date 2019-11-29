@@ -75,7 +75,7 @@ namespace PdfCalendar
         {
             Document.PageSize.BackgroundColor = BaseColor.BLACK;
         }
-
+        
         private void Generate()
         {
             // Create a title page.
@@ -92,6 +92,12 @@ namespace PdfCalendar
 
             // Create the calendar's main content.
             Content();
+
+            // Display questiosn and answers.
+            if (Data.Riddles.Count() > 0)
+            {
+                QuestionAndAnswerPage();
+            }
         }
 
         private void TitlePage()
@@ -118,6 +124,13 @@ namespace PdfCalendar
 
             Document.NewPage();
             Document.Add(previousDecember);
+        }
+
+        private void QuestionAndAnswerPage()
+        {
+            var qna = new QuestionsAndAnswers(Year, Data.Riddles.Select(r => (r.Date.Month, r.Riddle.Question, r.Riddle.Answer)));
+            Document.NewPage();
+            Document.Add(qna);
         }
 
         private void Content()
