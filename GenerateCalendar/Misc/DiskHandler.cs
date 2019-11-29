@@ -48,8 +48,7 @@ namespace GenerateCalendar.Misc
             container.Year = vms.vmYear.SelectedYear;
             container.Options = vms.vmOptions.Options;
             container.Birthdays = vms.vmBirthdays.Birthdays.Where(b => !string.IsNullOrWhiteSpace(b.Name));
-            container.Events = vms.vmDateEvents.DateEvents;
-            container.Images = vms.vmDateImages.DateImages.Where(i => ValidImageFile(i)).Select(i => new DateImageLite() { Date = i.Date, FilePath = i.FilePath.FullName, Width = i.Width, Height = i.Height });
+            container.Events = vms.vmEvents.Events.Where(e => !string.IsNullOrWhiteSpace(e.Text) && IsValidImageFile(e)).Select(e => new EventLite() { Date = e.Date, Text = e.Text, FilePath = e.FilePath.FullName, Width = e.Width, Height = e.Height });
             container.Riddles = vms.vmRiddles.Riddles.Where(r => !string.IsNullOrWhiteSpace(r.Text) && !string.IsNullOrWhiteSpace(r.Information));
             container.SelectableRiddles = vms.vmSelectableRiddles.Riddles.Where(r => ValidSelectableRiddle(r));
             container.Citations = vms.vmCitations.Citations;
@@ -82,9 +81,9 @@ namespace GenerateCalendar.Misc
             return new FileInfo(file);
         }
 
-        private bool ValidImageFile(DateImage image)
+        private bool IsValidImageFile(Event e)
         {
-            return image.FilePath != null && image.FilePath.Exists;
+            return e.FilePath != null && e.FilePath.Exists;
         }
 
         private bool ValidSelectableRiddle(MonthTextChoices riddle)
@@ -167,8 +166,7 @@ namespace GenerateCalendar.Misc
             vms.vmYear.SelectedYear = container.Year;
             vms.vmOptions.Options = container.Options;
             vms.vmBirthdays.Birthdays = new ObservableCollection<Birthday>(container.Birthdays);
-            vms.vmDateEvents.DateEvents = container.Events;
-            vms.vmDateImages.DateImages = DateImagesFromFile(container);
+            vms.vmEvents.Events = EventsFromFile(container.Events);
             vms.vmRiddles.Riddles = new ObservableCollection<MonthText>(container.Riddles);
             vms.vmSelectableRiddles.Riddles = new ObservableCollection<MonthTextChoices>(container.SelectableRiddles);
             vms.vmCitations.Citations = container.Citations;
@@ -176,22 +174,6 @@ namespace GenerateCalendar.Misc
             vms.vmPdfFile.FilePath = file;
         }
 
-        private ObservableCollection<DateImage> DateImagesFromFile(Container container)
-        {
-            var list = new ObservableCollection<DateImage>();
-            foreach (var item in container.Images)
-            {
-                var di = new DateImage()
-                {
-                    Date = item.Date,
-                    FilePath = new FileInfo(item.FilePath),
-                    Width = item.Width,
-                    Height = item.Height
-                };
-                list.Add(di);
-            }
-            return list;
-        }
 
         private FileInfo ExistingFile(string filePath)
         {
@@ -216,6 +198,24 @@ namespace GenerateCalendar.Misc
                 item.BirthdayChanged = new RelayCommand();
                 item.BirthdayChanged.Callback += item.BirthdayChanged_Callback;
             }
+        }
+
+        private ObservableCollection<Event> EventsFromFile(IEnumerable<EventLite> events)
+        {
+            var list = new ObservableCollection<Event>();
+            foreach (var item in events)
+            {
+                var e = new Event()
+                {
+                    Date = item.Date,
+                    Text = item.Text,
+                    FilePath = new FileInfo(item.FilePath),
+                    Width = item.Width,
+                    Height = item.Height
+                };
+                list.Add(e);
+            }
+            return list;
         }
 
         private ObservableCollection<PageSpacing> SetupPageSpacings(IEnumerable<PageSpacing> pageSpacings)

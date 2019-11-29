@@ -16,8 +16,7 @@ namespace GenerateCalendar.Data
         public DateTime Year { get; set; }
         public Options Options { get; set; }
         public IEnumerable<Birthday> Birthdays { get; set; }
-        public ObservableCollection<DateEvent> Events { get; set; }
-        public IEnumerable<DateImageLite> Images { get; set; }
+        public IEnumerable<EventLite> Events { get; set; }
         public IEnumerable<MonthText> Riddles { get; set; }
         public IEnumerable<MonthTextChoices> SelectableRiddles { get; set; }
         public ObservableCollection<MonthText> Citations { get; set; }
@@ -43,11 +42,6 @@ namespace GenerateCalendar.Data
             }
 
             foreach (var item in Events)
-            {
-                item.Date = item.Date.ToLocalTime();
-            }
-
-            foreach (var item in Images)
             {
                 item.Date = item.Date.ToLocalTime();
             }

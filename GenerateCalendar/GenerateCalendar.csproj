@@ -78,6 +78,7 @@
     <Compile Include="Data\Birthday.cs" />
     <Compile Include="Data\Container.cs" />
     <Compile Include="Data\DateImage.cs" />
+    <Compile Include="Data\Event.cs" />
     <Compile Include="Data\MonthText.cs" />
     <Compile Include="Data\MonthTextChoices.cs" />
     <Compile Include="Data\PageSpacing.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="ViewModels\vmCitations.cs" />
     <Compile Include="ViewModels\vmDateEvents.cs" />
     <Compile Include="ViewModels\vmDateImages.cs" />
+    <Compile Include="ViewModels\vmEvents.cs" />
     <Compile Include="ViewModels\vmFooter.cs" />
     <Compile Include="ViewModels\vmHeader.cs" />
     <Compile Include="ViewModels\vmMainWindow.cs" />
@@ -115,6 +117,9 @@
     </Compile>
     <Compile Include="Views\DateImages.xaml.cs">
       <DependentUpon>DateImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events.xaml.cs">
+      <DependentUpon>Events.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
@@ -170,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DateImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

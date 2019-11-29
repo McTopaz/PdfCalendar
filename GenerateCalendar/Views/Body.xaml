@@ -50,8 +50,19 @@
                             <views:Birthdays x:Name="viewBirthDays" />
                         </TabItem>
 
-                        <!-- Date events -->
+                        <!-- Events -->
                         <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
+                                    <Label Content="Events" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:Events x:Name="viewEvents" />
+                        </TabItem>
+                        
+                        <!-- Date events -->
+                        <TabItem Visibility="Collapsed">
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/GenerateCalendar;component/Images/Information.png" Height="16" />
@@ -62,7 +73,7 @@
                         </TabItem>
 
                         <!-- Date images -->
-                        <TabItem>
+                        <TabItem Visibility="Collapsed">
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/GenerateCalendar;component/Images/Image.png" Height="16" />
@@ -105,16 +116,16 @@
                             <views:Citations x:Name="viewCitations" />
                         </TabItem>
                         
-                        <!-- Page såacings-->
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/GenerateCalendar;component/Images/Size.png" Height="16" />
-                            <Label Content="Page sizing" />
-                        </StackPanel>
-                    </TabItem.Header>
-                    <views:PageSpacings x:Name="viewPageSpacings" />
-                </TabItem>
+                        <!-- Page spacings-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/GenerateCalendar;component/Images/Size.png" Height="16" />
+                                    <Label Content="Page sizing" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <views:PageSpacings x:Name="viewPageSpacings" />
+                        </TabItem>
 
                     </TabControl>
                 </DockPanel>
