@@ -22,12 +22,12 @@ namespace GenerateCalendar.ViewModels
 
         private string LookupGuiVersion()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            return System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).ProductVersion;
         }
 
         private string LookupApiVersion()
         {
-            return System.Reflection.Assembly.GetAssembly(typeof(PdfCalendar.Calendar)).GetName().Version.ToString();
+            return System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetAssembly(typeof(PdfCalendar.Calendar)).Location).ProductVersion;
         }
     }
 }
