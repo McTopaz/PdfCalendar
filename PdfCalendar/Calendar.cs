@@ -113,8 +113,7 @@ namespace PdfCalendar
             var data = new Data();
 
             data.Birthdays = Data.Birthdays;
-            data.Events = Data.Events.Select(e => (e.Date.AddYears(-1), e.Event));
-            data.Images = Data.Images.Select(i => (i.Date.AddYears(-1), i.FilePath, i.Width, i.Height));
+            data.Ev = Data.Ev.Select(e => (e.Date.AddYears(-1), e.Text, e.FilePath, e.Width, e.Height));
             new HolidayHandler(previousYear, data);
             new TeamDayHandler(previousYear, data);
 

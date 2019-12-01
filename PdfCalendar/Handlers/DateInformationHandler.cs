@@ -25,13 +25,11 @@ namespace PdfCalendar.Handlers
         {
             var holidays = Data.Holidays.Select(h => h.Date);
             var birthdays = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
-            var events = Data.Events.Select(e => e.Date);
-            var images = Data.Images.Select(i => i.Date);
+            var ev = Data.Ev.Select(e => e.Date);
             var teamDays = Data.TeamDays.Select(t => t.Date);
             DateInformations = holidays
                 .Concat(birthdays)
-                .Concat(events)
-                .Concat(images)
+                .Concat(ev)
                 .Concat(teamDays)
                 .Distinct()
                 .OrderBy(d => d)
@@ -53,8 +51,7 @@ namespace PdfCalendar.Handlers
             SetupHolidays();
             SetupTeamdays();
             SetupBirthdays();
-            SetupEvents();
-            SetupImages();
+            SetupEv();
         }
 
         private void SetupHolidays()
@@ -91,25 +88,14 @@ namespace PdfCalendar.Handlers
             }
         }
 
-        private void SetupEvents()
+        private void SetupEv()
         {
-            var dates = Data.Events.Select(e => e.Date).Distinct().OrderBy(d => d);
+            var dates = Data.Ev.Select(e => e.Date).Distinct().OrderBy(d => d);
 
             foreach (var item in dates)
             {
-                var di = DateInformations[item.Date];
-                di.Events = Data.Events.Where(e => e.Date == item.Date).Select(e => e.Event);
-            }
-        }
-
-        private void SetupImages()
-        {
-            var dates = Data.Images.Select(i => i.Date).Distinct().OrderBy(d => d);
-
-            foreach (var item in dates)
-            {
-                var di = DateInformations[item.Date];
-                di.Images = Data.Images.Where(i => i.Date == item.Date).Select(i => (FileFromPath(i.FilePath, i.Width, i.Height), i.Width, i.Height));
+                var di = DateInformations[item];
+                di.Ev = Data.Ev.Where(e => e.Date == item.Date).Select(e => (e.Text, FileFromPath(e.FilePath, e.Width, e.Height), e.Width, e.Height));
             }
         }
 

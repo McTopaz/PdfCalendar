@@ -67,14 +67,6 @@ namespace PdfCalendar.Week
             return image;
         }
 
-        private ImageInCellEvent UserSpecificImage(DateTime date)
-        {
-            var tmp = Data.Images.First(d => d.Date == date);
-            var file = new FileInfo(tmp.FilePath);
-            var cellEvent = new ImageInCellEvent(file, tmp.Width, tmp.Height);
-            return cellEvent;
-        }
-
         private ImageInCellEvent EventSpecificImage(Bitmap image, float width, float height)
         {
             var converter = new ImageConverter();

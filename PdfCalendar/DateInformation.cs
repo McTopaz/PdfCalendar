@@ -40,8 +40,7 @@ namespace PdfCalendar
         public IEnumerable<(DateTime Birthday, string Name, bool Dead, bool VIP)> Birthdays { get; internal set; }
         public IEnumerable<(string Text, Bitmap Image, float Width, float Height)> Holidays { get; internal set; }
         public IEnumerable<(string Text, Bitmap Image, float Width, float Height)> TeamDays { get; internal set; }
-        public IEnumerable<string> Events { get; internal set; }
-        public IEnumerable<(Bitmap Image, float Width, float Height)> Images { get; internal set; }
+        public IEnumerable<(string Text, Bitmap Image, float Width, float Height)> Ev { get; internal set; }
 
         public DateInformation(int year, DateTime date)
         {
@@ -52,8 +51,7 @@ namespace PdfCalendar
             Birthdays = Enumerable.Empty<(DateTime, string, bool, bool)>();
             Holidays = Enumerable.Empty<(string Text, Bitmap Image, float Width, float Height)>();
             TeamDays = Enumerable.Empty<(string Text, Bitmap Image, float Width, float Height)>();
-            Events = Enumerable.Empty<string>();
-            Images = Enumerable.Empty<(Bitmap Image, float Width, float Height)>();
+            Ev = Enumerable.Empty<(string Text, Bitmap Image, float Width, float Height)>();
             Remaining = Enumerable.Empty<(DateTime Date, string Text, (Bitmap Bitmap, float Width, float Height) Image)>();
         }
 
@@ -89,21 +87,17 @@ namespace PdfCalendar
                 CellInformation(tmp.Text, (tmp.Image, tmp.Width, tmp.Height));
                 RemainingInformationTeamDays();
             }
-            else if (Events.Count() > 0)
+            else if (Ev.Count() > 0)
             {
                 Type = DateType.Event;
-                CellInformation(Events.First(), (PdfCalendar.Images.NoImage, 16, 16));
+                var tmp = Ev.First();
+                CellInformation(tmp.Text, (tmp.Image, tmp.Width, tmp.Height));
                 RemainingInformationEvents();
             }
             else
             {
                 Type = DateType.None;
                 CellInformation("", (PdfCalendar.Images.NoImage, 16, 16));
-            }
-
-            if (Images.Count() > 0)
-            {
-                Image = Images.First();
             }
         }
 
@@ -125,7 +119,7 @@ namespace PdfCalendar
             var holidays = Holidays.Select(h => (Date, h.Text, (h.Image, h.Width, h.Height)));
             var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
-            var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var events = Ev.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = vip.Concat(holidays).Concat(noVip).Concat(teamDays).Concat(events);
         }
 
@@ -133,7 +127,7 @@ namespace PdfCalendar
         {
             var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
-            var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var events = Ev.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = noVip.Concat(teamDays).Concat(events);
         }
 
@@ -141,20 +135,20 @@ namespace PdfCalendar
         {
             var noVip = Birthdays.Where(b => !b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
-            var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var events = Ev.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = noVip.Concat(teamDays).Concat(events);
         }
 
         private void RemainingInformationTeamDays()
         {
             var teamDays = TeamDays.Skip(1).Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
-            var events = Events.Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
+            var events = Ev.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = teamDays.Concat(events);
         }
 
         private void RemainingInformationEvents()
         {
-            Remaining = Events.Skip(1).Select(e => (Date, e, (PdfCalendar.Images.NoImage, 16f, 16f)));
+            Remaining = Ev.Skip(1).Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
         }
     }
 
