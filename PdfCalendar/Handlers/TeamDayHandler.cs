@@ -74,7 +74,7 @@ namespace PdfCalendar.Handlers
             var bellmanDay = new DateTime(Year, 7, 26);
             var embroideryDay = new DateTime(Year, 7, 30);
             // Aug.
-            var hembygdsgardDay = new DateTime(Year, 8, 4);
+            var hembygdsgardDay = CalculateHembygdsgardDay();
             var hiroshimaDay = new DateTime(Year, 8, 6);
             var leftHandedDay = new DateTime(Year, 8, 13);
             var archaeology = new DateTime(Year, 8, 20);
@@ -126,10 +126,10 @@ namespace PdfCalendar.Handlers
             var list = new List<(DateTime, Bitmap, float, float, string)>();
             // Jan.
             list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
-            list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
+            //list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
             list.Add((holocaustDay, Images.NoImage, 16, 16, "Förintelsens minnesdag"));
             // Feb.
-            list.Add((runeBergDay, Images.NoImage, 16, 16, "Runebergsdagen"));
+            list.Add((runeBergDay, Images.RunebergCake, 12, 12, "Runebergsdagen"));
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
             list.Add((crimeVictimsDay, Images.NoImage, 16, 16, "Brottsofferdagen"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
@@ -149,13 +149,13 @@ namespace PdfCalendar.Handlers
             list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
             list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
             list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
-            list.Add((laboratoryAnimalsDay, Images.NoImage, 16, 16, "Försökdjurens dag"));
+            list.Add((laboratoryAnimalsDay, Images.Cat, 16, 16, "Försökdjurens dag"));
             list.Add((labourEnvironmentDay, Images.Glove, 12, 12, "Arbetsmiljödagen"));
             list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
             // May.
             list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
             list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
-            list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
+            //list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
             list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
             list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
             list.Add((signLanguageDay, Images.SignLanguage, 12, 15, "Teckenspråkets dag"));
@@ -166,15 +166,15 @@ namespace PdfCalendar.Handlers
             // Jun.
             list.Add((worldEnvironmentDay, Images.Globe, 12, 12, "Världsmiljödagen"));
             list.Add((worldKnittingDay, Images.KnittingNeedles, 12, 12, "Världsstickningsdagen"));
-            list.Add((archiveDay, Images.Archive, 12, 12, "Arkivdagen"));
-            list.Add((heraldryDay, Images.Shield, 12, 12, "Heraldikdagen"));
+            //list.Add((archiveDay, Images.Archive, 12, 12, "Arkivdagen"));
+            //list.Add((heraldryDay, Images.Shield, 12, 12, "Heraldikdagen"));
             list.Add((wildFlowersDay, Images.Flowers, 12, 12, "Vilda blommornas dag"));
             // Jul.
-            list.Add((emojiDay, Images.Emoji, 12, 12, "Emojidagen"));
-            list.Add((bellmanDay, Images.Cister, 30, 14, "Bellmansdagen"));
+            //list.Add((emojiDay, Images.Emoji, 12, 12, "Emojidagen"));
+            list.Add((bellmanDay, Images.Cister, 30, 14, "Bellmandagen"));
             list.Add((embroideryDay, Images.Embroidery, 12, 12, "Broderidagen"));
             // Aug.
-            list.Add((hembygdsgardDay, Images.Cabin, 12, 12, "Hembygdsgårdens dag"));
+            list.Add((hembygdsgardDay, Images.Cabin, 12, 12, "Hembygdsgårdens dag"));   // Första söndagen i aug
             list.Add((hiroshimaDay, Images.Oleander, 12, 12, "Hiroshimadagen"));
             list.Add((leftHandedDay, Images.LeftHand, 12, 12, "Vänsterhäntas dag"));
             list.Add((archaeology, Images.Vase, 12, 12, "Arkelogidagen"));
@@ -286,6 +286,20 @@ namespace PdfCalendar.Handlers
                 .Select(d => new DateTime(Year, may, d))
                 .Where(d => d.DayOfWeek == DayOfWeek.Thursday)
                 .ElementAt(2);
+            return date;
+        }
+
+        /// <summary>
+        /// Hembygdsgårdens day - First sundag in August.
+        /// </summary>
+        /// <returns></returns>
+        private DateTime CalculateHembygdsgardDay()
+        {
+            var aug = 8;
+            var date = Enumerable.Range(1, DateTime.DaysInMonth(Year, aug))
+                .Select(d => new DateTime(Year, aug, d))
+                .Where(d => d.DayOfWeek == DayOfWeek.Sunday)
+                .First();
             return date;
         }
 
