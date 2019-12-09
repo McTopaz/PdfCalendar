@@ -24,7 +24,7 @@ namespace GenerateCalendar.ViewModels
 
         public void DefaultItems()
         {
-            var jan = new PageSpacing() { Month = 1, Left = 10, Top = 100, Right = 20, Bottom = 200 };
+            var jan = new PageSpacing() { Month = 1 };
             var feb = new PageSpacing() { Month = 2 };
             var mar = new PageSpacing() { Month = 3 };
             var apr = new PageSpacing() { Month = 4 };
