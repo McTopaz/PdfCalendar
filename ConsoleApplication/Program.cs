@@ -27,8 +27,6 @@ namespace ConsoleApplication
             calendar.Options.StandardTime = true;
 
             calendar.Data.Birthdays = Birthdays();
-            calendar.Data.Events = Events();
-            calendar.Data.Images = Images();
             calendar.Data.Riddles = Riddles();
             calendar.Data.Citations = Citations();
             calendar.Create();
