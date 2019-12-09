@@ -205,6 +205,8 @@ namespace GenerateCalendar.Misc
             var list = new ObservableCollection<Event>();
             foreach (var item in events)
             {
+                if (item.FilePath == null) continue;
+
                 var e = new Event()
                 {
                     Date = item.Date,
