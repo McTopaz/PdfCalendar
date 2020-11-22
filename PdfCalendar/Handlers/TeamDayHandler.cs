@@ -87,6 +87,7 @@ namespace PdfCalendar.Handlers
             var highHeelsDay = new DateTime(Year, 9, 17);
             var peaceDay = new DateTime(Year, 9, 21);
             var carFreeDay = new DateTime(Year, 9, 22);
+            var internationalSign = new DateTime(Year, 9, 23);
             var astronomyDayNight = new DateTime(Year, 9, 23);
             var translateDay = new DateTime(Year, 9, 30);
             // Oct.
@@ -197,6 +198,7 @@ namespace PdfCalendar.Handlers
             //list.Add((highHeelsDay, Images.Pumps, 12, 12, "Höga klackars dag"));
             //list.Add((peaceDay, Images.Dove, 12, 12, "Fredsdagen"));
             //list.Add((carFreeDay, Images.NoCar, 12, 12, "Bilfria dagen"));
+            list.Add((internationalSign, Images.SignLanguage, 12, 15, "Internationella teckenspråksdagen"));
             //list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
             list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
 
