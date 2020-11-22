@@ -57,8 +57,6 @@ namespace PdfCalendar
 
         public void SpecifyContent()
         {
-            var g = Birthdays.Any(b => b.VIP);
-
             if (Birthdays.Count() > 0 && Birthdays.Any(b => b.VIP))
             {
                 Type = DateType.Birthday;
