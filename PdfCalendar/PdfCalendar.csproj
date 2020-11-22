@@ -174,12 +174,14 @@
     <None Include="Images\NoMeat.png" />
     <None Include="Images\SignLanguage.png" />
     <None Include="Images\RunebergCake.png" />
+    <None Include="Images\Semla.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

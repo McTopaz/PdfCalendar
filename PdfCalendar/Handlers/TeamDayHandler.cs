@@ -36,6 +36,7 @@ namespace PdfCalendar.Handlers
             var crimeVictimsDay = new DateTime(Year, 2, 22);
             var swedenFinns = new DateTime(Year, 2, 24);
             var mosquitoNestBoxDay = new DateTime(Year, 2, 28);
+            var shroveTuesday = ShroveTuesday();                // Semmeldagen.
             // Mar.
             var womansDay = new DateTime(Year, 3, 8);
             var pi = new DateTime(Year, 3, 14);
@@ -134,6 +135,7 @@ namespace PdfCalendar.Handlers
             list.Add((crimeVictimsDay, Images.NoImage, 16, 16, "Brottsofferdagen"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
             list.Add((mosquitoNestBoxDay, Images.NestBox, 12, 12, "Myggholkens dag"));
+            list.Add((shroveTuesday, Images.Semla, 12, 12, "Semmeldagen"));
             // Mar.
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
@@ -422,6 +424,19 @@ namespace PdfCalendar.Handlers
         private DateTime CalculateLuteFiskDay()
         {
             var date = Holidays.Where(h => h.LocalName == "Alla helgons dag").First().Date.AddDays(-1);
+            return date;
+        }
+
+        private DateTime ShroveTuesday()
+        {
+            // Subtract 47 from easter day to get shroove tuesday, or a day just before it.
+            // Then increment to find the next tuesday in the future.
+            var date = Holidays.Where(h => h.LocalName == "Påskdagen").First().Date;
+            date = date.AddDays(-47);                                                   
+            while(date.DayOfWeek != DayOfWeek.Tuesday)
+            {
+                date = date.AddDays(1);
+            }
             return date;
         }
     }
