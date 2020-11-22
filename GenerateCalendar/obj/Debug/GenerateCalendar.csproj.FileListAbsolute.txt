@@ -70,11 +70,11 @@ C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\MainWindow
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Birthdays.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Body.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Citations.g.cs
-C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\DateEvents.g.cs
-C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\DateImages.g.cs
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Events.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Footer.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Header.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Options.g.cs
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\PageSpacings.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\PdfFile.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Riddles.g.cs
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\SelectableRiddles.g.cs
@@ -87,11 +87,11 @@ C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\MainWindow
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Birthdays.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Body.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Citations.baml
-C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\DateEvents.baml
-C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\DateImages.baml
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Events.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Footer.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Header.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Options.baml
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\PageSpacings.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\PdfFile.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\Riddles.baml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\Views\SelectableRiddles.baml
@@ -103,3 +103,4 @@ C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCa
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.csproj.CopyComplete
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.exe
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.pdb
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\GenerateCalendar\obj\Debug\GenerateCalendar.csproj.CoreCompileInputs.cache

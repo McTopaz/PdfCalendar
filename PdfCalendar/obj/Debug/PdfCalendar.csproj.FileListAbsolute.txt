@@ -23,3 +23,4 @@ C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.csp
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.csproj.CopyComplete
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.dll
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.pdb
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\PdfCalendar\obj\Debug\PdfCalendar.csproj.CoreCompileInputs.cache

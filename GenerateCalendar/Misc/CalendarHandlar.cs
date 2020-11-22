@@ -30,7 +30,7 @@ namespace GenerateCalendar.Misc
             calendar = new Calendar(file, vms.vmYear.SelectedYear.Year);
             calendar.Options = options;
             calendar.Data.Birthdays = birthdays;
-            calendar.Data.Ev = events;
+            calendar.Data.Events = events;
             calendar.Data.Riddles = riddles.Concat(selectable);
             calendar.Data.Citations = citations;
             calendar.Data.PageSpacing = pageSpacings;

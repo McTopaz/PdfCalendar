@@ -25,3 +25,4 @@ C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\PdfCalen
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\itextsharp.xml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\bin\Debug\Nager.Date.xml
 C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CopyComplete
+C:\Users\Mc_Topaz\Source\Repos\PdfCalendar\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CoreCompileInputs.cache

@@ -125,102 +125,115 @@ namespace PdfCalendar.Handlers
 
 
             var list = new List<(DateTime, Bitmap, float, float, string)>();
+
             // Jan.
             list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
             //list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
             list.Add((holocaustDay, Images.NoImage, 16, 16, "Förintelsens minnesdag"));
+
             // Feb.
-            list.Add((runeBergDay, Images.RunebergCake, 12, 12, "Runebergsdagen"));
+            //list.Add((runeBergDay, Images.RunebergCake, 12, 12, "Runebergsdagen"));
             list.Add((heart, Images.Heart, 13, 13, "Alla hjärtans dag"));
-            list.Add((crimeVictimsDay, Images.NoImage, 16, 16, "Brottsofferdagen"));
+            //list.Add((crimeVictimsDay, Images.NoImage, 16, 16, "Brottsofferdagen"));
             list.Add((swedenFinns, Images.SwedenFinnsFlag, 15, 10, "Sverigefinnarnas dag"));
-            list.Add((mosquitoNestBoxDay, Images.NestBox, 12, 12, "Myggholkens dag"));
+            //list.Add((mosquitoNestBoxDay, Images.NestBox, 12, 12, "Myggholkens dag"));
             list.Add((shroveTuesday, Images.Semla, 12, 12, "Semmeldagen"));
+
             // Mar.
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
             list.Add((againstPoliceViolence, Images.Badge, 12, 12, "Dagen mot polisvåld"));
             list.Add((rockSock, Images.Sock, 12, 12, "Rocka sockorna"));
-            list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
-            list.Add((water, Images.Water, 12, 12, "Vattendagen"));
-            list.Add((worldMeteorologyDay, Images.WHO, 15, 10, "Världsmeteorologidagen"));
+            //list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
+            //list.Add((water, Images.Water, 12, 12, "Vattendagen"));
+            //list.Add((worldMeteorologyDay, Images.WHO, 15, 10, "Världsmeteorologidagen"));
             list.Add((waffleDay, Images.Waffle, 12, 12, "Våffeldagen"));
             list.Add((bipolarDay, Images.NoImage, 16, 16, "Bipolärdagen"));
+
             // Apr.
-            list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
-            list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
-            list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
-            list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
-            list.Add((laboratoryAnimalsDay, Images.Cat, 16, 16, "Försökdjurens dag"));
-            list.Add((labourEnvironmentDay, Images.Glove, 12, 12, "Arbetsmiljödagen"));
-            list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
+            //list.Add((childBookDay, Images.Book, 12, 12, "Barnboksdagen"));
+            //list.Add((whoDay, Images.WHO, 15, 10, "Världshälsodagen"));
+            //list.Add((globeDay, Images.Globe, 12, 12, "Jordens dag"));
+            //list.Add((worldBookDay, Images.Book, 12, 12, "Världsbokdagen"));
+            //list.Add((laboratoryAnimalsDay, Images.Cat, 16, 16, "Försökdjurens dag"));
+            //list.Add((labourEnvironmentDay, Images.Glove, 12, 12, "Arbetsmiljödagen"));
+            //list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
+
             // May.
             list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
-            list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
+            //list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
             //list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
-            list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
-            list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
+            //list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
+            //list.Add((jamCakeDay, Images.HallonGrotta, 12, 12, "Syltkakans dag"));
             list.Add((signLanguageDay, Images.SignLanguage, 12, 15, "Teckenspråkets dag"));
-            list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
-            list.Add((gaad, Images.Keyboard, 12, 12, "Tillgänglighets- medvetenhetsdagen"));
-            list.Add((nationalParkDay, Images.Tree, 12, 12, "Nationalparkernas dag"));
+            //list.Add((againstHomophobiaDay, Images.NoImage, 16, 16, "Dagen mot homofobi"));
+            //list.Add((gaad, Images.Keyboard, 12, 12, "Tillgänglighets- medvetenhetsdagen"));
+            //list.Add((nationalParkDay, Images.Tree, 12, 12, "Nationalparkernas dag"));
             list.Add((mothersDay, Images.Woman, 16, 16, "Mors dag"));
+
             // Jun.
             list.Add((worldEnvironmentDay, Images.Globe, 12, 12, "Världsmiljödagen"));
-            list.Add((worldKnittingDay, Images.KnittingNeedles, 12, 12, "Världsstickningsdagen"));
+            //list.Add((worldKnittingDay, Images.KnittingNeedles, 12, 12, "Världsstickningsdagen"));
             //list.Add((archiveDay, Images.Archive, 12, 12, "Arkivdagen"));
             //list.Add((heraldryDay, Images.Shield, 12, 12, "Heraldikdagen"));
-            list.Add((wildFlowersDay, Images.Flowers, 12, 12, "Vilda blommornas dag"));
+            //list.Add((wildFlowersDay, Images.Flowers, 12, 12, "Vilda blommornas dag"));
+
             // Jul.
             //list.Add((emojiDay, Images.Emoji, 12, 12, "Emojidagen"));
-            list.Add((bellmanDay, Images.Cister, 30, 14, "Bellmandagen"));
-            list.Add((embroideryDay, Images.Embroidery, 12, 12, "Broderidagen"));
+            //list.Add((bellmanDay, Images.Cister, 30, 14, "Bellmandagen"));
+            //list.Add((embroideryDay, Images.Embroidery, 12, 12, "Broderidagen"));
+
             // Aug.
-            list.Add((hembygdsgardDay, Images.Cabin, 12, 12, "Hembygdsgårdens dag"));   // Första söndagen i aug
+            //list.Add((hembygdsgardDay, Images.Cabin, 12, 12, "Hembygdsgårdens dag"));   // Första söndagen i aug
             list.Add((hiroshimaDay, Images.Oleander, 12, 12, "Hiroshimadagen"));
             list.Add((leftHandedDay, Images.LeftHand, 12, 12, "Vänsterhäntas dag"));
-            list.Add((archaeology, Images.Vase, 12, 12, "Arkelogidagen"));
+            //list.Add((archaeology, Images.Vase, 12, 12, "Arkelogidagen"));
             list.Add((meatBallDay, Images.Meatball, 12, 12, "Köttbullens dag"));
+
             // Sep.
-            list.Add((brunchDay, Images.Cutlery, 12, 12, "Brunchdagen"));
-            list.Add((cultureHouseDay, Images.House, 12, 12, "Kulturhusens dag (RÄÄ)"));
-            list.Add((geologyDay, Images.Mountains, 12, 12, "Geologins dag"));
-            list.Add((highHeelsDay, Images.Pumps, 12, 12, "Höga klackars dag"));
-            list.Add((peaceDay, Images.Dove, 12, 12, "Fredsdagen"));
-            list.Add((carFreeDay, Images.NoCar, 12, 12, "Bilfria dagen"));
-            list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
+            //list.Add((brunchDay, Images.Cutlery, 12, 12, "Brunchdagen"));
+            //list.Add((cultureHouseDay, Images.House, 12, 12, "Kulturhusens dag (RÄÄ)"));
+            //list.Add((geologyDay, Images.Mountains, 12, 12, "Geologins dag"));
+            //list.Add((highHeelsDay, Images.Pumps, 12, 12, "Höga klackars dag"));
+            //list.Add((peaceDay, Images.Dove, 12, 12, "Fredsdagen"));
+            //list.Add((carFreeDay, Images.NoCar, 12, 12, "Bilfria dagen"));
+            //list.Add((astronomyDayNight, Images.Star, 12, 12, "Astronomins dag och natt"));
             list.Add((translateDay, Images.Translate, 12, 12, "Översättardagen"));
+
             // Oct.
-            list.Add((vegetarianDay, Images.NoMeat, 12, 12, "Vegetariandagen"));
-            list.Add((farmAnimalDay, Images.Cat, 12, 12, "Lantbruksdjurens dag"));
+            //list.Add((vegetarianDay, Images.NoMeat, 12, 12, "Vegetariandagen"));
+            //list.Add((farmAnimalDay, Images.Cat, 12, 12, "Lantbruksdjurens dag"));
             list.Add((cinnamonBunDay, Images.CinnamonBun, 16, 16, "Kanelbullens dag"));
             list.Add((cinnamonBunDay, Images.Dog, 16, 16, "Djurens dag"));                      // Same day as cinnamon bun day.
-            list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
+            //list.Add((childrenDay, Images.Child, 12, 12, "Barndagen"));
             list.Add((creamCakeDay, Images.Cake, 12, 12, "Gräddtårtans dag"));
-            list.Add((chemistryDay, Images.Chemistry, 12, 12, "Kemins dag"));
-            list.Add((girlDay, Images.Girl, 12, 12, "Flickdagen"));
-            list.Add((eggDay, Images.Egg, 12, 12, "Äggets dag"));
-            list.Add((shrimpwichDay, Images.Shrimp, 12, 12, "Räkmackans dag"));
+            //list.Add((chemistryDay, Images.Chemistry, 12, 12, "Kemins dag"));
+            //list.Add((girlDay, Images.Girl, 12, 12, "Flickdagen"));
+            //list.Add((eggDay, Images.Egg, 12, 12, "Äggets dag"));
+            //list.Add((shrimpwichDay, Images.Shrimp, 12, 12, "Räkmackans dag"));
             list.Add((blindCaneDay, Images.BlindCane, 16, 16, "Vita käppens dag"));
             list.Add((blindCaneDay, Images.FetaCheese, 12, 12, "Fetaostens dag"));              // Same day as blind cane day.
-            list.Add((faoDay, Images.FAO, 26, 10, "Världshungerdagen (FAO)"));
-            list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
-            list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
+            //list.Add((faoDay, Images.FAO, 26, 10, "Världshungerdagen (FAO)"));
+            //list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
+            //list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
             list.Add((stutteringDay, Images.Stuttering, 12, 14, "Stamningsdagen"));
             list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
-            list.Add((schoolLibraryDay, Images.Books, 12, 12, "Skolbiblioteksdagen"));
-            list.Add((schoolLibraryDay, Images.Teddy, 12, 12, "Nalle dagen"));                  // Same as school library day.
-            list.Add((carDay, Images.Car, 12, 12, "Bilens dag"));
-            list.Add((internetDay, Images.Internet, 12, 12, "Internet-dagen"));
-            list.Add((neibourDay, Images.Neibour, 30, 12, "Grannens dag"));
-            list.Add((luteFiskDay, Images.Fish, 12, 12, "Lutfiskens dag"));
-            list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
-            list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));
+            //list.Add((schoolLibraryDay, Images.Books, 12, 12, "Skolbiblioteksdagen"));
+            //list.Add((schoolLibraryDay, Images.Teddy, 12, 12, "Nalle dagen"));                  // Same as school library day.
+            //list.Add((carDay, Images.Car, 12, 12, "Bilens dag"));
+            //list.Add((internetDay, Images.Internet, 12, 12, "Internet-dagen"));
+            //list.Add((neibourDay, Images.Neibour, 30, 12, "Grannens dag"));
+            //list.Add((luteFiskDay, Images.Fish, 12, 12, "Lutfiskens dag"));
+            
+            //list.Add((uniqueStoreDay, Images.Store, 12, 12, "Unik butik dagen"));
+
             // Nov.
-            list.Add((veganDay, Images.Carrot, 12, 12, "Vegandagen"));
+            //list.Add((veganDay, Images.Carrot, 12, 12, "Vegandagen"));
             list.Add((kladdkaka, Images.Kladdkaka, 24, 10, "Kladdkakans dag"));
-            list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
-            list.Add((againstWomenViolenceDay, Images.AgainstWomenViolence, 12, 12, "Dagen mot kvinnovåld"));
+            list.Add((fathersDay, Images.Man, 16, 16, "Fars dag"));
+            //list.Add((chocolate, Images.Chocolate, 16, 16, "Chokladens dag"));
+            //list.Add((againstWomenViolenceDay, Images.AgainstWomenViolence, 12, 12, "Dagen mot kvinnovåld"));
+
             // Dec.
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
             list.Add((lucia, Images.Lucia, 16, 16, "Lucia"));
