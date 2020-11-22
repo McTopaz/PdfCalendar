@@ -25,11 +25,11 @@ namespace PdfCalendar.Handlers
         {
             var holidays = Data.Holidays.Select(h => h.Date);
             var birthdays = Data.Birthdays.Select(b => BirthdayInThisYear(Year, b.Birthday));
-            var ev = Data.Ev.Select(e => e.Date);
+            var events = Data.Events.Select(e => e.Date);
             var teamDays = Data.TeamDays.Select(t => t.Date);
             DateInformations = holidays
                 .Concat(birthdays)
-                .Concat(ev)
+                .Concat(events)
                 .Concat(teamDays)
                 .Distinct()
                 .OrderBy(d => d)
@@ -51,7 +51,7 @@ namespace PdfCalendar.Handlers
             SetupHolidays();
             SetupTeamdays();
             SetupBirthdays();
-            SetupEv();
+            SetupEvents();
         }
 
         private void SetupHolidays()
@@ -88,14 +88,14 @@ namespace PdfCalendar.Handlers
             }
         }
 
-        private void SetupEv()
+        private void SetupEvents()
         {
-            var dates = Data.Ev.Select(e => e.Date).Distinct().OrderBy(d => d);
+            var dates = Data.Events.Select(e => e.Date).Distinct().OrderBy(d => d);
 
             foreach (var item in dates)
             {
                 var di = DateInformations[item];
-                di.Ev = Data.Ev.Where(e => e.Date == item.Date).Select(e => (e.Text, FileFromPath(e.FilePath, e.Width, e.Height), e.Width, e.Height));
+                di.Events = Data.Events.Where(e => e.Date == item.Date).Select(e => (e.Text, FileFromPath(e.FilePath, e.Width, e.Height), e.Width, e.Height));
             }
         }
 

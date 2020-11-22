@@ -10,7 +10,7 @@ namespace PdfCalendar
     public class Data
     {
         public IEnumerable<(DateTime Birthday, string Name, bool Dead, bool VIP)> Birthdays { get; set; }
-        public IEnumerable<(DateTime Date, string Text, string FilePath, float Width, float Height)> Ev { get; set; }
+        public IEnumerable<(DateTime Date, string Text, string FilePath, float Width, float Height)> Events { get; set; }
         public IEnumerable<(DateTime Date, Riddle Riddle)> Riddles { get; set; }
         public IEnumerable<(DateTime Date, string Citation)> Citations { get; set; }
         internal IEnumerable<(DateTime Date, string Text, Bitmap Image, float Width, float Height)> Holidays { get; set; }
@@ -20,7 +20,7 @@ namespace PdfCalendar
         public Data()
         {
             Birthdays = new List<(DateTime BirthDay, string Name, bool Dead, bool VIP)>();
-            Ev = Enumerable.Empty<(DateTime Date, string Text, string FilePath, float Width, float Height)>();
+            Events = Enumerable.Empty<(DateTime Date, string Text, string FilePath, float Width, float Height)>();
             Riddles = new List<(DateTime Date, Riddle Riddle)>();
             Citations = new List<(DateTime Date, string Citation)>();
             PageSpacing = DefaultPageSpaces();
