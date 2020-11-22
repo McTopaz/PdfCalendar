@@ -224,6 +224,14 @@ namespace PdfCalendar.Handlers
             // Dec.
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
             list.Add((lucia, Images.Lucia, 16, 16, "Lucia"));
+
+            var leapYear = IsLeapYear();
+            if (leapYear)
+            {
+                var leapDay = new DateTime(Year, 2, 29);
+                list.Add((leapDay, Images.LeapDay, 16, 16, "Skottdagen"));
+            }
+
             Data.TeamDays = list;
         }
 
@@ -438,6 +446,21 @@ namespace PdfCalendar.Handlers
                 date = date.AddDays(1);
             }
             return date;
+        }
+
+        private bool IsLeapYear()
+        {
+            // Each forth year.
+            var b1 = Year % 4 == 0;
+            if (!b1) return false;
+
+            // Each hundred year.
+            var b2 = Year % 100 == 0;
+            if (!b2) return true;
+
+            // Each 400th year.
+            var b3 = Year % 400 == 0;
+            return b3;
         }
     }
 }
