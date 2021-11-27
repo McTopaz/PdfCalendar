@@ -162,6 +162,7 @@ namespace GenerateCalendar.Misc
             container.ToLocalTimeZone();                    // When serializing, any DateTime object is serialized to UTF. Convert the DateTime objects to local time.
             var file = ExistingFile(container.FilePath);    // Make sure the file path of the calendar exist. Else, create a valid file path.
             FixMissingBirthdayChangedCallback(container.Birthdays);
+            RemoveContentWithNullInContainer(container);
 
             vms.vmYear.SelectedYear = container.Year;
             vms.vmOptions.Options = container.Options;
@@ -198,6 +199,31 @@ namespace GenerateCalendar.Misc
                 item.BirthdayChanged = new RelayCommand();
                 item.BirthdayChanged.Callback += item.BirthdayChanged_Callback;
             }
+        }
+
+        private void RemoveContentWithNullInContainer(Container container)
+        {
+            RemoveSelectableRiddlesThatAreNull(container);
+        }
+
+        private void RemoveSelectableRiddlesThatAreNull(Container container)
+        {
+            bool IsNull(MonthTextChoices mtc)
+            {
+                if (mtc.ChoiceA is null) return true;
+                if (mtc.ChoiceB is null) return true;
+                if (mtc.ChoiceC is null) return true;
+                if (mtc.Text is null) return true;
+                return false;
+            }
+
+            var mtcs = container.SelectableRiddles.Where(x => IsNull(x));
+            var list = container.SelectableRiddles.ToList();
+            foreach (var mtc in mtcs)
+            {
+                list.Remove(mtc);
+            }
+            container.SelectableRiddles = list;
         }
 
         private ObservableCollection<Event> EventsFromFile(IEnumerable<EventLite> events)
