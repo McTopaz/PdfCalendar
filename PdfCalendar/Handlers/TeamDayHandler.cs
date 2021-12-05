@@ -130,7 +130,7 @@ namespace PdfCalendar.Handlers
             // Jan.
             list.Add((brailleDay, Images.Braille, 16, 16, "Punktskriftsdagen"));
             //list.Add((brailleDay, Images.Eye, 12, 12, "Världshypnosdagen"));                    // Same day as Braille day.
-            list.Add((holocaustDay, Images.NoImage, 16, 16, "Förintelsens minnesdag"));
+            //list.Add((holocaustDay, Images.NoImage, 16, 16, "Förintelsens minnesdag"));
 
             // Feb.
             //list.Add((runeBergDay, Images.RunebergCake, 12, 12, "Runebergsdagen"));
@@ -143,7 +143,7 @@ namespace PdfCalendar.Handlers
             // Mar.
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
             list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
-            list.Add((againstPoliceViolence, Images.Badge, 12, 12, "Dagen mot polisvåld"));
+            //list.Add((againstPoliceViolence, Images.Badge, 12, 12, "Dagen mot polisvåld"));
             list.Add((rockSock, Images.Sock, 12, 12, "Rocka sockorna"));
             //list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
             //list.Add((water, Images.Water, 12, 12, "Vattendagen"));
@@ -161,7 +161,7 @@ namespace PdfCalendar.Handlers
             //list.Add((outdoorRecreationDay, Images.FirePlace, 12, 12, "Friluftsdagen"));
 
             // May.
-            list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
+            //list.Add((worldLaughterDay, Images.Laugh, 12, 12, "Världsskrattdagen"));
             //list.Add((pressFreedomDay, Images.NewsPaper, 12, 12, "Pressfrihetsdagen"));
             //list.Add((starWarsDay, Images.StarWars, 12, 12, "Star Wars dagen"));
             //list.Add((europeDay, Images.Europe, 12, 12, "Europadagen"));
@@ -186,7 +186,7 @@ namespace PdfCalendar.Handlers
 
             // Aug.
             //list.Add((hembygdsgardDay, Images.Cabin, 12, 12, "Hembygdsgårdens dag"));   // Första söndagen i aug
-            list.Add((hiroshimaDay, Images.Oleander, 12, 12, "Hiroshimadagen"));
+            //list.Add((hiroshimaDay, Images.Oleander, 12, 12, "Hiroshimadagen"));
             list.Add((leftHandedDay, Images.LeftHand, 12, 12, "Vänsterhäntas dag"));
             //list.Add((archaeology, Images.Vase, 12, 12, "Arkelogidagen"));
             list.Add((meatBallDay, Images.Meatball, 12, 12, "Köttbullens dag"));
@@ -219,7 +219,7 @@ namespace PdfCalendar.Handlers
             //list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
             //list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
             list.Add((stutteringDay, Images.Stuttering, 12, 14, "Stamningsdagen"));
-            list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
+            //list.Add((unDay, Images.UNFlag, 16, 10, "FN-dagen"));
             //list.Add((schoolLibraryDay, Images.Books, 12, 12, "Skolbiblioteksdagen"));
             //list.Add((schoolLibraryDay, Images.Teddy, 12, 12, "Nalle dagen"));                  // Same as school library day.
             //list.Add((carDay, Images.Car, 12, 12, "Bilens dag"));
