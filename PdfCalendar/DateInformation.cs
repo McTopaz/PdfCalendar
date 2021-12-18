@@ -102,7 +102,22 @@ namespace PdfCalendar
         private void CellInformation((DateTime Date, string Name, bool Dead) celebrator, (Bitmap Image, float Width, float Height) Bitmap)
         {
             Text = new BirthdayFormat(celebrator.Name, celebrator.Date, Year, celebrator.Dead);
-            Image = Bitmap;
+            Image = GetImagedBasedOnEvenBirthday(celebrator.Date);
+        }
+
+        private (Bitmap Image, float Width, float Height) GetImagedBasedOnEvenBirthday(DateTime birthday)
+        {
+            var years = Year - birthday.Year;
+            
+            if ((years % 10) == 0)
+            {
+                return (Images.Ballons, 16, 16);
+            }
+            else if ((years % 5) == 0)
+            {
+                return (Images.Ballons, 16, 16);
+            }
+            return (Images.Ballons, 16, 16);
         }
 
         private void CellInformation(string Content, (Bitmap Bitmap, float Width, float Height) Bitmap)
