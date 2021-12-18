@@ -257,27 +257,36 @@ namespace PdfCalendar.Month
             var parts = citation.Contains(NewLine) ? citation.Split('\\') : new[] { citation };
             var container = new Paragraph();
 
+            Paragraph formatedCitation = new Paragraph();
+
             if (parts.Count() == 1)
             {
-                var citat = new Chunk($"\"{citation}\"");
-                citat.Font.SetStyle("italic");
-                citat.Font.Size = FontSize;
-
-                container.Add(citat);
-                container.Add(EmptyPhrase());
-                container.Add(EmptyPhrase());
-                return container;
+                formatedCitation = CitationWithoutLineBreaks(citation);
+            }
+            else
+            {
+                formatedCitation = CitationWithLineBreaks(parts);
             }
 
-            var c = string.Join(Environment.NewLine, parts);
-            var para = new Paragraph($"\"{c}\"");
-            para.Font.SetStyle("italic");
-            para.Font.Size = FontSize;
-
-            container.Add(para);
+            formatedCitation.Font.SetStyle("italic");
+            formatedCitation.Font.Size = FontSize;
+            container.Add(formatedCitation);
             container.Add(EmptyPhrase());
             container.Add(EmptyPhrase());
             return container;
+        }
+
+        private Paragraph CitationWithoutLineBreaks(string citation)
+        {
+            var paragraph = new Paragraph($"\"{citation}\"");
+            return paragraph;
+        }
+
+        private Paragraph CitationWithLineBreaks(string[] citations)
+        {
+            var line = string.Join(Environment.NewLine, citations);
+            var paragraph = new Paragraph($"\"{line}\"");
+            return paragraph;
         }
 
         private Phrase EmptyPhrase()
