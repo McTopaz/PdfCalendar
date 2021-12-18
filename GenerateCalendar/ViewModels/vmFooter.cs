@@ -56,16 +56,20 @@ namespace GenerateCalendar.ViewModels
         {
             try
             {
-                calendarhandler.CreateCalendar();
-                var msg = $"Calendar created";
+                var result = calendarhandler.CreateCalendar();
+                var msg = result ? $"Calendar created" : $"Calendar not created";
                 var title = $"Generating calendar.";
                 MessageBox.Show(msg, title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
-                var msg = e.Message;
+                var msg = new StringBuilder();
+                msg.Append(e.Message);
+                msg.Append(Environment.NewLine);
+                msg.Append(Environment.NewLine);
+                msg.Append(e.StackTrace);
                 var title = "Unable to open the calendar";
-                MessageBox.Show(msg, title, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(msg.ToString(), title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
