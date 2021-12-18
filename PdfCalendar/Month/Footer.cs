@@ -17,6 +17,7 @@ namespace PdfCalendar.Month
         const int TableColumns = 2;
         const float FontSize = 8;
         const string DottedLine = "..............................................................................................................";
+        private const string NewLine = @"\";
 
         protected override void Footer()
         {
@@ -162,10 +163,10 @@ namespace PdfCalendar.Month
 
             var container = new Paragraph();
             container.Add(question);
-            container.Add(NewLine());
+            container.Add(EmptyPhrase());
             container.Add(answer);
-            container.Add(NewLine());
-            container.Add(NewLine());
+            container.Add(EmptyPhrase());
+            container.Add(EmptyPhrase());
             return container;
         }
 
@@ -178,10 +179,10 @@ namespace PdfCalendar.Month
 
             var container = new Paragraph();
             container.Add(question);
-            container.Add(NewLine());
+            container.Add(EmptyPhrase());
             container.Add(choices);
-            container.Add(NewLine());
-            container.Add(NewLine());
+            container.Add(EmptyPhrase());
+            container.Add(EmptyPhrase());
             return container;
         }
 
@@ -245,7 +246,7 @@ namespace PdfCalendar.Month
 
         private Paragraph CreateCitations(IEnumerable<string> citations)
         {
-            var all = citations.Select(s => CreateCitation(s));
+            var all = citations.Select(CreateCitation);
             var container = new Paragraph();
             container.AddRange(all);
             return container;
@@ -253,18 +254,33 @@ namespace PdfCalendar.Month
 
         private Paragraph CreateCitation(string citation)
         {
-            var citat = new Chunk($"\"{citation}\"");
-            citat.Font.SetStyle("italic");
-            citat.Font.Size = FontSize;
-
+            var parts = citation.Contains(NewLine) ? citation.Split('\\') : new[] { citation };
             var container = new Paragraph();
-            container.Add(citat);
-            container.Add(NewLine());
-            container.Add(NewLine());
+
+            if (parts.Count() == 1)
+            {
+                var citat = new Chunk($"\"{citation}\"");
+                citat.Font.SetStyle("italic");
+                citat.Font.Size = FontSize;
+
+                container.Add(citat);
+                container.Add(EmptyPhrase());
+                container.Add(EmptyPhrase());
+                return container;
+            }
+
+            var c = string.Join(Environment.NewLine, parts);
+            var para = new Paragraph($"\"{c}\"");
+            para.Font.SetStyle("italic");
+            para.Font.Size = FontSize;
+
+            container.Add(para);
+            container.Add(EmptyPhrase());
+            container.Add(EmptyPhrase());
             return container;
         }
 
-        private Phrase NewLine()
+        private Phrase EmptyPhrase()
         {
             var newLine = new Phrase(Environment.NewLine);
             newLine.Font.Size = FontSize;
