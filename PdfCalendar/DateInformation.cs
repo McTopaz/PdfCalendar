@@ -113,6 +113,10 @@ namespace PdfCalendar
             {
                 return (Images.Ballons, 16, 16);
             }
+            else if ((years % 100) == 0)
+            {
+                return (Images.Diamond, 16, 16);
+            }
             else if ((years % 10) == 0)
             {
                 return (Images.GoldStar, 11, 11);
