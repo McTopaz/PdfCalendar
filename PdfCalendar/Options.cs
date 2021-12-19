@@ -10,6 +10,7 @@ namespace PdfCalendar
     {
         public bool TitlePage { get; set; }
         public bool PreviousDecember { get; set; }
+        public bool NotePage { get; set; }
         public bool DaylightSavingTime { get; set; }    // Summer time.
         public bool StandardTime { get; set; }          // Winter time.
 

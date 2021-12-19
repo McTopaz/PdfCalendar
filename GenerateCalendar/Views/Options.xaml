@@ -39,6 +39,16 @@
                         </StackPanel>
                     </CheckBox.Content>
                 </CheckBox>
+
+                <!-- Note page -->
+                <CheckBox IsChecked="{Binding Options.NotePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <CheckBox.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/GenerateCalendar;component/Images/NotePage.png" Height="16" />
+                            <Label Content="Include note page" />
+                        </StackPanel>
+                    </CheckBox.Content>
+                </CheckBox>
             </StackPanel>
             
             <!-- Second vertical container -->

@@ -65,6 +65,7 @@
     <Compile Include="Month\Header.cs" />
     <Compile Include="Month\MonthGenerator.cs" />
     <Compile Include="Options.cs" />
+    <Compile Include="Pages\NotePage.cs" />
     <Compile Include="Pages\QuestionsAndAnswers.cs" />
     <Compile Include="Pages\PreviousDecember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

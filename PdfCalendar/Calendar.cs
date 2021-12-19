@@ -78,17 +78,8 @@ namespace PdfCalendar
         
         private void Generate()
         {
-            // Create a title page.
-            if (Options.TitlePage)
-            {
-                TitlePage();
-            }
-
-            // Create a summary.
-            if (Options.PreviousDecember)
-            {
-                PreviousDecember();
-            }
+            // Add optional pages.
+            AddOptionalPages();
 
             // Create the calendar's main content.
             Content();
@@ -97,6 +88,27 @@ namespace PdfCalendar
             if (Data.Riddles.Count() > 0)
             {
                 QuestionAndAnswerPage();
+            }
+        }
+
+        private void AddOptionalPages()
+        {
+            // Create a title page.
+            if (Options.TitlePage)
+            {
+                TitlePage();
+            }
+
+            // Create previous december.
+            if (Options.PreviousDecember)
+            {
+                PreviousDecember();
+            }
+
+            // Create note page.
+            if (Options.NotePage)
+            {
+                NotePage();
             }
         }
 
@@ -123,6 +135,15 @@ namespace PdfCalendar
 
             Document.NewPage();
             Document.Add(previousDecember);
+        }
+
+        private void NotePage()
+        {
+            var previousYear = Year - 1;
+            var notePage = new NotePage(previousYear);
+
+            Document.NewPage();
+            Document.Add(notePage);
         }
 
         private void QuestionAndAnswerPage()
