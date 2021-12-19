@@ -244,6 +244,9 @@
   <data name="GoldBallon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\GoldBallon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GoldStar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\GoldStar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="HallonGrotta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\HallonGrotta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -348,6 +351,9 @@
   </data>
   <data name="SilverBallon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\SilverBallon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SilverStar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\SilverStar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Snow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

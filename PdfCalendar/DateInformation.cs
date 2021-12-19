@@ -115,11 +115,11 @@ namespace PdfCalendar
             }
             else if ((years % 10) == 0)
             {
-                return (Images.GoldBallon, 10, 14);
+                return (Images.GoldStar, 11, 11);
             }
             else if ((years % 5) == 0)
             {
-                return (Images.SilverBallon, 10, 14);
+                return (Images.SilverStar, 11, 11);
             }
             return (Images.Ballons, 16, 16);
         }
@@ -132,9 +132,9 @@ namespace PdfCalendar
 
         private void RemainingInformationVIP()
         {
-            var vip = Birthdays.Where(b => b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
+            var vip = RemainingBirthdays(Birthdays.Where(b => b.VIP).Skip(1));
             var holidays = Holidays.Select(h => (Date, h.Text, (h.Image, h.Width, h.Height)));
-            var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
+            var noVip = RemainingBirthdays(Birthdays.Where(b => !b.VIP));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = vip.Concat(holidays).Concat(noVip).Concat(teamDays).Concat(events);
@@ -142,7 +142,7 @@ namespace PdfCalendar
 
         private void RemainingInformationHolidays()
         {
-            var noVip = Birthdays.Where(b => !b.VIP).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
+            var noVip = RemainingBirthdays(Birthdays.Where(b => !b.VIP));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = noVip.Concat(teamDays).Concat(events);
@@ -150,7 +150,7 @@ namespace PdfCalendar
 
         private void RemainingInformationNoVIP()
         {
-            var noVip = Birthdays.Where(b => !b.VIP).Skip(1).Select(b => (Date, new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(), (PdfCalendar.Images.Ballons, BirthdayImageWidth, BirthdayImageHeight)));
+            var noVip = RemainingBirthdays(Birthdays.Where(b => !b.VIP).Skip(1));
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
             Remaining = noVip.Concat(teamDays).Concat(events);
@@ -166,6 +166,17 @@ namespace PdfCalendar
         private void RemainingInformationEvents()
         {
             Remaining = Events.Skip(1).Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
+        }
+
+        private IEnumerable<(DateTime Date, string Text, (Bitmap Image, float BirthdayImageWidth, float BirthdayImageHeight))> RemainingBirthdays(IEnumerable<(DateTime Birthday, string Name, bool Dead, bool Vip)> birthdays)
+        {
+            var remaining = birthdays.Select(b =>
+            (
+                Date,
+                new BirthdayFormat(b.Name, b.Birthday, Year, b.Dead).ToString(),
+                (GetImageBasedOnEvenBirthday(b.Birthday).Image, BirthdayImageWidth, BirthdayImageHeight)
+            ));
+            return remaining;
         }
     }
 

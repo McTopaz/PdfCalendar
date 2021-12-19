@@ -136,6 +136,7 @@
     <None Include="Images\FAO.png" />
     <None Include="Images\Fish.png" />
     <Content Include="Images\GoldBallon.png" />
+    <Content Include="Images\GoldStar.png" />
     <Content Include="Images\Heart.png" />
     <None Include="Images\Woman.png" />
     <None Include="Images\Man.png" />
@@ -179,6 +180,7 @@
     <None Include="Images\RunebergCake.png" />
     <None Include="Images\Semla.png" />
     <Content Include="Images\SilverBallon.png" />
+    <Content Include="Images\SilverStar.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>

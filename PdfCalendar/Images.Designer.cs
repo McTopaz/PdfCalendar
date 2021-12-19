@@ -483,6 +483,16 @@ namespace PdfCalendar {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GoldStar {
+            get {
+                object obj = ResourceManager.GetObject("GoldStar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HallonGrotta {
             get {
                 object obj = ResourceManager.GetObject("HallonGrotta", resourceCulture);
@@ -826,6 +836,16 @@ namespace PdfCalendar {
         internal static System.Drawing.Bitmap SilverBallon {
             get {
                 object obj = ResourceManager.GetObject("SilverBallon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SilverStar {
+            get {
+                object obj = ResourceManager.GetObject("SilverStar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
