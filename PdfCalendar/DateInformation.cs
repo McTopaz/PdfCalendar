@@ -109,13 +109,17 @@ namespace PdfCalendar
         {
             var years = Year - birthday.Year;
             
-            if ((years % 10) == 0)
+            if (years == 0)
             {
                 return (Images.Ballons, 16, 16);
             }
+            else if ((years % 10) == 0)
+            {
+                return (Images.GoldBallon, 10, 14);
+            }
             else if ((years % 5) == 0)
             {
-                return (Images.Ballons, 16, 16);
+                return (Images.SilverBallon, 10, 14);
             }
             return (Images.Ballons, 16, 16);
         }
