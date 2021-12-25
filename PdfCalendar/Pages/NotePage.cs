@@ -23,6 +23,8 @@ namespace PdfCalendar.Pages
             PreviousYear = previousYear;
 
             Setup();
+            DistanceRow();
+            DistanceRow();
             Title();
             DistanceRow();
             DottedLines();
