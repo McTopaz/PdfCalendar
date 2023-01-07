@@ -39,7 +39,7 @@ namespace PdfCalendar.Handlers
             var shroveTuesday = ShroveTuesday();                // Semmeldagen.
             // Mar.
             var womansDay = new DateTime(Year, 3, 8);
-            var pi = new DateTime(Year, 3, 14);
+            //var pi = new DateTime(Year, 3, 14);
             var againstPoliceViolence = new DateTime(Year, 3, 15);
             var rockSock = new DateTime(Year, 3, 21);
             var water = new DateTime(Year, 3, 22);
@@ -142,7 +142,7 @@ namespace PdfCalendar.Handlers
 
             // Mar.
             list.Add((womansDay, Images.Woman, 16, 16, "Kvinnodagen"));
-            list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
+            //list.Add((pi, Images.PI, 12, 12, "PI-dagen"));
             //list.Add((againstPoliceViolence, Images.Badge, 12, 12, "Dagen mot polisvåld"));
             list.Add((rockSock, Images.Sock, 12, 12, "Rocka sockorna"));
             //list.Add((rockSock, Images.Quil, 12, 12, "Världspoesidagen"));                      // Same day as rock sock day.
