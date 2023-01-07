@@ -46,11 +46,11 @@ namespace PdfCalendar.Handlers
             var list = new List<(DateTime, string, Bitmap, float, float)>();
             list.Add((easter, "Påskafton", Images.EasterEgg, 13, 13));
             list.Add((firstMay, "Första maj", Images.FirstMay, 14, 14));
-            list.Add((national, "Svenska nationaldagen", Images.SwedishFlag, 15, 10));
+            list.Add((national, "Sveriges nationaldag", Images.SwedishFlag, 15, 10));
             list.Add((pentecostEve, "Pingstafton", Images.NarcissusPoeticus, 10, 12));
             list.Add((midsommer, "Midsommarafton", Images.MidsommerPole, 10, 15));
-            list.AddRange(advent);
             list.Add((christmas, "Julafton", Images.ChristmasTree, 10, 15));
+            list.AddRange(advent);
             list.Add((newYear, "Nyårsafton", Images.NewYear, 12, 12));
             return list;
         }
@@ -84,17 +84,37 @@ namespace PdfCalendar.Handlers
 
             foreach (var date in dates)
             {
-                var item = (Date: date, Text: "", Image: PdfCalendar.Images.NoImage, Width: 16f, Height: 16f);
-                if (PublicHolidays.Any(h => h.Date == date))
+                var hasPublicHoliday = PublicHolidays.Any(h => h.Date == date);
+                var hasSpecificHoliday = SpecificHolidays.Any(h => h.Date == date);
+
+                if (hasPublicHoliday && hasSpecificHoliday)
                 {
-                    item = FromPublicHoliday(date);
+                    HandleDateWithMultipleHolidays(date);
                 }
-                else if (SpecificHolidays.Any(h => h.Date == date))
+                else if (hasPublicHoliday)
                 {
-                    item = SpecificHolidays.First(h => h.Date == date);
+                    var item = FromPublicHoliday(date);
+                    Holidays.Add(item);
                 }
-                Holidays.Add(item);
+                else if (hasSpecificHoliday)
+                {
+                    var item = SpecificHolidays.First(h => h.Date == date);
+                    Holidays.Add(item);
+                }
+                else
+                {
+                    Holidays.Add((Date: date, Text: string.Empty, Image: PdfCalendar.Images.NoImage, Width: 16f, Height: 16f));
+                }
             }
+        }
+
+        private void HandleDateWithMultipleHolidays(DateTime date)
+        {
+            var primaryHoliday = FromPublicHoliday(date);
+            var otherHolidays = SpecificHolidays.Where(h => h.Date == primaryHoliday.Date && h.Text != primaryHoliday.Text);
+
+            Holidays.Add(primaryHoliday);
+            Holidays.AddRange(otherHolidays);
         }
 
         private (DateTime Date, string Text, Bitmap Image, float Width, float Height) FromPublicHoliday(DateTime date)

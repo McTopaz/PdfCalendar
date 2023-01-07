@@ -147,9 +147,19 @@ namespace PdfCalendar
         private void RemainingInformationHolidays()
         {
             var noVip = RemainingBirthdays(Birthdays.Where(b => !b.VIP));
+
+            var holidays = new List<(DateTime, string, (Bitmap, float, float))>();
+            if (Holidays.Count() > 1)
+            {
+                var otherHolidays = Holidays
+                    .Skip(1)
+                    .Select(h => (Date, h.Text, (h.Image, h.Width, h.Height)));
+                holidays.AddRange(otherHolidays);
+            }
+
             var teamDays = TeamDays.Select(t => (Date, t.Text, (t.Image, t.Width, t.Height)));
             var events = Events.Select(e => (Date, e.Text, (e.Image, e.Width, e.Height)));
-            Remaining = noVip.Concat(teamDays).Concat(events);
+            Remaining = noVip.Concat(holidays).Concat(teamDays).Concat(events);
         }
 
         private void RemainingInformationNoVIP()
