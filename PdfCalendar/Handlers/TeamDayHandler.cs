@@ -238,7 +238,7 @@ namespace PdfCalendar.Handlers
 
             // Dec.
             list.Add((nobel, Images.Nobel, 16, 16, "Nobeldagen"));
-            list.Add((lucia, Images.Lucia, 16, 16, "Lucia"));
+            //list.Add((lucia, Images.Lucia, 16, 16, "Lucia"));
 
             var leapYear = IsLeapYear();
             if (leapYear)

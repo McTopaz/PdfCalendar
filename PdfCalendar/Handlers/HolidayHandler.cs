@@ -52,6 +52,7 @@ namespace PdfCalendar.Handlers
             list.Add((christmas, "Julafton", Images.ChristmasTree, 10, 15));
             list.AddRange(advent);
             list.Add((newYear, "Nyårsafton", Images.NewYear, 12, 12));
+            list.Add((new DateTime(Year, 12, 13), "Lucia", Images.Lucia, 16, 16));
             return list;
         }
 
