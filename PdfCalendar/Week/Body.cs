@@ -102,7 +102,11 @@ namespace PdfCalendar.Week
         {
             var firstDateInWeek = Dates.First();
 
-            if (firstDateInWeek.DayOfWeek == DayOfWeek.Monday) return;
+            if (firstDateInWeek.DayOfWeek == DayOfWeek.Monday)
+            {
+                NoneDateInMonthAsEmpty();
+                return;
+            }
 
             var previousDay = firstDateInWeek.AddDays(-1);
 
