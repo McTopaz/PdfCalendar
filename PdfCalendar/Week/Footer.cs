@@ -28,26 +28,39 @@ namespace PdfCalendar.Week
             // For instance: If the first day of February is on a tuesday. The monday belongs to January. 
             if (!Dates.Any(d => d.DayOfWeek == expectedDay))
             {
-                EmptyDay();
+                HandlePreviousFooterBodyDaysInWeek(expectedDay);
                 return;
             }
 
             var dateInWeek = Dates.First(d => d.DayOfWeek == expectedDay);  // The date of the week for this day of the week.
             if (CellInformation.ContainsKey(dateInWeek))
             {
-                var c = CellInformation[dateInWeek];
-                AddAnyContent(c.Text.ToString());
+                FooterWithText(dateInWeek);
             }
             else
             {
-                EmptyDay();
+                EmptyFooter();
             }
         }
 
-        private void AddAnyContent(string content)
+        private void FooterWithText(DateTime dateInWeek)
         {
+            var c = CellInformation[dateInWeek];
+            var content = c.Text.ToString();
             var size = AdjustFontSize(content);
             AddCellToTable(content, BaseColor.BLACK, size, CellFooterHeight);
+        }
+
+        private void PreviousFooterMonthDate(DateTime dateInWeek)
+        {
+            if (CellInformation.ContainsKey(dateInWeek))
+            {
+                FooterWithText(dateInWeek);
+            }
+            else
+            {
+                EmptyFooter();
+            }
         }
 
         /// <summary>
@@ -67,7 +80,42 @@ namespace PdfCalendar.Week
             return CellFooterSize;
         }
 
-        private void EmptyDay()
+
+        private void HandlePreviousFooterBodyDaysInWeek(DayOfWeek expectedDay)
+        {
+            var addDaysFromPreviousMonth = true;
+
+            if (addDaysFromPreviousMonth)
+            {
+                NoneFooterDateInMonthWithDate(expectedDay);
+            }
+            else
+            {
+                EmptyFooter();
+            }
+        }
+
+        private void NoneFooterDateInMonthWithDate(DayOfWeek expectedDay)
+        {
+            var firstDateInWeek = Dates.First();
+
+            if (firstDateInWeek.DayOfWeek == DayOfWeek.Monday)
+            {
+                EmptyFooter();
+                return;
+            }
+
+            var previousDay = firstDateInWeek.AddDays(-1);
+
+            while (previousDay.DayOfWeek != expectedDay)
+            {
+                previousDay = previousDay.AddDays(-1);
+            }
+
+            PreviousFooterMonthDate(previousDay);
+        }
+
+        private void EmptyFooter()
         {
             AddCellToTable("", BaseColor.BLACK, CellFooterSize, CellFooterHeight);
         }
