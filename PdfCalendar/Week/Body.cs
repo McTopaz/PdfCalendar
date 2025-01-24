@@ -40,7 +40,7 @@ namespace PdfCalendar.Week
             // Insert an "empty" day in the week.
             else
             {
-                HandlePreviousDaysInWeek(expectedDay);
+                HandlePreviousBodyDaysInWeek(expectedDay);
             }
         }
 
@@ -56,7 +56,7 @@ namespace PdfCalendar.Week
             AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
         }
 
-        private void PreviousMonthDate(DateTime date)
+        private void PreviousBodyMonthDate(DateTime date)
         {
             var dayOfMonth = date.Day;
             var color = BaseColor.GRAY;
@@ -84,27 +84,27 @@ namespace PdfCalendar.Week
             return cellEvent;
         }
 
-        private void HandlePreviousDaysInWeek(DayOfWeek expectedDay)
+        private void HandlePreviousBodyDaysInWeek(DayOfWeek expectedDay)
         {
             var addDaysFromPreviousMonth = true;
 
             if (addDaysFromPreviousMonth)
             {
-                NoneDateInMonthWithDate(expectedDay);
+                NoneBodyDateInMonthWithDate(expectedDay);
             }
             else
             {
-                NoneDateInMonthAsEmpty();
+                EmptyBody();
             }
         }
 
-        private void NoneDateInMonthWithDate(DayOfWeek expectedDay)
+        private void NoneBodyDateInMonthWithDate(DayOfWeek expectedDay)
         {
             var firstDateInWeek = Dates.First();
 
             if (firstDateInWeek.DayOfWeek == DayOfWeek.Monday)
             {
-                NoneDateInMonthAsEmpty();
+                EmptyBody();
                 return;
             }
 
@@ -115,12 +115,12 @@ namespace PdfCalendar.Week
                 previousDay = previousDay.AddDays(-1);
             }
 
-            PreviousMonthDate(previousDay);
+            PreviousBodyMonthDate(previousDay);
         }
 
-        private void NoneDateInMonthAsEmpty()
+        private void EmptyBody()
         {
-            AddCellToTable("", BaseColor.BLACK, 20, 40);
+            AddCellToTable("", BaseColor.BLACK, CellBodySize, CellBodyHeight);
         }
     }
 }
