@@ -40,7 +40,7 @@ namespace PdfCalendar.Week
             // Insert an "empty" day in the week.
             else
             {
-                NoneDateInMonth();
+                HandlePreviousDaysInWeek(expectedDay);
             }
         }
 
@@ -51,6 +51,15 @@ namespace PdfCalendar.Week
             var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.SE);
             var isHoliday = isSunday || isPublicHoliday;
             var color = isHoliday ? BaseColor.RED : BaseColor.BLACK;
+            var rowSpan = 1;
+            var cellEvent = CellImage(date);
+            AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
+        }
+
+        private void PreviousMonthDate(DateTime date)
+        {
+            var dayOfMonth = date.Day;
+            var color = BaseColor.GRAY;
             var rowSpan = 1;
             var cellEvent = CellImage(date);
             AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
@@ -75,7 +84,37 @@ namespace PdfCalendar.Week
             return cellEvent;
         }
 
-        private void NoneDateInMonth()
+        private void HandlePreviousDaysInWeek(DayOfWeek expectedDay)
+        {
+            var addDaysFromPreviousMonth = true;
+
+            if (addDaysFromPreviousMonth)
+            {
+                NoneDateInMonthWithDate(expectedDay);
+            }
+            else
+            {
+                NoneDateInMonthAsEmpty();
+            }
+        }
+
+        private void NoneDateInMonthWithDate(DayOfWeek expectedDay)
+        {
+            var firstDateInWeek = Dates.First();
+
+            if (firstDateInWeek.DayOfWeek == DayOfWeek.Monday) return;
+
+            var previousDay = firstDateInWeek.AddDays(-1);
+
+            while (previousDay.DayOfWeek != expectedDay)
+            {
+                previousDay = previousDay.AddDays(-1);
+            }
+
+            PreviousMonthDate(previousDay);
+        }
+
+        private void NoneDateInMonthAsEmpty()
         {
             AddCellToTable("", BaseColor.BLACK, 20, 40);
         }
