@@ -173,7 +173,8 @@ namespace PdfCalendar
                     Month = month.Number,
                     Year = Year,
                     CellInformation = CellInformation,
-                    MonthInformation = MonthInformation
+                    MonthInformation = MonthInformation,
+                    Options = Options,
                 };
                 generator.Generate();
 

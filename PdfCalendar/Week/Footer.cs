@@ -83,9 +83,10 @@ namespace PdfCalendar.Week
 
         private void HandlePreviousFooterBodyDaysInWeek(DayOfWeek expectedDay)
         {
-            var addDaysFromPreviousMonth = true;
+            var month = Dates.First().Month;
+            var fillFromPreviouslyMonth = FillFromPreviouslyMonth(month);
 
-            if (addDaysFromPreviousMonth)
+            if (fillFromPreviouslyMonth)
             {
                 NoneFooterDateInMonthWithDate(expectedDay);
             }

@@ -39,6 +39,7 @@ namespace PdfCalendar.Month
         /// Information about the month.
         /// </summary>
         internal Dictionary<DateTime, IRemainingInformation> MonthInformation { get; set; }
+        internal Options Options { get; set; }
 
         /// <summary>
         /// Width of the table representing the month in the PDF.

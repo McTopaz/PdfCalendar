@@ -49,10 +49,6 @@
                         </StackPanel>
                     </CheckBox.Content>
                 </CheckBox>
-            </StackPanel>
-            
-            <!-- Second vertical container -->
-            <StackPanel Orientation="Vertical" Margin="6,0,6,0">
 
                 <!-- Standard/Winter time -->
                 <CheckBox IsChecked="{Binding Options.StandardTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -76,25 +72,177 @@
 
             </StackPanel>
             
+            <!-- Second vertical container -->
+            <StackPanel Orientation="Vertical" Margin="6,0,6,0">
+
+                <GroupBox Header="Fill from previous months">
+                    <GroupBox.Content>
+                        <Grid Margin="0,6,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="12" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- January -->
+                            <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInJanuary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="January" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- February -->
+                            <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInFebruary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="February" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- Mars -->
+                            <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInMars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="Mars" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- April -->
+                            <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInApril, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="April" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- May -->
+                            <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="May" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- June -->
+                            <CheckBox Grid.Row="5" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInJune, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="June" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- July -->
+                            <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInJuly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="July" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- August -->
+                            <CheckBox Grid.Row="7" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInAugust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="August" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- September -->
+                            <CheckBox Grid.Row="8" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInSeptember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="September" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- October -->
+                            <CheckBox Grid.Row="9" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInOctober, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="October" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- November -->
+                            <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInNovember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="November" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- December -->
+                            <CheckBox Grid.Row="11" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                        <Label Content="December" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                        </Grid>
+                    </GroupBox.Content>
+                </GroupBox>
+
+            </StackPanel>
+            
             <!-- Third vertical container -->
             <StackPanel Orientation="Vertical" Margin="6,0,6,0">
 
                 <GroupBox Header="Hide months">
                     <GroupBox.Content>
-                        <Grid>
+                        <Grid Margin="0,6,0,0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="24" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="12" />
@@ -105,7 +253,8 @@
                             <!-- January -->
                             <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Options.HideJanuary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="January" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -114,7 +263,8 @@
                             <!-- February -->
                             <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Options.HideFebruary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="February" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -123,7 +273,8 @@
                             <!-- Mars -->
                             <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Options.HideMars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="Mars" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -132,7 +283,8 @@
                             <!-- April -->
                             <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding Options.HideApril, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="April" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -141,7 +293,8 @@
                             <!-- May -->
                             <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding Options.HideMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="May" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -150,7 +303,8 @@
                             <!-- June -->
                             <CheckBox Grid.Row="5" Grid.Column="1" IsChecked="{Binding Options.HideJune, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="June" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -159,7 +313,8 @@
                             <!-- July -->
                             <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding Options.HideJuly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="July" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -168,7 +323,8 @@
                             <!-- August -->
                             <CheckBox Grid.Row="7" Grid.Column="1" IsChecked="{Binding Options.HideAugust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="August" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -177,7 +333,8 @@
                             <!-- September -->
                             <CheckBox Grid.Row="8" Grid.Column="1" IsChecked="{Binding Options.HideSeptember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="September" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -186,7 +343,8 @@
                             <!-- October -->
                             <CheckBox Grid.Row="9" Grid.Column="1" IsChecked="{Binding Options.HideOctober, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="October" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -195,7 +353,8 @@
                             <!-- November -->
                             <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Options.HideNovember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="November" />
                                     </StackPanel>
                                 </CheckBox.Content>
@@ -204,12 +363,12 @@
                             <!-- December -->
                             <CheckBox Grid.Row="11" Grid.Column="1" IsChecked="{Binding Options.HideDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
                                         <Label Content="December" />
                                     </StackPanel>
                                 </CheckBox.Content>
                             </CheckBox>
-
 
                         </Grid>
                     </GroupBox.Content>

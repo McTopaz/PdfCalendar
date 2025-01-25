@@ -35,6 +35,7 @@ namespace PdfCalendar.Week
         /// Cell information about the cells in the week.
         /// </summary>
         internal Dictionary<DateTime, ICellInformation> CellInformation { get; set; }
+        internal Options Options { get; set; }
 
         const float WeekNumberSize = 20;
         const float WeekNumberHeight = 40;
@@ -96,6 +97,39 @@ namespace PdfCalendar.Week
                 CellEvent = cellEvent
             };
             Table.AddCell(cell);
+        }
+
+        private bool FillFromPreviouslyMonth(int month)
+        {
+            switch (month)
+            {
+                case 1:
+                    return Options.FillFromPreviousMonthInJanuary;
+                case 2:
+                    return Options.FillFromPreviousMonthInFebruary;
+                case 3:
+                    return Options.FillFromPreviousMonthInMars;
+                case 4:
+                    return Options.FillFromPreviousMonthInApril;
+                case 5:
+                    return Options.FillFromPreviousMonthInMay;
+                case 6:
+                    return Options.FillFromPreviousMonthInJune;
+                case 7:
+                    return Options.FillFromPreviousMonthInJuly;
+                case 8:
+                    return Options.FillFromPreviousMonthInAugust;
+                case 9:
+                    return Options.FillFromPreviousMonthInSeptember;
+                case 10:
+                    return Options.FillFromPreviousMonthInOctober;
+                case 11:
+                    return Options.FillFromPreviousMonthInNovember;
+                case 12:
+                    return Options.FillFromPreviousMonthInDecember;
+                default:
+                    return false;
+            }
         }
     }
 }
