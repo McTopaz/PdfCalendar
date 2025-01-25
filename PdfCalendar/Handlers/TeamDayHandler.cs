@@ -259,6 +259,7 @@ namespace PdfCalendar.Handlers
             {
                 var daylightSavingTime = CalculateDaylightSavingTime();
                 list.Add((daylightSavingTime, Images.Sun, 13, 13, "Sommartid"));
+                SwopDates(daylightSavingTime, list);
             }
 
             // Standard time - Winter time.
@@ -266,6 +267,7 @@ namespace PdfCalendar.Handlers
             {
                 var standardTime = CalculateStandardTime();
                 list.Add((standardTime, Images.Snow, 13, 13, "Vintertid"));
+                SwopDates(standardTime, list);
             }
             Data.TeamDays = list;
         }
@@ -476,6 +478,22 @@ namespace PdfCalendar.Handlers
             // Each 400th year.
             var b3 = Year % 400 == 0;
             return b3;
+        }
+
+        private void SwopDates(DateTime date, List<(DateTime date, Bitmap image, float width, float height, string text)> list)
+        {
+            var elements = list.Where(i => i.date == date)
+                .Select(i => list.IndexOf(i))
+                .ToList();
+
+            if (elements.Count != 2) return;
+
+            var indexA = elements.First();
+            var indexB = elements.Last();
+
+            (DateTime date, Bitmap image, float width, float height, string text) tmp = list[indexA];
+            list[indexA] = list[indexB];
+            list[indexB] = tmp;
         }
     }
 }
