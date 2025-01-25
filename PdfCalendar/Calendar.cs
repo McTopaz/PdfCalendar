@@ -161,6 +161,8 @@ namespace PdfCalendar
             // Create a seperate page and calendar for each month in the year.
             foreach (var month in months)
             {
+                if (HideMonth(month.Number)) continue;
+
                 Document.NewPage(); // Create a new page in the document.
 
                 // Generate a month in the calendar.
@@ -179,6 +181,39 @@ namespace PdfCalendar
                 var distance = CreateDistanceObject(generator.Container, pageSpacing.Auto, pageSpacing.Top);
                 Document.Add(distance);
                 Document.Add(generator.Container);
+            }
+        }
+
+        private bool HideMonth(int month)
+        {
+            switch (month)
+            {
+                case 1:
+                    return Options.HideJanuary;
+                case 2:
+                    return Options.HideFebruary;
+                case 3:
+                    return Options.HideMars;
+                case 4:
+                    return Options.HideApril;
+                case 5:
+                    return Options.HideMay;
+                case 6:
+                    return Options.HideJune;
+                case 7:
+                    return Options.HideJuly;
+                case 8:
+                    return Options.HideAugust;
+                case 9:
+                    return Options.HideSeptember;
+                case 10:
+                    return Options.HideOctober;
+                case 11:
+                    return Options.HideNovember;
+                case 12:
+                    return Options.HideDecember;
+                default:
+                    return false;
             }
         }
 
