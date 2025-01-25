@@ -136,6 +136,7 @@
     <None Include="Images\FetaCheese.png" />
     <None Include="Images\FAO.png" />
     <None Include="Images\Fish.png" />
+    <None Include="Images\Flower.png" />
     <Content Include="Images\GoldBallon.png" />
     <Content Include="Images\GoldStar.png" />
     <Content Include="Images\Heart.png" />
@@ -157,6 +158,7 @@
     <None Include="Images\Internet.png" />
     <None Include="Images\Neibour.png" />
     <None Include="Images\LeapDay.png" />
+    <None Include="Images\Leaf.png" />
     <Content Include="Images\NewYear.png" />
     <None Include="Images\Nobel.png" />
     <None Include="Images\NoImage.png" />
