@@ -182,6 +182,7 @@
     <None Include="Images\Semla.png" />
     <Content Include="Images\SilverBallon.png" />
     <Content Include="Images\SilverStar.png" />
+    <Content Include="Images\Strawberry.png" />
     <Content Include="Images\SwedishFlag.png" />
   </ItemGroup>
   <ItemGroup>

@@ -38,7 +38,8 @@ namespace PdfCalendar.Handlers
             var firstMay = new DateTime(Year, 5, 1);
             var national = new DateTime(Year, 6, 6);
             var pentecostEve = CommonHolidays.First(h => h.LocalName == "Pingstdagen").Date.AddDays(-1);
-            var midsommer = CommonHolidays.First(h => h.LocalName == "Midsommarafton").Date;
+            var midsommerEve = CommonHolidays.First(h => h.LocalName == "Midsommarafton").Date;
+            var midsommerDay = CommonHolidays.First(h => h.LocalName == "Midsommar").Date;
             var christmas = new DateTime(Year, 12, 24);
             var newYear = new DateTime(Year, 12, 31);
             var advent = CalculateAdvent();
@@ -48,7 +49,8 @@ namespace PdfCalendar.Handlers
             list.Add((firstMay, "Första maj", Images.FirstMay, 14, 14));
             list.Add((national, "Sveriges nationaldag", Images.SwedishFlag, 15, 10));
             list.Add((pentecostEve, "Pingstafton", Images.NarcissusPoeticus, 10, 12));
-            list.Add((midsommer, "Midsommarafton", Images.MidsommerPole, 10, 15));
+            list.Add((midsommerEve, "Midsommarafton", Images.MidsommerPole, 10, 15));
+            list.Add((midsommerDay, "Midsommar", Images.Strawberry, 10, 10));
             list.Add((christmas, "Julafton", Images.ChristmasTree, 10, 15));
             list.AddRange(advent);
             list.Add((newYear, "Nyårsafton", Images.NewYear, 12, 12));
