@@ -99,36 +99,36 @@ namespace PdfCalendar.Week
             Table.AddCell(cell);
         }
 
-        private bool FillFromPreviouslyMonth(int month)
+        private (bool FillFromPreviouslyMonth, bool HideEvents) FillFromPreviouslyMonth(int month)
         {
             switch (month)
             {
                 case 1:
-                    return Options.FillFromPreviousMonthInJanuary;
+                    return (Options.FillFromPreviousMonthInJanuary, Options.HideEventPreviousMonthInJanuary);
                 case 2:
-                    return Options.FillFromPreviousMonthInFebruary;
+                    return (Options.FillFromPreviousMonthInFebruary, Options.HideEventPreviousMonthInFebruary);
                 case 3:
-                    return Options.FillFromPreviousMonthInMars;
+                    return (Options.FillFromPreviousMonthInMars, Options.HideEventPreviousMonthInMars);
                 case 4:
-                    return Options.FillFromPreviousMonthInApril;
+                    return (Options.FillFromPreviousMonthInApril, Options.HideEventPreviousMonthInApril);
                 case 5:
-                    return Options.FillFromPreviousMonthInMay;
+                    return (Options.FillFromPreviousMonthInMay, Options.HideEventPreviousMonthInMay);
                 case 6:
-                    return Options.FillFromPreviousMonthInJune;
+                    return (Options.FillFromPreviousMonthInJune, Options.HideEventPreviousMonthInJune);
                 case 7:
-                    return Options.FillFromPreviousMonthInJuly;
+                    return (Options.FillFromPreviousMonthInJuly, Options.HideEventPreviousMonthInJuly);
                 case 8:
-                    return Options.FillFromPreviousMonthInAugust;
+                    return (Options.FillFromPreviousMonthInAugust, Options.HideEventPreviousMonthInAugust);
                 case 9:
-                    return Options.FillFromPreviousMonthInSeptember;
+                    return (Options.FillFromPreviousMonthInSeptember, Options.HideEventPreviousMonthInSeptember);
                 case 10:
-                    return Options.FillFromPreviousMonthInOctober;
+                    return (Options.FillFromPreviousMonthInOctober, Options.HideEventPreviousMonthInOctober);
                 case 11:
-                    return Options.FillFromPreviousMonthInNovember;
+                    return (Options.FillFromPreviousMonthInNovember, Options.HideEventPreviousMonthInNovember);
                 case 12:
-                    return Options.FillFromPreviousMonthInDecember;
+                    return (Options.FillFromPreviousMonthInDecember, Options.HideEventPreviousMonthInDecember);
                 default:
-                    return false;
+                    return (false, false);
             }
         }
     }

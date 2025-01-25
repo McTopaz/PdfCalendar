@@ -35,7 +35,7 @@ namespace PdfCalendar.Week
             var dateInWeek = Dates.First(d => d.DayOfWeek == expectedDay);  // The date of the week for this day of the week.
             if (CellInformation.ContainsKey(dateInWeek))
             {
-                FooterWithText(dateInWeek);
+                FooterWithText(dateInWeek, false);
             }
             else
             {
@@ -43,19 +43,19 @@ namespace PdfCalendar.Week
             }
         }
 
-        private void FooterWithText(DateTime dateInWeek)
+        private void FooterWithText(DateTime dateInWeek, bool hideContent)
         {
             var c = CellInformation[dateInWeek];
-            var content = c.Text.ToString();
+            var content = hideContent ? string.Empty : c.Text.ToString();
             var size = AdjustFontSize(content);
             AddCellToTable(content, BaseColor.BLACK, size, CellFooterHeight);
         }
 
-        private void PreviousFooterMonthDate(DateTime dateInWeek)
+        private void PreviousFooterMonthDate(DateTime dateInWeek, bool hideEvents)
         {
             if (CellInformation.ContainsKey(dateInWeek))
             {
-                FooterWithText(dateInWeek);
+                FooterWithText(dateInWeek, hideEvents);
             }
             else
             {
@@ -84,11 +84,11 @@ namespace PdfCalendar.Week
         private void HandlePreviousFooterBodyDaysInWeek(DayOfWeek expectedDay)
         {
             var month = Dates.First().Month;
-            var fillFromPreviouslyMonth = FillFromPreviouslyMonth(month);
+            var (fillFromPreviouslyMonth, hideEvents) = FillFromPreviouslyMonth(month);
 
             if (fillFromPreviouslyMonth)
             {
-                NoneFooterDateInMonthWithDate(expectedDay);
+                NoneFooterDateInMonthWithDate(expectedDay, hideEvents);
             }
             else
             {
@@ -96,7 +96,7 @@ namespace PdfCalendar.Week
             }
         }
 
-        private void NoneFooterDateInMonthWithDate(DayOfWeek expectedDay)
+        private void NoneFooterDateInMonthWithDate(DayOfWeek expectedDay, bool hideEvents)
         {
             var firstDateInWeek = Dates.First();
 
@@ -113,7 +113,7 @@ namespace PdfCalendar.Week
                 previousDay = previousDay.AddDays(-1);
             }
 
-            PreviousFooterMonthDate(previousDay);
+            PreviousFooterMonthDate(previousDay, hideEvents);
         }
 
         private void EmptyFooter()

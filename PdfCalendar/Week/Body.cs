@@ -56,13 +56,22 @@ namespace PdfCalendar.Week
             AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
         }
 
-        private void PreviousBodyMonthDate(DateTime date)
+        private void PreviousBodyMonthDate(DateTime date, bool hideCellEvent)
         {
             var dayOfMonth = date.Day;
             var color = BaseColor.GRAY;
-            var rowSpan = 1;
-            var cellEvent = CellImage(date);
-            AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
+
+            if (hideCellEvent)
+            {
+                AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight);
+            }
+            else
+            {
+                var rowSpan = 1;
+                var cellEvent = CellImage(date);
+                AddCellToTable(dayOfMonth.ToString(), color, CellBodySize, CellBodyHeight, rowSpan, cellEvent);
+            }
+
         }
 
         private IPdfPCellEvent CellImage(DateTime date)
@@ -87,11 +96,16 @@ namespace PdfCalendar.Week
         private void HandlePreviousBodyDaysInWeek(DayOfWeek expectedDay)
         {
             var month = Dates.First().Month;
-            var fillFromPreviouslyMonth = FillFromPreviouslyMonth(month);
+            var (fillFromPreviouslyMonth, hideEvents) = FillFromPreviouslyMonth(month);
+
+            if (hideEvents)
+            {
+                Console.WriteLine();
+            }
 
             if (fillFromPreviouslyMonth)
             {
-                NoneBodyDateInMonthWithDate(expectedDay);
+                NoneBodyDateInMonthWithDate(expectedDay, hideEvents);
             }
             else
             {
@@ -99,7 +113,7 @@ namespace PdfCalendar.Week
             }
         }
 
-        private void NoneBodyDateInMonthWithDate(DayOfWeek expectedDay)
+        private void NoneBodyDateInMonthWithDate(DayOfWeek expectedDay, bool hideEvents)
         {
             var firstDateInWeek = Dates.First();
 
@@ -116,7 +130,7 @@ namespace PdfCalendar.Week
                 previousDay = previousDay.AddDays(-1);
             }
 
-            PreviousBodyMonthDate(previousDay);
+            PreviousBodyMonthDate(previousDay, hideEvents);
         }
 
         private void EmptyBody()

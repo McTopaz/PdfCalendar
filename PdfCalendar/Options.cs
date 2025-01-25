@@ -40,6 +40,19 @@ namespace PdfCalendar
         public bool FillFromPreviousMonthInNovember { get; set; } = false;
         public bool FillFromPreviousMonthInDecember { get; set; } = false;
 
+        public bool HideEventPreviousMonthInJanuary { get; set; } = false;
+        public bool HideEventPreviousMonthInFebruary { get; set; } = false;
+        public bool HideEventPreviousMonthInMars { get; set; } = false;
+        public bool HideEventPreviousMonthInApril { get; set; } = false;
+        public bool HideEventPreviousMonthInMay { get; set; } = false;
+        public bool HideEventPreviousMonthInJune { get; set; } = false;
+        public bool HideEventPreviousMonthInJuly { get; set; } = false;
+        public bool HideEventPreviousMonthInAugust { get; set; } = false;
+        public bool HideEventPreviousMonthInSeptember { get; set; } = false;
+        public bool HideEventPreviousMonthInOctober { get; set; } = false;
+        public bool HideEventPreviousMonthInNovember { get; set; } = false;
+        public bool HideEventPreviousMonthInDecember { get; set; } = false;
+
         public Options()
         {
             DaylightSavingTime = true;

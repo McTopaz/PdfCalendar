@@ -99,124 +99,328 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- January -->
-                            <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInJanuary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="January" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInJanuary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="January" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInJanuary}" IsChecked="{Binding Options.HideEventPreviousMonthInJanuary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- February -->
-                            <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInFebruary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="February" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInFebruary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="February" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInFebruary}" IsChecked="{Binding Options.HideEventPreviousMonthInFebruary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- Mars -->
-                            <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInMars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="Mars" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="2" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInMars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="Mars" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInMars}" IsChecked="{Binding Options.HideEventPreviousMonthInMars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- April -->
-                            <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInApril, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="April" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="3" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInApril, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="April" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInApril}" IsChecked="{Binding Options.HideEventPreviousMonthInApril, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- May -->
-                            <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="May" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="4" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="May" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInMay}" IsChecked="{Binding Options.HideEventPreviousMonthInMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- June -->
-                            <CheckBox Grid.Row="5" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInJune, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="June" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="5" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInJune, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="June" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInJune}" IsChecked="{Binding Options.HideEventPreviousMonthInJune, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- July -->
-                            <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInJuly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="July" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="6" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInJuly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="July" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInJuly}" IsChecked="{Binding Options.HideEventPreviousMonthInJuly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- August -->
-                            <CheckBox Grid.Row="7" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInAugust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="August" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="7" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInAugust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="August" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInAugust}" IsChecked="{Binding Options.HideEventPreviousMonthInAugust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- September -->
-                            <CheckBox Grid.Row="8" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInSeptember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="September" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="8" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInSeptember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="September" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInSeptember}" IsChecked="{Binding Options.HideEventPreviousMonthInSeptember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- October -->
-                            <CheckBox Grid.Row="9" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInOctober, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="October" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="9" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInOctober, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="October" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInOctober}" IsChecked="{Binding Options.HideEventPreviousMonthInOctober, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- November -->
-                            <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInNovember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="November" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="10" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInNovember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="Novembers" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInNovember}" IsChecked="{Binding Options.HideEventPreviousMonthInNovember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                             <!-- December -->
-                            <CheckBox Grid.Row="11" Grid.Column="1" IsChecked="{Binding Options.FillFromPreviousMonthInDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <CheckBox.Content>
-                                    <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
-                                        <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
-                                        <Label Content="December" />
-                                    </StackPanel>
-                                </CheckBox.Content>
-                            </CheckBox>
+                            <Grid Grid.Row="11" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Options.FillFromPreviousMonthInDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarSelect.png" Height="16" />
+                                            <Label Content="December" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+
+                                <CheckBox Grid.Column="2" IsEnabled="{Binding Options.FillFromPreviousMonthInDecember}" IsChecked="{Binding Options.HideEventPreviousMonthInDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <CheckBox.Content>
+                                        <StackPanel Orientation="Horizontal" Margin="0,-6,0,0">
+                                            <Image Source="/GenerateCalendar;component/Images/CalendarStar.png" Height="16" />
+                                            <Label Content="Hide events" />
+                                        </StackPanel>
+                                    </CheckBox.Content>
+                                </CheckBox>
+                            </Grid>
 
                         </Grid>
                     </GroupBox.Content>
