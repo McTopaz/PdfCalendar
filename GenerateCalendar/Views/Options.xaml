@@ -78,7 +78,143 @@
             
             <!-- Third vertical container -->
             <StackPanel Orientation="Vertical" Margin="6,0,6,0">
-                
+
+                <GroupBox Header="Hide months">
+                    <GroupBox.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="12" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- January -->
+                            <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding Options.HideJanuary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="January" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- February -->
+                            <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding Options.HideFebruary, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="February" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- Mars -->
+                            <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Options.HideMars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Mars" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- April -->
+                            <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding Options.HideApril, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="April" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- May -->
+                            <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding Options.HideMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="May" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- June -->
+                            <CheckBox Grid.Row="5" Grid.Column="1" IsChecked="{Binding Options.HideJune, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="June" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- July -->
+                            <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding Options.HideJuly, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="July" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- August -->
+                            <CheckBox Grid.Row="7" Grid.Column="1" IsChecked="{Binding Options.HideAugust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="August" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- September -->
+                            <CheckBox Grid.Row="8" Grid.Column="1" IsChecked="{Binding Options.HideSeptember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="September" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- October -->
+                            <CheckBox Grid.Row="9" Grid.Column="1" IsChecked="{Binding Options.HideOctober, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="October" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- November -->
+                            <CheckBox Grid.Row="10" Grid.Column="1" IsChecked="{Binding Options.HideNovember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="November" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+                            <!-- December -->
+                            <CheckBox Grid.Row="11" Grid.Column="1" IsChecked="{Binding Options.HideDecember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <CheckBox.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="December" />
+                                    </StackPanel>
+                                </CheckBox.Content>
+                            </CheckBox>
+
+
+                        </Grid>
+                    </GroupBox.Content>
+                </GroupBox>
+
             </StackPanel>
             
         </StackPanel>
