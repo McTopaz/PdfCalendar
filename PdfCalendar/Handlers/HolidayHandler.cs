@@ -50,7 +50,7 @@ namespace PdfCalendar.Handlers
             list.Add((national, "Sveriges nationaldag", Images.SwedishFlag, 15, 10));
             list.Add((pentecostEve, "Pingstafton", Images.NarcissusPoeticus, 10, 12));
             list.Add((midsommerEve, "Midsommarafton", Images.MidsommerPole, 10, 15));
-            list.Add((midsommerDay, "Midsommar", Images.Strawberry, 10, 10));
+            list.Add((midsommerDay, "Midsommardagen", Images.Strawberry, 10, 10));
             list.Add((christmas, "Julafton", Images.ChristmasTree, 10, 15));
             list.AddRange(advent);
             list.Add((newYear, "Nyårsafton", Images.NewYear, 12, 12));
@@ -123,6 +123,12 @@ namespace PdfCalendar.Handlers
         private (DateTime Date, string Text, Bitmap Image, float Width, float Height) FromPublicHoliday(DateTime date)
         {
             var tmp = PublicHolidays.First(h => h.Date == date);
+
+            if (SpecificHolidays.Any(e => e.Date == tmp.Date))
+            {
+                var sh = SpecificHolidays.First(e => e.Date == tmp.Date);
+                tmp = sh;
+            }
 
             // Check if the public holiday exist also as a specific date.
             // Grab the image from the specific date.
