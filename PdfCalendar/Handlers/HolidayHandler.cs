@@ -109,6 +109,22 @@ namespace PdfCalendar.Handlers
                     Holidays.Add((Date: date, Text: string.Empty, Image: PdfCalendar.Images.NoImage, Width: 16f, Height: 16f));
                 }
             }
+
+            AddExcludedDuplicatedSpecificHolidays();
+        }
+
+        private void AddExcludedDuplicatedSpecificHolidays()
+        {
+            var specificHolidays = SpecificHolidays.Select(d => d.Date);
+            var duplicates = specificHolidays.GroupBy(d => d).Where(g => g.Count() > 1).Select(g => g.Key);   // Duplicates may be 3:d advent and Lucia at 2026-12-13.
+
+            foreach (var duplicate in duplicates)
+            {
+                var dates = SpecificHolidays.Where(d => d.Date == duplicate);
+                if (dates.Count() < 2) continue;
+
+                Holidays.AddRange(dates.Skip(1));
+            }
         }
 
         private void HandleDateWithMultipleHolidays(DateTime date)
