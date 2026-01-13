@@ -213,8 +213,8 @@ namespace PdfCalendar.Handlers
             //list.Add((girlDay, Images.Girl, 12, 12, "Flickdagen"));
             //list.Add((eggDay, Images.Egg, 12, 12, "Äggets dag"));
             //list.Add((shrimpwichDay, Images.Shrimp, 12, 12, "Räkmackans dag"));
-            list.Add((blindCaneDay, Images.BlindCane, 16, 16, "Vita käppens dag"));
             list.Add((blindCaneDay, Images.FetaCheese, 12, 12, "Fetaostens dag"));              // Same day as blind cane day.
+            list.Add((blindCaneDay, Images.BlindCane, 16, 16, "Vita käppens dag"));
             //list.Add((faoDay, Images.FAO, 26, 10, "Världshungerdagen (FAO)"));
             //list.Add((mealDay, Images.Cutlery, 12, 12, "Måltidens dag"));
             //list.Add((mealDay, Images.Sausage, 12, 12, "Grynkorvens dag"));                     // Same das as meal day.
